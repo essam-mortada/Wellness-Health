@@ -3,10 +3,12 @@
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 Route::get('/',[homeController::class,'ShowHome']);
 Route::get('/home',[homeController::class,'ShowHome'])->name('home');
 Route::get('/shop',[homeController::class,'ShowShop'])->name('shop');
+Route::get('/checkout',[homeController::class,'ShowCheckout'])->name('checkout');
 
 Route::get('/about', function () {
     return view('about');
@@ -16,9 +18,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
+
 
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
 // admin
@@ -37,3 +37,9 @@ Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::patch('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::delete('/cart/remove/{productId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+//orders
+Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
+
+Route::get('/orders/show/{orderId}', [OrderController::class, 'show'])->name('orders.show');

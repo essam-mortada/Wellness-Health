@@ -12,23 +12,36 @@
     </div>
   </div>
 
+  @if (@session('error'))
+<div class="col-md-3 alert alert-danger text-center m-auto mt-3" role="alert">
+{{session('error')}}
+</div>
+@endif
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-7 ftco-animate">
-                      <form action="#" class="billing-form">
+                      
                           <h3 class="mb-4 billing-heading">Billing Details</h3>
+                <form action="{{route('orders.store')}}" class="billing-form d-flex" method="POST">
+                    @csrf
                 <div class="row align-items-end">
                     <div class="col-md-6">
                   <div class="form-group">
-                      <label for="firstname">Firt Name</label>
-                    <input type="text" class="form-control" placeholder="">
+                      <label for="firstname">First Name</label>
+                    <input type="text" required  name="first_name" class="form-control"  value="{{ old('first_name') }}" placeholder="">
+                    @error('first_name')
+                    <div class="text-danger"> {{ $message }} </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" required name="last_name" class="form-control"  value="{{ old('last_name') }}" placeholder="">
+                    @error('last_name')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                   </div>
               </div>
               <div class="w-100"></div>
@@ -37,66 +50,66 @@
                           <label for="country">State / Country</label>
                           <div class="select-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
-                            <option value="">France</option>
-                          <option value="">Italy</option>
-                          <option value="">Philippines</option>
-                          <option value="">South Korea</option>
-                          <option value="">Hongkong</option>
-                          <option value="">Japan</option>
+                        <select required name="country"  value="{{ old('country') }}" class="form-control">
+                            <option value="egypt">Egypt</option>
                         </select>
+                       
                       </div>
+                      @error('country')
+                      <div class="text-danger">{{ $message }}</div>
+                      @enderror
                       </div>
                   </div>
                   <div class="w-100"></div>
                   <div class="col-md-6">
                       <div class="form-group">
                       <label for="streetaddress">Street Address</label>
-                    <input type="text" class="form-control" placeholder="House number and street name">
+                    <input type="text" required name="street" class="form-control"  value="{{ old('street') }}" placeholder="House number and street name">
+                    @error('street')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)">
-                  </div>
-                  </div>
+                  
                   <div class="w-100"></div>
                   <div class="col-md-6">
                       <div class="form-group">
                       <label for="towncity">Town / City</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" required name="city" class="form-control"  value="{{ old('city') }}" placeholder="">
+                    @error('city')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label for="postcodezip">Postcode / ZIP *</label>
-                    <input type="text" class="form-control" placeholder="">
-                  </div>
-                  </div>
+                 
                   <div class="w-100"></div>
                   <div class="col-md-6">
                   <div class="form-group">
                       <label for="phone">Phone</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" required name="phone" class="form-control"  value="{{ old('phone') }}" placeholder="">
+                    @error('phone')
+                    <div class="text-danger"> {{ $message }}</div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="emailaddress">Email Address</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="email" required name="email" class="form-control"  value="{{ old('email') }}"  placeholder="">
+                    @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                   </div>
               </div>
               <div class="w-100"></div>
               <div class="col-md-12">
                   <div class="form-group mt-4">
                                       <div class="radio">
-                                        <label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>
                                         <label><input type="radio" name="optradio"> Ship to different address</label>
                                       </div>
                                   </div>
               </div>
               </div>
-            </form><!-- END -->
                   </div>
                   <div class="col-xl-5">
             <div class="row mt-5 pt-3">
@@ -105,20 +118,20 @@
                         <h3 class="billing-heading mb-4">Cart Total</h3>
                         <p class="d-flex">
                                   <span>Subtotal</span>
-                                  <span>$20.60</span>
+                                  <span>L.E{{$total}}</span>
                               </p>
                               <p class="d-flex">
                                   <span>Delivery</span>
-                                  <span>$0.00</span>
+                                  <span>L.E{{$delivery}}</span>
                               </p>
                               <p class="d-flex">
                                   <span>Discount</span>
-                                  <span>$3.00</span>
+                                  <span>L.E3.00</span>
                               </p>
                               <hr>
                               <p class="d-flex total-price">
                                   <span>Total</span>
-                                  <span>$17.60</span>
+                                  <span>L.E{{$total + $delivery}}</span>
                               </p>
                               </div>
                 </div>
@@ -149,12 +162,15 @@
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="checkbox">
-                                             <label><input type="checkbox" value="" class="mr-2"> I have read and accept the terms and conditions</label>
+                                             <label><input type="checkbox" name="optradio"   class="mr-2"> I have read and accept the terms and conditions</label>
+                                           
                                           </div>
                                       </div>
                                   </div>
-                                  <p><a href="#"class="btn btn-primary py-3 px-4">Place an order</a></p>
+                                  <p><button type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
                               </div>
+                            </form><!-- END -->
+
                 </div>
             </div>
         </div> <!-- .col-md-8 -->

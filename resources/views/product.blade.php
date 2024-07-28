@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 ftco-animate text-center">
-            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('home')}}">Home</a></span> <span class="mr-2"><a href="index.html">Product</a></span> <span>Product Single</span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('home')}}">Home</a></span> <span class="mr-2"><a href="index.html">Product</a></span> </p>
           <h1 class="mb-0 bread">Product </h1>
         </div>
       </div>
@@ -15,7 +15,12 @@
         <div class="col-md-3 alert alert-success text-center m-auto mt-3" role="alert">
         {{session('success')}}
         </div>
-        @endif
+@endif
+@if (@session('error'))
+        <div class="col-md-3 alert alert-danger text-center m-auto mt-3" role="alert">
+        {{session('error')}}
+        </div>
+@endif
   <section class="ftco-section">
       <div class="container">
           <div class="row">

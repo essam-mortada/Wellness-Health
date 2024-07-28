@@ -10,7 +10,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Description</th>
@@ -22,7 +22,7 @@
                     <tbody>
                         @foreach($products as $product)
                             <tr>
-                                <td>{{ $product->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>

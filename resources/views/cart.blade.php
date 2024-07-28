@@ -20,12 +20,15 @@
           <div class="container">
               <div class="row">
               <div class="col-md-12 ftco-animate">
+                @if (@session('cart')) 
                   <div class="cart-list">
 
 
 
-
-                      <table class="table">
+                    
+                        
+                    
+                        <table class="table">
                           <thead class="thead-primary">
                             <tr class="text-center">
                               <th>&nbsp;</th>
@@ -37,7 +40,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @if (@session('cart'))
+                           
 
 
                             @forelse(session('cart') as $id => $details)
@@ -79,15 +82,18 @@
 
                             @endforelse
                                 @else
-                                <tr class="text-center">
-                                    <td colspan="7">You Don't Have Any product Yet</td>
-                                    </tr>
+                              
+                                    <h5 class="text-center" >You Don't Have Any product Yet</h3>
+                                    
                             @endif
                           </tbody>
                         </table>
                     </div>
               </div>
           </div>
+          @if (session('cart'))
+              
+          
           <div class="row justify-content-end">
               <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                   <div class="cart-total mb-3">
@@ -148,6 +154,7 @@
               </div>
           </div>
           </div>
+          @endif
       </section>
 
 

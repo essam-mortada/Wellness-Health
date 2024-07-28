@@ -4,6 +4,11 @@
 {{session('success')}}
 </div>
 @endif
+@if (@session('error'))
+<div class="col-md-3 alert alert-danger text-center m-auto mt-3" role="alert">
+{{session('error')}}
+</div>
+@endif
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
