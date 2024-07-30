@@ -3,6 +3,11 @@
 @include('admin.layouts.header')
 
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <h1>Product Details</h1>
@@ -26,3 +31,4 @@
             </div>
         </div>
     </div>
+    @include('admin.layouts.scripts')

@@ -42,6 +42,20 @@
               <li class="nav-item"><a href="{{route('products.index')}}" class="nav-link">products</a></li>
 	          <li class="nav-item"><a href="{{route('orders.index')}}" class="nav-link">orders</a></li>
 
+              <div class="dropdown mt-3">
+                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="icon-person lg"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item " href="{{route('admins.edit',Auth::user()->id)}}">Edit profile</a></li>
+                  <li><a class="dropdown-item " href="{{route('password.change.form',Auth::user()->id)}}">Change Password</a></li>
+                  <li><form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item ">Logout</button>
+                </form>
+            </li>
+                </ul>
+              </div>
 	        </ul>
 	      </div>
 	    </div>

@@ -138,32 +138,28 @@
                 <div class="col-md-12">
                     <div class="cart-detail p-3 p-md-4">
                         <h3 class="billing-heading mb-4">Payment Method</h3>
+
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="radio">
-                                             <label><input type="radio" name="optradio" class="mr-2"> Direct Bank Tranfer</label>
+                                             <label><input type="radio" name="payment" value="cash" class="mr-2"> Cash on delivery</label>
                                           </div>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="radio">
-                                             <label><input type="radio" name="optradio" class="mr-2"> Check Payment</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <div class="col-md-12">
-                                          <div class="radio">
-                                             <label><input type="radio" name="optradio" class="mr-2"> Paypal</label>
+                                             <label><input type="radio" name="payment" value="online payment" class="mr-2"> online payment</label>
                                           </div>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="checkbox">
-                                             <label><input type="checkbox" name="optradio"   class="mr-2"> I have read and accept the terms and conditions</label>
-                                           
+                                             <label><input type="checkbox" name="terms"   class="mr-2"> I have read and accept the terms and conditions</label>
+                                             @error('terms')
+                                             <div class="text-danger">{{ $message }}</div>
+                                             @enderror
                                           </div>
                                       </div>
                                   </div>

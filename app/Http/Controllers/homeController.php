@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class homeController extends Controller
 {
     public function ShowHome(){
-
+        if(Auth::user()){
+            return redirect()->route('admin.home');
+        }
         $products= product::paginate(4);
         return view('home',compact('products'));
     }
 
+    public function ShowAbout(){
+
+        return view('about');
+    }
+    public function ShowContact(){
+
+        return view('contact');
+    }
     public function ShowShop(){
 
         $products= product::paginate(8);
@@ -33,4 +44,5 @@ class homeController extends Controller
         };
         return view('checkout',compact('total','delivery'));
     }
+    
 }

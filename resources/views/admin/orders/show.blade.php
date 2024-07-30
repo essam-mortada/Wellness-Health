@@ -3,10 +3,15 @@
 @include('admin.layouts.header')
 
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <h1>order Details</h1>
-                <a href="{{ route('orders.index') }}" class="btn btn-default">Back to Products</a>
+                <a href="{{ route('orders.index') }}" class="btn btn-success" >Back to Orders</a>
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
@@ -17,6 +22,7 @@
                         <p><strong>E-mail:</strong> {{ $order->email }}</p>
                         <p><strong>Date:</strong> {{ $order->created_at }}</p>
                         <p><strong>Payment:</strong> {{ $order->payment }}</p>
+                        <p><strong>Delivery:</strong> {{ $order->status }}</p>
                     </div>
                 </div>
                 <h2 class="">Order products</h2>
@@ -33,7 +39,18 @@
                             @endforeach
                   
                     </div>
+                    <div class="row">
+                    <form class="mr-3 ml-3" action="{{route('orders.delivery',$order->id)}}" method="POST">
+                        @csrf
+                        <button class="btn btn-info" type="submit">out for delivery</button>
+                    </form>
+                    <form action="{{route('orders.delivered',$order->id)}}" method="POST">
+                        @csrf
+                        <button class="btn btn-warning" type="submit">delivered</button>
+                    </form>
+                </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('admin.layouts.scripts')

@@ -10,26 +10,16 @@ use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $orders = Order::with('orderItems.product')->paginate(5);
         return view('admin.orders.index', compact('orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+   
 
-    /**
-     * Store a newly created resource in storage.
-     */
+ 
     public function store(Request $request)
     {
         $cart = Session::get('cart', []);
@@ -45,6 +35,7 @@ class OrderController extends Controller
             'phone' => 'required|string|numeric',
             'city' => 'required|string',
             'street' => 'required|string',
+            'terms' => 'accepted',
         ]);
 
         // Validate stock levels
@@ -69,7 +60,7 @@ class OrderController extends Controller
         $order->street = $request->street;
         $order->phone = $request->phone;
         $order->delivery = 50;
-        $order->payment = 'done';
+        $order->payment = $request->payment;
         $order->total_price = $total+ $order->delivery;
         $order->status = 'pending';
         $order->save();
@@ -92,10 +83,6 @@ class OrderController extends Controller
         return redirect()->route('cart.view')->with('success', 'Order has been placed successfully!');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
     public function show($orderId)
     {
         $order = Order::with('orderItems.product')->findOrFail($orderId);
@@ -103,27 +90,35 @@ class OrderController extends Controller
         return view('admin.orders.show', compact('order'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(order $order)
+    
+    public function out_for_delivery( order $order)
     {
-        //
+        $order->status='out for delivery';
+        $order->save();
+        return redirect()->back();
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, order $order)
+    public function delivered( order $order)
     {
-        //
+        $order->status='delivered';
+        $order->save();
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(order $order)
+     public function deliveredOrders()
     {
-        //
+        $orders= order::where('status','delivered')->paginate(5);
+        return view('admin.orders.index',compact('orders'));
+    }
+    public function out_for_delivery_orders()
+    {
+        $orders= order::where('status','out for delivery')->paginate(5);
+        return view('admin.orders.index',compact('orders'));
+    }
+    public function pendingOrders()
+    {
+        $orders= order::where('status','pending')->paginate(5);
+        return view('admin.orders.index',compact('orders'));
     }
 }

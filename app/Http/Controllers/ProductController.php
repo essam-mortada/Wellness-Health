@@ -65,6 +65,12 @@ class ProductController extends Controller
         return view('product',compact('product','products'));
 
     }
+    
+    public function showProductAdmin(product $product)
+    {
+        return view('admin.products.show',compact('product'));
+
+    }
 
     /**
      * Show the form for editing the specified resource.

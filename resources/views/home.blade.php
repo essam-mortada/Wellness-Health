@@ -95,8 +95,19 @@
     <h2 class="mb-4">Our Products</h2>
     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
   </div>
+  @if (@session('success'))
+  <div class="col-md-5 alert alert-success text-center m-auto mt-3" role="alert">
+  {{session('success')}}
+  </div>
+@endif
+  @if (@session('error'))
+        <div class="col-md-5 alert alert-danger text-center m-auto mt-3" role="alert">
+        {{session('error')}}
+        </div>
+@endif
 </div>
 </div>
+
 <div class="container">
     <div class="row">
         @foreach ($products as $product)
