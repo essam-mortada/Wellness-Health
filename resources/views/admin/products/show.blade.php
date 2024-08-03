@@ -27,6 +27,14 @@
                             <img src="{{ asset('products_uploads/default.png') }}" width="200" height="200">
                         @endif
                     </div>
+                    <div class="col-md-6 mb-5 mt-3 text-center">
+                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary  mr-2">Edit</a>
+                      
+                    <form action="{{ route('products.destroy', $product->id) }}" method="post" style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger  ">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>

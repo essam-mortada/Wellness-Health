@@ -52,15 +52,15 @@ class OrderController extends Controller
         }
 
         $order = new Order();
-        $order->first_name = $request->first_name;
-        $order->last_name = $request->last_name;
-        $order->email = $request->email;
-        $order->country = $request->country;
-        $order->city = $request->city;
-        $order->street = $request->street;
-        $order->phone = $request->phone;
+        $order->first_name =strip_tags( $request->first_name);
+        $order->last_name = strip_tags($request->last_name);
+        $order->email = strip_tags($request->email);
+        $order->country = strip_tags($request->country);
+        $order->city = strip_tags($request->city);
+        $order->street = strip_tags($request->street);
+        $order->phone = strip_tags($request->phone);
         $order->delivery = 50;
-        $order->payment = $request->payment;
+        $order->payment = strip_tags($request->payment);
         $order->total_price = $total+ $order->delivery;
         $order->status = 'pending';
         $order->save();

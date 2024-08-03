@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\blog;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,11 @@ class homeController extends Controller
     public function ShowAbout(){
 
         return view('about');
+    }
+    public function ShowBlog(){
+        $blogs= blog::all();
+        $recentBlogs= blog::orderBy('created_at','desc')->paginate(3);
+        return view('blog', compact('blogs','recentBlogs'));
     }
     public function ShowContact(){
 

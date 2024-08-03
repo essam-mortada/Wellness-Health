@@ -39,8 +39,9 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item "><a href="{{route('home')}}" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="{{route('products.index')}}" class="nav-link">products</a></li>
-	          <li class="nav-item"><a href="{{route('orders.index')}}" class="nav-link">orders</a></li>
+              <li class="nav-item"><a href="{{route('products.index')}}" class="nav-link">Products</a></li>
+	          <li class="nav-item"><a href="{{route('orders.index')}}" class="nav-link">Orders</a></li>
+	          <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">Blogs</a></li>
 
               <div class="dropdown mt-3">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

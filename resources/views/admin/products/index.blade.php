@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $product)
+                        @forelse($products as $product)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->name }}</td>
@@ -43,7 +43,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Product actions">
-                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm mr-2">View</a>
+                                        <a href="{{ route('products.show.admin', $product->id) }}" class="btn btn-info btn-sm mr-2">View</a>
                                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
                                       
                                     </div>
@@ -54,7 +54,11 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="6">No orders found</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

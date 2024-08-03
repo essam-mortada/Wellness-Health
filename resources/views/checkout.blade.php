@@ -51,6 +51,7 @@
                           <div class="select-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select required name="country"  value="{{ old('country') }}" class="form-control">
+                           <option disabled selected>select your country</option>
                             <option value="egypt">Egypt</option>
                         </select>
                        
@@ -61,7 +62,7 @@
                       </div>
                   </div>
                   <div class="w-100"></div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                       <div class="form-group">
                       <label for="streetaddress">Street Address</label>
                     <input type="text" required name="street" class="form-control"  value="{{ old('street') }}" placeholder="House number and street name">
@@ -72,7 +73,7 @@
                   </div>
                   
                   <div class="w-100"></div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                       <div class="form-group">
                       <label for="towncity">Town / City</label>
                     <input type="text" required name="city" class="form-control"  value="{{ old('city') }}" placeholder="">
