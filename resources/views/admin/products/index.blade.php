@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
                 <h1>Products</h1>
-                <a href="{{ route('products.create') }}" class="btn btn-primary mt-2 mt-md-0">Create New Product</a>
+                <a href="{{ route('products.create') }}" class="btn btn-primary mt-2 mt-md-0">Add New Product</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -45,8 +45,8 @@
                                     <div class="btn-group" role="group" aria-label="Product actions">
                                         <a href="{{ route('products.show.admin', $product->id) }}" class="btn btn-info btn-sm mr-2">View</a>
                                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
-                                      
-                                    </div>
+
+                                    </div><br>
                                     <form action="{{ route('products.destroy', $product->id) }}" method="post" style="display: inline">
                                         @csrf
                                         @method('DELETE')
@@ -56,7 +56,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6">No orders found</td>
+                                <td colspan="6">No products found</td>
                             </tr>
                         @endforelse
                     </tbody>

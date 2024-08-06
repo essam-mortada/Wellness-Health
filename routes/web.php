@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\userController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 
@@ -80,3 +81,6 @@ Route::get('/checkout',[homeController::class,'ShowCheckout'])->name('checkout')
 Route::get('/about', [homeController::class,'ShowAbout'])->name('about');
 Route::get('/contact', [homeController::class,'ShowContact'])->name('contact');
 Route::get('/blog', [homeController::class,'ShowBlog'])->name('blog');
+
+
+

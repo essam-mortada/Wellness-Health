@@ -11,20 +11,18 @@ class cartController extends Controller
     public function addToCart(Request $request, $productId)
     {
         $product = product::findOrFail($productId);
- 
         if ($product->quantity == 0) {
                 return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
-           
+
         }
-        
+
         $cart = Session::get('cart', []);
-        foreach ($cart as $id => $details) {
-            $product = Product::find($id);
-            if ($product->quantity < $details['quantity']) {
+
+            if ($product->quantity < $product['quantity']) {
                 return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
             }
-        }
-        
+
+
         if($request->quantity){
             $quantity = $request->quantity;
         }else{

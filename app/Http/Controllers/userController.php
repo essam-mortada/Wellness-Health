@@ -13,7 +13,7 @@ class userController extends Controller
     public function showAdminHome()
     {
         return view('admin.home');
-    } 
+    }
     public function showAddadminForm()
     {
         return view('admin.profile.add-admin');
@@ -27,7 +27,7 @@ class userController extends Controller
         return view('admin.profile.change-password', compact('user'));
 
     }
-  
+
     public function addAdmin(Request $request)
     {
         // Validate user input
@@ -35,7 +35,7 @@ class userController extends Controller
             'name' => 'required|string|max:255|',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed|alpha_dash|unique:users',
-          
+
 
         ]);
         $validator->after(function ($validator) use ($request) {
@@ -127,7 +127,7 @@ class userController extends Controller
         $user->update($request->all());
         $user->save();
         return redirect()->back()->with('success', 'Profile updated successfully.');
-        
+
     }
 
 
