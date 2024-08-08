@@ -16,6 +16,11 @@
         {{session('success')}}
         </div>
         @endif
+        @if (@session('error'))
+        <div class="col-md-5 alert alert-danger text-center m-auto mt-3" role="alert">
+        {{session('error')}}
+        </div>
+@endif
   <section class="ftco-section ftco-cart">
           <div class="container">
               <div class="row">
@@ -133,14 +138,7 @@
                           <span>Subtotal</span>
                           <span>L.E{{$total}}</span>
                       </p>
-                      <p class="d-flex">
-                          <span>Delivery</span>
-                          <span>$0.00</span>
-                      </p>
-                      <p class="d-flex">
-                          <span>Discount</span>
-                          <span>$3.00</span>
-                      </p>
+                     
                       <hr>
                       <p class="d-flex total-price">
                           <span>Total</span>

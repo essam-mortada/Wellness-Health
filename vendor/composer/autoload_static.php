@@ -104,6 +104,8 @@ class ComposerStaticInit47d03f4733b1e975e6d242574a2c85a8
             'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'Paymob\\' => 7,
+            'PayMob\\' => 7,
         ),
         'N' => 
         array (
@@ -337,8 +339,8 @@ class ComposerStaticInit47d03f4733b1e975e6d242574a2c85a8
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -363,6 +365,14 @@ class ComposerStaticInit47d03f4733b1e975e6d242574a2c85a8
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Paymob\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/samir-hussein/paymob/paymob',
+        ),
+        'PayMob\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/samir-hussein/paymob/paymob/laravel',
         ),
         'NunoMaduro\\Collision\\' => 
         array (
@@ -508,8 +518,21 @@ class ComposerStaticInit47d03f4733b1e975e6d242574a2c85a8
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
+        'App\\Http\\Controllers\\OrderItemsController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderItemsController.php',
+        'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
+        'App\\Http\\Controllers\\cartController' => __DIR__ . '/../..' . '/app/Http/Controllers/cartController.php',
+        'App\\Http\\Controllers\\homeController' => __DIR__ . '/../..' . '/app/Http/Controllers/homeController.php',
+        'App\\Http\\Controllers\\userController' => __DIR__ . '/../..' . '/app/Http/Controllers/userController.php',
+        'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/Models/Cart.php',
+        'App\\Models\\CartItem' => __DIR__ . '/../..' . '/app/Models/CartItem.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\blog' => __DIR__ . '/../..' . '/app/Models/blog.php',
+        'App\\Models\\order' => __DIR__ . '/../..' . '/app/Models/order.php',
+        'App\\Models\\orderItems' => __DIR__ . '/../..' . '/app/Models/orderItems.php',
+        'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
@@ -4453,6 +4476,10 @@ class ComposerStaticInit47d03f4733b1e975e6d242574a2c85a8
         'PHPUnit\\Util\\Xml' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml/Xml.php',
         'PHPUnit\\Util\\Xml\\Loader' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml/Loader.php',
         'PHPUnit\\Util\\Xml\\XmlException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Exception/XmlException.php',
+        'PayMob\\Facades\\PayMob' => __DIR__ . '/..' . '/samir-hussein/paymob/paymob/laravel/Facades/PayMob.php',
+        'PayMob\\PayMob' => __DIR__ . '/..' . '/samir-hussein/paymob/paymob/laravel/PayMob.php',
+        'PayMob\\PayMobServiceProvider' => __DIR__ . '/..' . '/samir-hussein/paymob/paymob/laravel/PayMobServiceProvider.php',
+        'Paymob\\PayMob' => __DIR__ . '/..' . '/samir-hussein/paymob/paymob/PayMob.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',

@@ -6,65 +6,98 @@ use App\Models\order;
 use App\Models\orderItems;
 use App\Models\product;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-    
+
     public function index()
     {
         $orders = Order::with('orderItems.product')->paginate(5);
         return view('admin.orders.index', compact('orders'));
     }
 
-   
 
- 
+
+
     public function store(Request $request)
-    {
-        $cart = Session::get('cart', []);
-        if (empty($cart)) {
-            return redirect()->back()->with('error', 'Your cart is empty!');
-        }
+{
+    $cart = Session::get('cart', []);
+    if (empty($cart)) {
+        return redirect()->back()->with('error', 'Your cart is empty!');
+    }
 
-        $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'email' => 'required|string|email',
-            'country' => 'required|string',
-            'phone' => 'required|string|numeric',
-            'city' => 'required|string',
-            'street' => 'required|string',
-            'terms' => 'accepted',
+    $request->validate([
+        'first_name' => 'required|string',
+        'last_name' => 'required|string',
+        'email' => 'required|string|email',
+        'country' => 'required|string',
+        'phone' => 'required|string|numeric',
+        'city' => 'required|string',
+        'street' => 'required|string',
+        'terms' => 'accepted',
+    ]);
+
+    // Validate stock levels
+    foreach ($cart as $id => $details) {
+        $product = Product::find($id);
+        if ($product->quantity < $details['quantity']) {
+            return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
+        }
+    }
+
+    $total = 0;
+    foreach ($cart as $id => $details) {
+        $total += $details['price'] * $details['quantity'];
+    }
+
+    // Create a temporary order array
+    $order = [
+        'id' => uniqid(),
+        'first_name' => strip_tags($request->first_name),
+        'last_name' => strip_tags($request->last_name),
+        'email' => strip_tags($request->email),
+        'country' => strip_tags($request->country),
+        'city' => strip_tags($request->city),
+        'street' => strip_tags($request->street),
+        'phone' => strip_tags($request->phone),
+        'delivery' => 50,
+        'payment' => strip_tags($request->payment),
+        'total_price' => $total + 50,
+        'status' => 'pending'
+    ];
+
+    // Store the temporary order in the session
+    Session::put('temporary_order', $order);
+
+    // Check if the session data is correctly set
+    $tempOrder = Session::get('temporary_order');
+    if (!$tempOrder) {
+        return redirect()->back()->with('error', 'Failed to store order data in session.');
+    }
+    if ($request->payment == "online payment") {
+        return response()->view('payment', [
+            'route' => route('credit'),
+            'csrf_token' => csrf_token()
         ]);
-
-        // Validate stock levels
-        foreach ($cart as $id => $details) {
-            $product = Product::find($id);
-            if ($product->quantity < $details['quantity']) {
-                return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
-            }
-        }
-
-        $total = 0;
-        foreach ($cart as $id => $details) {
-            $total += $details['price'] * $details['quantity'];
-        }
-
+    } else {
+        // Store the order in the database
         $order = new Order();
-        $order->first_name =strip_tags( $request->first_name);
-        $order->last_name = strip_tags($request->last_name);
-        $order->email = strip_tags($request->email);
-        $order->country = strip_tags($request->country);
-        $order->city = strip_tags($request->city);
-        $order->street = strip_tags($request->street);
-        $order->phone = strip_tags($request->phone);
+        $order->first_name = $request->first_name;
+        $order->last_name = $request->last_name;
+        $order->email = $request->email;
+        $order->country = $request->country;
+        $order->city = $request->city;
+        $order->street = $request->street;
+        $order->phone = $request->phone;
         $order->delivery = 50;
-        $order->payment = strip_tags($request->payment);
-        $order->total_price = $total+ $order->delivery;
+        $order->total_price = $total + $order->delivery;
+        $order->payment = $request->payment;
         $order->status = 'pending';
         $order->save();
 
+        $cart = Session::get('cart', []);
         foreach ($cart as $id => $details) {
             OrderItems::create([
                 'order_id' => $order->id,
@@ -78,10 +111,13 @@ class OrderController extends Controller
             $product->save();
         }
 
+        // Clear the session data
         Session::forget('cart');
-
-        return redirect()->route('cart.view')->with('success', 'Order has been placed successfully!');
+        return view('payment-success');
     }
+}
+
+
 
     public function show($orderId)
     {
@@ -90,7 +126,7 @@ class OrderController extends Controller
         return view('admin.orders.show', compact('order'));
     }
 
-    
+
     public function out_for_delivery( order $order)
     {
         $order->status='out for delivery';

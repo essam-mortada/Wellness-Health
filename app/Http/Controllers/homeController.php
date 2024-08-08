@@ -22,6 +22,10 @@ class homeController extends Controller
 
         return view('about');
     }
+    public function ShowPayment(){
+
+        return view('payment-success');
+    }
     public function ShowBlog(){
         $blogs= blog::all();
         $recentBlogs= blog::orderBy('created_at','desc')->paginate(3);
@@ -50,5 +54,5 @@ class homeController extends Controller
         };
         return view('checkout',compact('total','delivery'));
     }
-    
+
 }

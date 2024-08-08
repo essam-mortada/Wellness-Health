@@ -11,7 +11,11 @@
       </div>
     </div>
   </div>
-
+  @if (@session('success'))
+  <div class="col-md-3 alert alert-success text-center m-auto mt-3" role="alert">
+  {{session('success')}}
+  </div>
+  @endif
   @if (@session('error'))
 <div class="col-md-3 alert alert-danger text-center m-auto mt-3" role="alert">
 {{session('error')}}
@@ -21,7 +25,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-7 ftco-animate">
-                      
+
                           <h3 class="mb-4 billing-heading">Billing Details</h3>
                 <form action="{{route('orders.store')}}" class="billing-form d-flex" method="POST">
                     @csrf
@@ -54,7 +58,7 @@
                            <option disabled selected>select your country</option>
                             <option value="egypt">Egypt</option>
                         </select>
-                       
+
                       </div>
                       @error('country')
                       <div class="text-danger">{{ $message }}</div>
@@ -71,7 +75,7 @@
                     @enderror
                   </div>
                   </div>
-                  
+
                   <div class="w-100"></div>
                   <div class="col-md-12">
                       <div class="form-group">
@@ -82,7 +86,7 @@
                     @enderror
                   </div>
                   </div>
-                 
+
                   <div class="w-100"></div>
                   <div class="col-md-6">
                   <div class="form-group">
