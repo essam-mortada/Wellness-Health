@@ -1,20 +1,4 @@
-<!--<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-<div class="container mt-5 text-center">
-    <h1 class="text-primary">payment confirmation</h1>
 
-     <div class="row justify-content-center">
-        <div class="col-md-6 col-sm-10 col-12">
-            <img src="{{asset('assets/images/confirm-payment.svg')}}" class="img-fluid" alt="confirm payment">
-
-    <form action="{{route('credit')}}" method="POST">
-        @csrf
-        <button class="btn btn-primary " type="submit">Click To Confirm Payment</button>
-    </form>
-</div>
-    </div>
-</div>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>

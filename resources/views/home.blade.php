@@ -115,12 +115,16 @@
 
         <div class="col-md-6 col-lg-3 ftco-animate" >
             <div class="product text-center" style="height:90%;width:100%" >
-                <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="Colorlib Template">
+                <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="Colorlib Template">
                   <!--  <span class="status">30%</span>-->
                     <div class="overlay"></div>
                 </a>
                 <div class="text py-3 pb-4 px-3 text-center">
                     <h3><a href="{{route('products.show',$product->id)}}"> {{$product->name}}</a></h3>
+                    @if ($product->quantity == 0)
+
+                    <div class="text-danger"><p>out of stock</p></div>
+                    @endif
                     <div class="d-flex">
                         <div class="pricing">
                             <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">L.E{{$product->price}}</span></p>

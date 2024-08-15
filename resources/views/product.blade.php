@@ -29,6 +29,10 @@
               </div>
               <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                   <h3>{{$product->name}}</h3>
+                  @if ($product->quantity == 0)
+
+                  <div class="text-danger"><p>out of stock</p></div>
+                  @endif
                   <div class="rating d-flex">
                           <p class="text-left mr-4">
                               <a href="#" class="mr-2">5.0</a>
@@ -42,7 +46,7 @@
                               <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
                           </p>
                           <p class="text-left">
-                              <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
+                              <a href="#" class="mr-2" style="color: #000;">{{$salesCount}} <span style="color: #bbb;">Sold</span></a>
                           </p>
                       </div>
                   <p class="price"><span>L.E{{$product->price}}</span></p>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\orderItems;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -61,11 +63,12 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
+
         $products=product::paginate(4);
-        return view('product',compact('product','products'));
+        return view('product',compact('product','products','salesCount'));
 
     }
-    
+
     public function showProductAdmin(product $product)
     {
         return view('admin.products.show',compact('product'));

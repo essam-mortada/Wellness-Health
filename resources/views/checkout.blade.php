@@ -108,11 +108,7 @@
               </div>
               <div class="w-100"></div>
               <div class="col-md-12">
-                  <div class="form-group mt-4">
-                                      <div class="radio">
-                                        <label><input type="radio" name="optradio"> Ship to different address</label>
-                                      </div>
-                                  </div>
+                
               </div>
               </div>
                   </div>
