@@ -3,7 +3,8 @@
     <title>Wellness Health</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item "><a href="{{route('home')}}" class="nav-link">Home</a></li>
+	          <li class="nav-item cta-colored"><a href="{{route('home')}}" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Shop</a></li>
               <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
@@ -49,4 +50,6 @@
 	      </div>
 	    </div>
 	  </nav>
+
+
     <!-- END nav -->

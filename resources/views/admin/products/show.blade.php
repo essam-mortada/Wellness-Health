@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Product Details</h1>
-                <a href="{{ route('products.index') }}" class="btn btn-default">Back to Products</a>
+                <a href="{{ route('products.index') }}" class="btn btn-success">Back to Products</a>
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-6 mb-5 mt-3 text-center">
                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary  mr-2">Edit</a>
-                      
+
                     <form action="{{ route('products.destroy', $product->id) }}" method="post" style="display: inline">
                         @csrf
                         @method('DELETE')

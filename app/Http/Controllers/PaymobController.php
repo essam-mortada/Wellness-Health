@@ -36,7 +36,7 @@ class PaymobController extends Controller
         $data = [
             "auth_token" => $tokens,
             "delivery_needed" => "false",
-            "amount_cents" => $order['total_price'] * 100,
+            "amount_cents" => ($order['total_price']+$order['delivery']) * 100,
             "currency" => "EGP",
         ];
         $response = Http::post('https://accept.paymob.com/api/ecommerce/orders', $data);
@@ -143,7 +143,7 @@ class PaymobController extends Controller
                 // Clear the session data
                 Session::forget('cart');
                 Session::forget('temporary_order');
-                return view('payment-success');
+                return redirect()->route('home')->with('done','order has been placed successfully!');
             } else {
                 return redirect('/checkout')->with('error', 'Something Went Wrong Please Try Again');
             }

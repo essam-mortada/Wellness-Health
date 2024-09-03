@@ -1,7 +1,7 @@
 @include('layouts.header')
 
-<section id="home-section" class="hero">
-    <div class="home-slider owl-carousel">
+<section id="home-section"  class="hero">
+    <div  class="home-slider owl-carousel">
     <div class="slider-item" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
         <div class="overlay"></div>
       <div class="container">
@@ -54,7 +54,8 @@
               <span class="flaticon-diet"></span>
         </div>
         <div class="media-body">
-          <h3 class="heading">Always Fresh</h3>
+          <h3 class="heading">Always Good
+          </h3>
           <span>Product well package</span>
         </div>
       </div>
@@ -136,7 +137,7 @@
                                 <span><i class="ion-ios-eye"></i></span>
                             </a>
                             <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.add', $product->id) }}" method="POST">
                                     @csrf
                                     <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
 
@@ -156,14 +157,14 @@
 </div>
 </section>
 
-<section class="ftco-section img" style="background-image: url({{asset('assets/images/bg_3.jpg')}});">
+<section class="ftco-section img" style="background-image: url({{asset('assets/images/bg_3.png')}});">
 <div class="container">
         <div class="row justify-content-end">
   <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
       <span class="subheading">Best Price For You</span>
     <h2 class="mb-4">Deal of the day</h2>
     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    <h3><a href="#">Spinach</a></h3>
+    <h3><a href="#">diet pills</a></h3>
     <span class="price">$10 <a href="#">now $5 only</a></span>
     <div id="timer" class="d-flex mt-5">
                   <div class="time" id="days"></div>
@@ -176,5 +177,33 @@
 </div>
 </section>
 
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ session('done') }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript to Trigger Modal -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const successMessage = '{{ session("done") }}';
+      if (successMessage) {
+        $('#successModal').modal('show');
+      }
+    });
+  </script>
 
 @include('layouts.footer')

@@ -12,13 +12,15 @@
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
                 <h1>Orders</h1>
+                <div class="btn-group mb-3" role="group">
+                    <a class="btn btn-success btn-sm mr-2 mb-2" href="{{route('orders.index')}}">All</a>
+                    <a class="btn btn-warning btn-sm mr-2 mb-2" href="{{route('orders.deliveredOrders')}}">Delivered</a>
+                    <a class="btn btn-info btn-sm mr-2 mb-2" href="{{route('orders.out_for_delivery_orders')}}">Out For Delivery</a>
+                    <a class="btn btn-dark btn-sm mr-2 mb-2" href="{{route('orders.pendingOrders')}}">Pending</a>
+                </div>
             </div>
-            <div class="btn-group mb-3" role="group">
-                <a class="btn btn-success btn-sm mr-2 mb-2" href="{{route('orders.index')}}">All</a>
-                <a class="btn btn-warning btn-sm mr-2 mb-2" href="{{route('orders.deliveredOrders')}}">Delivered</a>
-                <a class="btn btn-info btn-sm mr-2 mb-2" href="{{route('orders.out_for_delivery_orders')}}">Out For Delivery</a>
-                <a class="btn btn-dark btn-sm mr-2 mb-2" href="{{route('orders.pendingOrders')}}">Pending</a>
-            </div>
+
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -50,10 +52,11 @@
                         @endforelse
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $orders->links('pagination::bootstrap-5') }}
+                </div>
             </div>
-            <div class="d-flex justify-content-center">
-                {{ $orders->links('pagination::bootstrap-5') }}
-            </div>
+
         </div>
     </div>
 </div>

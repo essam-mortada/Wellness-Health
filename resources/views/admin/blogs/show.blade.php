@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Blog Details</h1>
-                <a href="{{ route('blogs.index') }}" class="btn btn-default">Back to Blogs</a>
+                <a href="{{ route('blogs.index') }}" class="btn btn-success">Back to Blogs</a>
                 <hr>
                 <div class="row">
                     <div class="col-md-8">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md-6 mb-5 mt-3 text-center">
                         <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-primary  mr-2">Edit</a>
-                      
+
                     <form action="{{ route('blogs.destroy', $blog->id) }}" method="post" style="display: inline">
                         @csrf
                         @method('DELETE')

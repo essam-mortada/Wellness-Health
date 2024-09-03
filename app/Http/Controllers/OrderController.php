@@ -62,9 +62,9 @@ class OrderController extends Controller
         'city' => strip_tags($request->city),
         'street' => strip_tags($request->street),
         'phone' => strip_tags($request->phone),
-        'delivery' => 50,
+        'delivery' => strip_tags($request->delivery),
         'payment' => strip_tags($request->payment),
-        'total_price' => $total + 50,
+        'total_price' => $total + $request->delivery,
         'status' => 'pending'
     ];
 
@@ -91,7 +91,7 @@ class OrderController extends Controller
         $order->city = $request->city;
         $order->street = $request->street;
         $order->phone = $request->phone;
-        $order->delivery = 50;
+        $order->delivery = $request->delivery;
         $order->total_price = $total + $order->delivery;
         $order->payment = $request->payment;
         $order->status = 'pending';
@@ -113,7 +113,7 @@ class OrderController extends Controller
 
         // Clear the session data
         Session::forget('cart');
-        return view('payment-success');
+        return redirect()->route('home')->with('done',"order has been placed successfully!");
     }
 }
 
@@ -131,7 +131,7 @@ class OrderController extends Controller
     {
         $order->status='out for delivery';
         $order->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','status updated successfully');
 
     }
 
@@ -139,7 +139,7 @@ class OrderController extends Controller
     {
         $order->status='delivered';
         $order->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','status updated successfully');
     }
 
      public function deliveredOrders()

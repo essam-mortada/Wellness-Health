@@ -13,7 +13,13 @@
   </div>
 
   <section class="ftco-section contact-section bg-light">
+    @if (@session('success'))
+    <div class="col-md-3 alert alert-success text-center m-auto mb-3 mt-3" role="alert">
+    {{session('success')}}
+    </div>
+    @endif
     <div class="container">
+
         <div class="row d-flex mb-5 contact-info">
         <div class="w-100"></div>
         <div class="col-md-3 d-flex">
@@ -38,19 +44,20 @@
         </div>
       </div>
       <div class="row block-9">
-        <div class="col-md-6 order-md-last d-flex">
-          <form action="#" class="bg-white p-5 contact-form">
+        <div class="col-md-9 m-auto order-md-last d-flex">
+          <form action="{{route('messages.store')}}" class="bg-white p-5 contact-form" method="post">
+            @csrf
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" name="name">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Email">
+              <input type="email" class="form-control" placeholder="Your Email" name="email">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject">
+              <input type="text" class="form-control" placeholder="Subject" name="subject">
             </div>
             <div class="form-group">
-              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
             </div>
             <div class="form-group">
               <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -59,9 +66,7 @@
 
         </div>
 
-        <div class="col-md-6 d-flex">
-            <div id="map" class="bg-white"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.38733663127!2d31.336405553819574!3d30.05946546726634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2KfZhNmC2KfZh9ix2KnYjCDZhdit2KfZgdi42Kkg2KfZhNmC2KfZh9ix2KnigKw!5e0!3m2!1sar!2seg!4v1721434472994!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-        </div>
+
       </div>
     </div>
   </section>

@@ -3,6 +3,7 @@
     <title>Wellness Health admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -42,7 +43,9 @@
               <li class="nav-item"><a href="{{route('products.index')}}" class="nav-link">Products</a></li>
 	          <li class="nav-item"><a href="{{route('orders.index')}}" class="nav-link">Orders</a></li>
 	          <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">Blogs</a></li>
-
+	          <li class="nav-item"><a href="{{route('messages.index')}}" class="nav-link">Users Messages</a></li>
+              <li class="nav-item"><a href="{{route('reviews.index')}}" class="nav-link">Reviews</a></li>
+              <li class="nav-item"><a href="{{route('admins.index')}}" class="nav-link">Admins</a></li>
               <div class="dropdown mt-3">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="icon-person lg"></span>

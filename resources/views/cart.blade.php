@@ -1,5 +1,7 @@
 @include('layouts.header')
 
+
+
 <div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
@@ -51,7 +53,7 @@
                             @foreach(session('cart') as $id => $details)
                             <tr class="text-center">
                               <td class="product-remove">
-                                <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                <form id="remove-from-cart-form-{{ $id }}" action="{{ route('cart.remove', $id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button style="padding: 10px; cursor:pointer;" type="submit"><i class="ion-ios-close"></i></button>
@@ -67,7 +69,7 @@
                               <td class="price">L.E{{$details['price']}}</td>
 
                               <td class="quantity">
-                                <form action="{{route('cart.update')}}" method="POST">
+                                <form id="update-quantity-form-{{ $id }}" action="{{route('cart.update')}}" method="POST">
                                     @csrf
                                     @method('patch')
                                     <input type="hidden" name="id" value="{{$id}}">
@@ -151,6 +153,5 @@
           </div>
           @endif
       </section>
-
 
 @include('layouts.footer')

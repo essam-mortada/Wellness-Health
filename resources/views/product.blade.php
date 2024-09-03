@@ -35,19 +35,14 @@
                   @endif
                   <div class="rating d-flex">
                           <p class="text-left mr-4">
-                              <a href="#" class="mr-2">5.0</a>
+                              <p  class="mr-2">{{$averageRating}}</p>
                               <a href="#"><span class="ion-ios-star-outline"></span></a>
-                              <a href="#"><span class="ion-ios-star-outline"></span></a>
-                              <a href="#"><span class="ion-ios-star-outline"></span></a>
-                              <a href="#"><span class="ion-ios-star-outline"></span></a>
-                              <a href="#"><span class="ion-ios-star-outline"></span></a>
+
                           </p>
-                          <p class="text-left mr-4">
-                              <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
+                          <p class="text-left ml-4">
+                              <a href="#" class="mr-2" style="color: #000;">{{count($product->reviews)}} <span style="color: #bbb;">Ratings</span></a>
                           </p>
-                          <p class="text-left">
-                              <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
-                          </p>
+
                       </div>
                   <p class="price"><span>L.E{{$product->price}}</span></p>
                   <p>{{$product->description}}
@@ -65,7 +60,7 @@
                      <i class="ion-ios-remove"></i>
                       </button>
                       </span>
-                      <form action="{{ route('cart.add', $product->id) }}" method="POST" class="d-flex align-items-center">
+                      <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.add', $product->id) }}" method="POST" class="d-flex align-items-center">
                         @csrf
                         <input type="number" id="quantity" name="quantity" class="form-control input-number" placeholder="quantity"  min="1" max="100">
                    <span class="input-group-btn ">
@@ -85,7 +80,78 @@
           </div>
       </div>
   </section>
+    <section>
+        <div class="container">
+            @if (count($product->reviews) >= 1)
 
+            <section class="ftco-section testimony-section">
+                <div class="container">
+                  <div class="row justify-content-center mb-5 pb-3">
+                    <div class="col-md-7 heading-section ftco-animate text-center">
+                        <span class="subheading">Reviews</span>
+                      <h2 class="mb-4">Our satisfied customer says</h2>
+                    </div>
+                  </div>
+                  <div class="row ftco-animate">
+                    <div class="col-md-12">
+                      <div class="carousel-testimony owl-carousel">
+                        @foreach ($product->reviews as $review)
+                        <div class="item">
+                          <div class="testimony-wrap p-4 pb-5">
+                              <span class="quote d-flex align-items-center justify-content-center">
+                                <i class="icon-quote-left"></i>
+                              </span>
+                            </div>
+                            <div class="text text-center">
+                              <p class="mb-5 pl-4 line">{{$review->review}}</p>
+                              <p class="name">{{$review->name}}</p>
+                              <span class="position">{{$review->rating}} <span class="ion-ios-star-outline"></span></span>
+                            </div>
+                          </div>
+                          @endforeach
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    @endif
+                        <div class="conatiner mt-3 text-center">
+                            <h4>Leave a review on this product </h4>
+
+                            <div class="row text-center">
+                            <div class="col-md-12 col-lg-9 m-auto  order-md-last d-flex">
+                              <form id="add-review-{{$product->id}}" action="{{route('reviews.store',$product->id)}}" class="bg-white col-12 p-5 " method="post">
+                                @csrf
+
+                                <div class="form-group">
+                                    <input class="form-control"  name="name" required placeholder="Your Name"></input>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control"  name="review" required placeholder="Your Review"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control"  name="rating" required>
+                                        <option disabled selected>Select your rating</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                  <input type="submit" value="Make a review" class="btn btn-primary py-3 px-5">
+                                </div>
+                              </form>
+
+                            </div>
+
+
+                          </div>
+                    </div>
+                    </div>
+
+    </section>
   <section class="ftco-section">
       <div class="container">
               <div class="row justify-content-center mb-3 pb-3">
@@ -109,6 +175,10 @@
                       </a>
                       <div class="text py-3 pb-4 px-3 text-center">
                           <h3><a href="#">{{$product->name}}</a></h3>
+                          @if ($product->quantity == 0)
+
+                        <div class="text-danger"><p>out of stock</p></div>
+                        @endif
                           <div class="d-flex">
                               <div class="pricing">
                                   <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">L.E{{$product->price}}</span></p>
@@ -120,7 +190,7 @@
                                       <span><i class="ion-ios-eye"></i></span>
                                   </a>
                                   <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                    <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.add', $product->id) }}" method="POST">
                                         @csrf
                                         <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
 

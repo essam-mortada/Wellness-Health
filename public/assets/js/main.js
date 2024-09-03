@@ -314,7 +314,7 @@
 
 	function makeTimer() {
 
-		var endTime = new Date("1 August 2024 12:00:00 GMT+03:00");
+		var endTime = new Date("1 november 2024 12:00:00 GMT+03:00");
 		endTime = (Date.parse(endTime) / 1000);
 
 		var now = new Date();
@@ -357,7 +357,114 @@ document.addEventListener('DOMContentLoaded', function() {
             quantityInput.value = quantity;
         }
     });
+
+
 });
+
+// add to cart with ajax
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form[id^="add-to-cart-form-"]');
+
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const url = form.action;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product added to cart successfully!');
+                    // Update the cart count, display a message, etc.
+                } else {
+                    alert('no enough stock for this product.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+
+//remover from cart with ajax
+document.addEventListener('DOMContentLoaded', function() {
+    const removeForms = document.querySelectorAll('form[id^="remove-from-cart-form-"]');
+
+    removeForms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form);
+            const url = form.action;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product removed from cart successfully!');
+                    // remove the product row from the table
+                    form.closest('tr').remove();
+                   
+                } else {
+                    alert('Something went wrong, please try again.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form[id^="add-review-"]');
+
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const url = form.action;
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Review added successfully!');
+                    form.reset();
+                } else {
+                    alert('Something went wrong.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting your review.');
+            });
+        });
+    });
+});
+
+
+
+
+
+
+
 
 setInterval(function() { makeTimer(); }, 1000);
 

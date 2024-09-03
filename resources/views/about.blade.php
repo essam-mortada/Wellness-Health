@@ -39,7 +39,7 @@
 
 
 
-      <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{asset('assets/images/bg_3.jpg')}});">
+      <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{asset('assets/images/bg_2.jpg')}});">
         <div class="container">
           <div class="row justify-content-center py-5">
               <div class="col-md-10">

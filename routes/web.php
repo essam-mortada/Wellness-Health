@@ -6,8 +6,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymobController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\userController;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\usersMessagesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,7 +20,8 @@ Route::post('/admin/login',[userController::class,'Login']);
 // admin routes
 Route::prefix('/admin')->middleware('auth')->group(function () {
 Route::get('/', [userController::class, 'showAdminHome'])->name('admin.home');
-
+//messages
+Route::get('/messages',[usersMessagesController::class,'index'])->name('messages.index');
 //products
 Route::get('/products',[ProductController::class,'index'])->name('products.index');
 Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
@@ -39,9 +41,11 @@ Route::post('/blogs/store', [blogController::class, 'store'])->name('blogs.store
 Route::delete('/blogs/destroy/{blog}', [blogController::class, 'destroy'])->name('blogs.destroy');
 Route::get('/blogs/show/{blog}', [blogController::class, 'showBlogAdmin'])->name('blogs.show.admin');
 //profile
+Route::get('/admins/index', [userController::class, 'index'])->name('admins.index');
 Route::get('/profile/show/{user}', [userController::class, 'show'])->name('admins.show');
 Route::get('/profile/{user}/edit', [userController::class, 'edit'])->name('admins.edit');
 Route::put('/profile/{user}', [userController::class, 'update'])->name('admins.update');
+Route::delete('/profile//destroy/{user}', [userController::class, 'destroy'])->name('admins.destroy');
 Route::get('/change-password/{user}', [UserController::class, 'showChangepasswordForm'])->name('password.change.form');
 Route::post('/change-password/{user}', [UserController::class, 'changePassword'])->name('password.change');
 Route::get('/add', [userController::class,'showAddadminForm'])->name('add-admin');
@@ -54,12 +58,23 @@ Route::post('/orders/delivered/{order}', [OrderController::class, 'delivered'])-
 Route::get('/orders/delivered',[OrderController::class,'deliveredOrders'])->name('orders.deliveredOrders');
 Route::get('/orders/pending',[OrderController::class,'pendingOrders'])->name('orders.pendingOrders');
 Route::get('/orders/out-for-delivery',[OrderController::class,'out_for_delivery_orders'])->name('orders.out_for_delivery_orders');
+//reviews
+Route::get('/reviews',[ReviewController::class,'index'])->name('reviews.index');
+Route::get('/reviews/show/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+Route::delete('/reviews/delete/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 //logout
 Route::post('/logout',[userController::class,'logout'])->name('logout');
 
 });
 ////////////////////////////////////////////////USER//////////////////////////////////////////////////////
 // user routes
+
+//reviews
+Route::post('products/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');
+//usersMessages
+Route::post('/messages/store', [usersMessagesController::class, 'store'])->name('messages.store');
+Route::get('/messages/index', [usersMessagesController::class, 'index'])->name('messages.index');
+Route::get('/messages/show/{message}', [usersMessagesController::class, 'show'])->name('messages.show');
 // cart
 
 Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');

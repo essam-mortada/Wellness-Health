@@ -68,6 +68,26 @@
                   <div class="w-100"></div>
                   <div class="col-md-12">
                       <div class="form-group">
+                          <label for="delivery">delivery region</label>
+                          <div class="select-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select id="delivery-region" required name="delivery"  value="{{ old('delivery') }}" class="form-control">
+                           <option disabled selected>select your delivery region</option>
+                            <option value="50">cairo & giza</option>
+                            <option value="60">alexandria</option>
+                            <option value="70">delta governorates</option>
+                            <option value="80">upper egypt</option>
+                        </select>
+
+                      </div>
+                      @error('delivery')
+                      <div class="text-danger">{{ $message }}</div>
+                      @enderror
+                      </div>
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="col-md-12">
+                      <div class="form-group">
                       <label for="streetaddress">Street Address</label>
                     <input type="text" required name="street" class="form-control"  value="{{ old('street') }}" placeholder="House number and street name">
                     @error('street')
@@ -108,7 +128,38 @@
               </div>
               <div class="w-100"></div>
               <div class="col-md-12">
-                
+             {{--   <!-- Delivery Region Selection -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="delivery">Delivery Region</label>
+                            <div class="select-wrap">
+                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                <select id="delivery" name="delivery" class="form-control">
+                                    <option disabled selected>Select your delivery region</option>
+                                    <option value="50">Cairo & Giza - L.E 50</option>
+                                    <option value="60">Alexandria - L.E 60</option>
+                                    <option value="70">Delta Governorates - L.E 70</option>
+                                    <option value="80">Upper Egypt - L.E 80</option>
+                                </select>
+                            </div>
+                            @error('delivery')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <!-- Estimate Delivery Button -->
+                    <div class="col-md-12 mb-4">
+                        <button type="button" id="estimate-delivery" class="btn btn-primary">Estimate Delivery Cost</button>
+                    </div>
+
+                    <!-- Placeholder to Display Estimated Delivery Cost -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Estimated Delivery Cost:</label>
+                            <p id="estimated-delivery-cost" class="font-weight-bold">L.E 0</p>
+                        </div>
+                    </div>--}}
               </div>
               </div>
                   </div>
@@ -119,20 +170,17 @@
                         <h3 class="billing-heading mb-4">Cart Total</h3>
                         <p class="d-flex">
                                   <span>Subtotal</span>
-                                  <span>L.E{{$total}}</span>
+                                  <span>L.E {{$total}}</span>
                               </p>
                               <p class="d-flex">
-                                  <span>Delivery</span>
-                                  <span>L.E{{$delivery}}</span>
-                              </p>
-                              <p class="d-flex">
-                                  <span>Discount</span>
-                                  <span>L.E3.00</span>
-                              </p>
+                                <span>delivery</span>
+                                <span id="delivery-cost">L.E {{ session('temporary_order.delivery', 0)}}</span>
+                            </p>
+
                               <hr>
                               <p class="d-flex total-price">
                                   <span>Total</span>
-                                  <span>L.E{{$total + $delivery}}</span>
+                                  <span id="total-price">L.E {{$total + session('temporary_order.delivery', 0)}}</span>
                               </p>
                               </div>
                 </div>
@@ -174,5 +222,22 @@
       </div>
     </div>
   </section>
+  <script>
+    document.getElementById('delivery-region').addEventListener('change', function() {
+        // Get the selected delivery cost from the dropdown
+        var selectedDeliveryCost = parseInt(this.value);
+
+        // Update the delivery cost display
+        document.getElementById('delivery-cost').innerText =  'L.E ' + selectedDeliveryCost;
+
+        // Get the subtotal (assuming $total is available in the template)
+        var subtotal = {{ $total }};
+
+        // Calculate and update the total price
+        var total = subtotal + selectedDeliveryCost;
+        document.getElementById('total-price').innerText = 'L.E ' + total;
+    });
+</script>
+
 
 @include('layouts.footer')

@@ -63,9 +63,10 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-
+        $reviews = $product->reviews()->latest()->paginate(10);
+        $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
-        return view('product',compact('product','products','salesCount'));
+        return view('product',compact('product','products','reviews','averageRating'));
 
     }
 

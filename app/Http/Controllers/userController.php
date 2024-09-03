@@ -14,6 +14,11 @@ class userController extends Controller
     {
         return view('admin.home');
     }
+    public function index()
+    {
+        $users = User::paginate(5);
+        return view('admin.profile.index',compact('users'));
+    }
     public function showAddadminForm()
     {
         return view('admin.profile.add-admin');
@@ -157,5 +162,9 @@ class userController extends Controller
         return redirect()->route('password.change.form',$user->id)->with('success', 'Password changed successfully');
     }
 
+    public function destroy(User $user){
+        $user->delete();
+        return redirect()->back()->with('success', 'User deleted successfully');
+    }
 
 }
