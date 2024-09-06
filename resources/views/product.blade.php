@@ -119,7 +119,7 @@
 
                             <div class="row text-center">
                             <div class="col-md-12 col-lg-9 m-auto  order-md-last d-flex">
-                              <form id="add-review-{{$product->id}}" action="{{route('reviews.store',$product->id)}}" class="bg-white col-12 p-5 " method="post">
+                              <form  action="{{route('reviews.store',$product->id)}}" class="bg-white col-12 p-5 " method="post">
                                 @csrf
 
                                 <div class="form-group">
