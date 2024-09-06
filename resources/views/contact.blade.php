@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -22,11 +22,7 @@
 
         <div class="row d-flex mb-5 contact-info">
         <div class="w-100"></div>
-        <div class="col-md-3 d-flex">
-            <div class="info bg-white p-4">
-              <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-            </div>
-        </div>
+        
         <div class="col-md-3 d-flex">
             <div class="info bg-white p-4">
               <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>

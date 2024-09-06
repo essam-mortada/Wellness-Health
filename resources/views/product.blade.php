@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -25,7 +25,7 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-6 mb-5 ftco-animate text-center" >
-                  <a href="{{asset('products_uploads/'.$product->image)}}" class="image-popup"><img style="max-height: 400px" src="{{asset('products_uploads/'.$product->image)}}" class="img-fluid" alt="product"></a>
+                  <a href="{{asset('public/products_uploads/'.$product->image)}}" class="image-popup"><img style="max-height: 400px" src="{{asset('public/products_uploads/'.$product->image)}}" class="img-fluid" alt="product"></a>
               </div>
               <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                   <h3>{{$product->name}}</h3>
@@ -158,7 +158,7 @@
         <div class="col-md-12 heading-section text-center ftco-animate">
             <span class="subheading">Products</span>
           <h2 class="mb-4">Related Products</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          <p>Some products you might like</p>
         </div>
       </div>
       </div>
@@ -169,7 +169,7 @@
 
               <div class="col-md-6 col-lg-3 ftco-animate">
                   <div class="product text-center" style="height:90%;width:100%">
-                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
+                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                           <!--<span class="status">30%</span>-->
                           <div class="overlay"></div>
                       </a>

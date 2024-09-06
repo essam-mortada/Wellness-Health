@@ -2,14 +2,14 @@
 
 <section id="home-section"  class="hero">
     <div  class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+    <div class="slider-item" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
         <div class="overlay"></div>
       <div class="container">
         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
           <div class="col-md-12 ftco-animate text-center">
-            <h1 class="mb-2">We serve Your Health &amp; </h1>
-            <h2 class="subheading mb-4">We deliver organic Products &amp; </h2>
+            <h1 class="mb-2">Nourish Your Body &amp; Empower Your Life  </h1>
+            <h2 class="subheading mb-4">100% organic products </h2>
             <p><a href="#products" class="btn btn-primary">View Details</a></p>
           </div>
 
@@ -17,14 +17,14 @@
       </div>
     </div>
 
-    <div class="slider-item" style="background-image: url({{asset('assets/images/bg_2.jpg')}});">
+    <div class="slider-item" style="background-image: url({{asset('public/assets/images/bg_2.jpg')}});">
         <div class="overlay"></div>
       <div class="container">
         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
           <div class="col-sm-12 ftco-animate text-center">
-            <h1 class="mb-2">100% Fresh &amp; Organic Products</h1>
-            <h2 class="subheading mb-4">We deliver organic Products &amp; </h2>
+            <h1 class="mb-2">We serve Your Health &amp; Body</h1>
+            <h2 class="subheading mb-4">We deliver organic Products  For You! </h2>
             <p><a href="#products" class="btn btn-primary">View Details</a></p>
           </div>
 
@@ -43,8 +43,8 @@
               <span class="flaticon-shipped"></span>
         </div>
         <div class="media-body">
-          <h3 class="heading">Free Shipping</h3>
-          <span>On order over $100</span>
+          <h3 class="heading">Fast Delivery</h3>
+          <span>Fast delivery for you</span>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
   <div class="col-md-12 heading-section text-center ftco-animate">
       <span class="subheading">Featured Products</span>
     <h2 class="mb-4">Our Products</h2>
-    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    <p>Explore our selection of natural products</p>
   </div>
   @if (@session('success'))
   <div class="col-md-5 alert alert-success text-center m-auto mt-3" role="alert">
@@ -116,7 +116,7 @@
 
         <div class="col-md-6 col-lg-3 ftco-animate" >
             <div class="product text-center" style="height:90%;width:100%" >
-                <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="Colorlib Template">
+                <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Colorlib Template">
                   <!--  <span class="status">30%</span>-->
                     <div class="overlay"></div>
                 </a>
@@ -156,8 +156,8 @@
     </div>
 </div>
 </section>
-
-<section class="ftco-section img" style="background-image: url({{asset('assets/images/bg_3.png')}});">
+{{--
+<section class="ftco-section img" style="background-image: url({{asset('public/assets/images/bg_3.png')}});">
 <div class="container">
         <div class="row justify-content-end">
   <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -176,7 +176,7 @@
 </div>
 </div>
 </section>
-
+--}}
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">

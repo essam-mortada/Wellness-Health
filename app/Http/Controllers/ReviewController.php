@@ -27,10 +27,7 @@ class ReviewController extends Controller
         $review->name = $request->name;
         $review->save();
 
-        return response()->json([
-            "success" => true,
-            'message' => 'Review submitted successfully!',
-        ]);
+        return redirect()->back()->with('success', 'Review submitted successfully');
     }
     public function destroy(review $review){
         $review->delete();

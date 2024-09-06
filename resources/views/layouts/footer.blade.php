@@ -10,8 +10,8 @@
       <div class="row mb-5">
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Wellness Health</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+            <h2 class="ftco-heading-2">Wellnez Mart</h2>
+            <p>Nourish Your Body, Empower Your Life.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
               <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -30,22 +30,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-4">
-           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Help</h2>
-            <div class="d-flex">
-                <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                  <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-                  <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-                  <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-                  <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-                </ul>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                </ul>
-              </div>
-          </div>
-        </div>
+
 
       </div>
       <div class="row">
@@ -66,22 +51,22 @@
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery-migrate-3.0.1.min.js')}}"></script>
-<script src="{{asset('assets/js/popper.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
-<script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.stellar.min.js')}}"></script>
-<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('assets/js/aos.js')}}"></script>
-<script src="{{asset('assets/js/jquery.animateNumber.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap-datepicker.js')}}"></script>
-<script src="{{asset('assets/js/scrollax.min.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script src="{{asset('public/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('public/assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.easing.1.3.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.stellar.min.js')}}"></script>
+<script src="{{asset('public/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('public/assets/js/aos.js')}}"></script>
+<script src="{{asset('public/assets/js/jquery.animateNumber.min.js')}}"></script>
+<script src="{{asset('public/assets/js/bootstrap-datepicker.js')}}"></script>
+<script src="{{asset('public/assets/js/scrollax.min.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="{{asset('assets/js/google-map.js')}}"></script>
-<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('public/assets/js/google-map.js')}}"></script>
+<script src="{{asset('public/assets/js/main.js')}}"></script>
 
 </body>
 </html>

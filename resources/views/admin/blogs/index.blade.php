@@ -27,19 +27,19 @@
                         @forelse($blogs as $blog)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $blog->title }}</td>                                
+                                <td>{{ $blog->title }}</td>
                                 <td>
                                     @if($blog->image != 'default.png')
-                                        <img src="{{ asset('blogs_uploads/'.$blog->image) }}" width="100" height="100" class="img-fluid img-thumbnail">
+                                        <img src="{{ asset('public/blogs_uploads/'.$blog->image) }}" width="100" height="100" class="img-fluid img-thumbnail">
                                     @else
-                                        <img src="{{ asset('blogs_uploads/default.png') }}" width="100" height="100" class="img-fluid img-thumbnail">
+                                        <img src="{{ asset('public/blogs_uploads/default.png') }}" width="100" height="100" class="img-fluid img-thumbnail">
                                     @endif
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="blog actions">
                                         <a href="{{ route('blogs.show.admin', $blog->id) }}" class="btn btn-info btn-sm mr-2">View</a>
                                         <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
-                                      
+
                                     </div><br>
                                     <form action="{{ route('blogs.destroy', $blog->id) }}" method="post" style="display: inline">
                                         @csrf

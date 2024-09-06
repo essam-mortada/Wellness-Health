@@ -1,7 +1,7 @@
 @include('layouts.header')
 
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -21,12 +21,12 @@
                         @foreach($blogs as $blog)
                           <div class="col-md-12 d-flex ftco-animate">
                   <div class="blog-entry align-self-stretch d-md-flex">
-                    <a href="blog-single.html" class="block-20" style="background-image: url({{asset('blogs_uploads/'.$blog->image)}});">
+                    <a href="blog-single.html" class="block-20" style="background-image: url({{asset('public/blogs_uploads/'.$blog->image)}});">
                     </a>
                     <div class="text d-block pl-md-4">
                         <div class="meta mb-3">
                         <div><a href="{{route('blogs.show',$blog->id)}}">{{$blog->created_at->format('l, j F Y')}}</a></div>
-                     
+
                       </div>
                       <h3 class="heading"><a href="{{route('blogs.show',$blog->id)}}">{{$blog->title}}</a></h3>
                       <p>{{$blog->summary}}</p>
@@ -43,25 +43,25 @@
               <h3 class="heading">Recent Blog</h3>
               @foreach($recentBlogs as $blog)
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{asset('blogs_uploads/'.$blog->image)}});"></a>
+                <a class="blog-img mr-4" style="background-image: url({{asset('public/blogs_uploads/'.$blog->image)}});"></a>
                 <div class="text">
                   <h3 class="heading-1"><a href="{{route('blogs.show',$blog->id)}}">{{$blog->title}}</a></h3>
                   <div class="meta">
                     <div><a href="{{route('blogs.show',$blog->id)}}"><span class="icon-calendar"></span> {{$blog->created_at->format('l, j F Y')}}</a></div>
-  
+
                   </div>
                 </div>
               </div>
             @endforeach
             </div>
-  
-         
-  
+
+
+
         </div>
 
-       
 
-         
+
+
 
       </div>
     </div>

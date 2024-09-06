@@ -22,7 +22,7 @@
 
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product text-center" style="height:90%;width:100%">
-                    <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
+                    <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                       <!--  <span class="status">30%</span>-->
                         <div class="overlay"></div>
                     </a>

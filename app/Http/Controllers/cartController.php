@@ -12,14 +12,14 @@ class cartController extends Controller
     {
         $product = product::findOrFail($productId);
         if ($product->quantity == 0) {
-            return response()->json(['success' => false, 'message' => 'no enough stock for product'.$product->name]);
+                return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
 
         }
 
         $cart = Session::get('cart', []);
 
             if ($product->quantity < $product['quantity']) {
-                return response()->json(['success' => false, 'message' => 'no enough stock for product'.$product->name]);
+                return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
             }
 
 
@@ -42,7 +42,7 @@ class cartController extends Controller
         }
 
         Session::put('cart', $cart);
-        return response()->json(['success' => true, 'message' => 'Product added to cart!']);
+        return redirect()->back()->with('success', 'Product added to cart!');
     }
 
     public function viewCart()
@@ -64,7 +64,7 @@ class cartController extends Controller
             Session::put('cart', $cart);
         }
 
-        return response()->json(['success' => true, 'message' => 'Product removed from cart!']);
+        return redirect()->back()->with('success', 'Product removed from cart!');
     }
 
     public function updateCart(Request $request)

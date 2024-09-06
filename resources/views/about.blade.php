@@ -1,7 +1,7 @@
 @include('layouts.header')
 
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -16,7 +16,7 @@
   <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
           <div class="container">
               <div class="row">
-                  <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{asset('assets/images/about.jpg')}});">
+                  <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{asset('public/assets/images/about.jpg')}});">
                       <a href="https://youtu.be/XlrUjVSxJPU?si=GL_YvQNedJzU9gsn" class="icon  d-flex justify-content-center align-items-center">
                           <span class="icon-play"></span>
                       </a>
@@ -24,12 +24,12 @@
                   <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
             <div class="heading-section-bold mb-4 mt-md-5">
                 <div class="ml-md-0">
-                  <h2 class="mb-4">Welcome to Wellness Health</h2>
+                  <h2 class="mb-4">Welcome to Wellnez Mart</h2>
               </div>
             </div>
             <div class="pb-md-5">
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                          <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                <p>At Wellness Health, we believe that good health is the foundation of a happy life. Our mission is to provide you with natural, high-quality products that support a balanced, healthy lifestyle. From nutrient-rich supplements to eco-friendly skincare, we are committed to offering products that nourish your body and mind.</p>
+                          <p>We source our products from trusted, sustainable partners, ensuring that every item we offer is not only effective but also ethically made. Whether you’re looking to boost your energy, enhance your wellness routine, or simply live a healthier life, we’re here to support you on your journey.</p>
                           <p><a href="{{route('shop')}}" class="btn btn-primary">Shop now</a></p>
                       </div>
                   </div>
@@ -39,7 +39,7 @@
 
 
 
-      <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{asset('assets/images/bg_2.jpg')}});">
+      <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{asset('public/assets/images/bg_2.jpg')}});">
         <div class="container">
           <div class="row justify-content-center py-5">
               <div class="col-md-10">
@@ -47,7 +47,7 @@
                 <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div class="block-18 text-center">
                     <div class="text">
-                      <strong class="number" data-number="10000">0</strong>
+                      <strong class="number" data-number="9542">0</strong>
                       <span>Happy Customers</span>
                     </div>
                   </div>
@@ -55,24 +55,24 @@
                 <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div class="block-18 text-center">
                     <div class="text">
-                      <strong class="number" data-number="100">0</strong>
-                      <span>Branches</span>
+                      <strong class="number" data-number="20">0</strong>
+                      <span>Partners</span>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div class="block-18 text-center">
                     <div class="text">
-                      <strong class="number" data-number="1000">0</strong>
-                      <span>Partner</span>
+                      <strong class="number" data-number="1214">0</strong>
+                      <span>Orders</span>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div class="block-18 text-center">
                     <div class="text">
-                      <strong class="number" data-number="100">0</strong>
-                      <span>Awards</span>
+                      <strong class="number" data-number="10">0</strong>
+                      <span>Products</span>
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@
   </section>
 
       <section class="ftco-section testimony-section">
-    <div class="container">
+    {{--<div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section ftco-animate text-center">
             <span class="subheading">Testimony</span>
@@ -168,7 +168,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>--}}
 
   <section class="ftco-section bg-light">
           <div class="container">
@@ -179,8 +179,8 @@
                   <span class="flaticon-shipped"></span>
             </div>
             <div class="media-body">
-              <h3 class="heading">Free Shipping</h3>
-              <span>On order over $100</span>
+              <h3 class="heading">Fast delivery</h3>
+              <span>Fast delivery for you</span>
             </div>
           </div>
         </div>

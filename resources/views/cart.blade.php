@@ -2,7 +2,7 @@
 
 
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -30,11 +30,6 @@
                 @if (@session('cart'))
                   <div class="cart-list">
 
-
-
-
-
-
                         <table class="table">
                           <thead class="thead-primary">
                             <tr class="text-center">
@@ -59,7 +54,7 @@
                                 <button style="padding: 10px; cursor:pointer;" type="submit"><i class="ion-ios-close"></i></button>
                             </form></td>
 
-                              <td class="image-prod"><div class="img" style="background-image:url({{asset('products_uploads/'.$details['image'])}});"></div></td>
+                              <td class="image-prod"><div class="img" style="background-image:url({{asset('public/products_uploads/'.$details['image'])}});"></div></td>
 
                               <td class="product-name">
                                   <h3>{{$details['name']}}</h3>
@@ -99,40 +94,7 @@
 
 
           <div class="row justify-content-end">
-   {{--           <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                  <div class="cart-total mb-3">
-                      <h3>Coupon Code</h3>
-                      <p>Enter your coupon code if you have one</p>
-                        <form action="#" class="info">
-                <div class="form-group">
-                    <label for="">Coupon code</label>
-                  <input type="text" class="form-control text-left px-3" placeholder="">
-                </div>
-              </form>
-                  </div>
-                  <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
-              </div>
-              <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                  <div class="cart-total mb-3">
-                      <h3>Estimate shipping and tax</h3>
-                      <p>Enter your destination to get a shipping estimate</p>
-                        <form action="#" class="info">
-                <div class="form-group">
-                    <label for="">Country</label>
-                  <input type="text" class="form-control text-left px-3" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="country">State/Province</label>
-                  <input type="text" class="form-control text-left px-3" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="country">Zip/Postal Code</label>
-                  <input type="text" class="form-control text-left px-3" placeholder="">
-                </div>
-              </form>
-                  </div>
-                  <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a></p>
-              </div>--}}
+
               <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                   <div class="cart-total mb-3">
                       <h3>Cart Totals</h3>

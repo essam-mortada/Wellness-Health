@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('assets/images/bg_1.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -128,38 +128,7 @@
               </div>
               <div class="w-100"></div>
               <div class="col-md-12">
-             {{--   <!-- Delivery Region Selection -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="delivery">Delivery Region</label>
-                            <div class="select-wrap">
-                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select id="delivery" name="delivery" class="form-control">
-                                    <option disabled selected>Select your delivery region</option>
-                                    <option value="50">Cairo & Giza - L.E 50</option>
-                                    <option value="60">Alexandria - L.E 60</option>
-                                    <option value="70">Delta Governorates - L.E 70</option>
-                                    <option value="80">Upper Egypt - L.E 80</option>
-                                </select>
-                            </div>
-                            @error('delivery')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
 
-                    <!-- Estimate Delivery Button -->
-                    <div class="col-md-12 mb-4">
-                        <button type="button" id="estimate-delivery" class="btn btn-primary">Estimate Delivery Cost</button>
-                    </div>
-
-                    <!-- Placeholder to Display Estimated Delivery Cost -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Estimated Delivery Cost:</label>
-                            <p id="estimated-delivery-cost" class="font-weight-bold">L.E 0</p>
-                        </div>
-                    </div>--}}
               </div>
               </div>
                   </div>

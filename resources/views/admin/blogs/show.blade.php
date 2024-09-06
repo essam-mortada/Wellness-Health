@@ -20,9 +20,9 @@
                     </div>
                     <div class="col-md-4 text-center">
                         @if($blog->image!= 'default.png')
-                            <img src="{{ asset('blogs_uploads/'.$blog->image) }}" width="200" height="200">
+                            <img src="{{ asset('public/blogs_uploads/'.$blog->image) }}" width="200" height="200">
                         @else
-                            <img src="{{ asset('blogs_uploads/default.png') }}" width="200" height="200">
+                            <img src="{{ asset('public/blogs_uploads/default.png') }}" width="200" height="200">
                         @endif
                     </div>
                     <div class="col-md-6 mb-5 mt-3 text-center">

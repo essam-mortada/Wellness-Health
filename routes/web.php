@@ -3,7 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymobController;
 use App\Http\Controllers\ReviewController;

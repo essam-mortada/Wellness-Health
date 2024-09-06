@@ -1,4 +1,3 @@
-<!-- resources/views/admin/products/show.blade.php -->
 
 @include('admin.layouts.header')
 
@@ -22,9 +21,9 @@
                     </div>
                     <div class="col-md-6">
                         @if($product->image!= 'default.png')
-                            <img src="{{ asset('products_uploads/'.$product->image) }}" width="200" height="200">
+                            <img src="{{ asset('public/products_uploads/'.$product->image) }}" width="200" height="200">
                         @else
-                            <img src="{{ asset('products_uploads/default.png') }}" width="200" height="200">
+                            <img src="{{ asset('public/products_uploads/default.png') }}" width="200" height="200">
                         @endif
                     </div>
                     <div class="col-md-6 mb-5 mt-3 text-center">
