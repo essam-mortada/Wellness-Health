@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="pb-md-5">
-                <p>At Wellness Health, we believe that good health is the foundation of a happy life. Our mission is to provide you with natural, high-quality products that support a balanced, healthy lifestyle. From nutrient-rich supplements to eco-friendly skincare, we are committed to offering products that nourish your body and mind.</p>
+                <p>At Wellnez mart, we believe that good health is the foundation of a happy life. Our mission is to provide you with natural, high-quality products that support a balanced, healthy lifestyle. From nutrient-rich supplements to eco-friendly skincare, we are committed to offering products that nourish your body and mind.</p>
                           <p>We source our products from trusted, sustainable partners, ensuring that every item we offer is not only effective but also ethically made. Whether you’re looking to boost your energy, enhance your wellness routine, or simply live a healthier life, we’re here to support you on your journey.</p>
                           <p><a href="{{route('shop')}}" class="btn btn-primary">Shop now</a></p>
                       </div>
