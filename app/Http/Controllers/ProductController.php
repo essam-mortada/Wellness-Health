@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\orderItems;
 use App\Models\product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
