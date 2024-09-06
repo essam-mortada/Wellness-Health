@@ -9,7 +9,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+            <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap">
                 <h1>products Reviews</h1>
             </div>
             <div class="table-responsive">

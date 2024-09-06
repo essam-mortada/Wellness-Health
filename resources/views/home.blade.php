@@ -9,7 +9,7 @@
 
           <div class="col-md-12 ftco-animate text-center">
             <h1 style="color: black" class="mb-2">Nourish Your Body &amp; Empower Your Life  </h1>
-            <h2 class="subheading mb-4">100% Safe Products </h2>
+            <h2 style="color: black" class="subheading mb-4">100% Safe Products </h2>
             <p><a href="#products" class="btn btn-primary">View Details</a></p>
           </div>
 
@@ -24,7 +24,7 @@
 
           <div class="col-sm-12 ftco-animate text-center">
             <h1 style="color: black" class="mb-2">We serve Your Health &amp; Body</h1>
-            <h2 class="subheading mb-4">ِA click away from your home</h2>
+            <h2 style="color: black" class="subheading mb-4">ِA click away from your home</h2>
             <p><a href="#products" class="btn btn-primary">View Details</a></p>
           </div>
 
