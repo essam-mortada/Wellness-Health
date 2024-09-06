@@ -164,13 +164,13 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="form-group">
+                                  {{--<div class="form-group">
                                       <div class="col-md-12">
                                           <div class="radio">
                                              <label><input type="radio" name="payment" value="online payment" class="mr-2"> online payment</label>
                                           </div>
                                       </div>
-                                  </div>
+                                  </div>--}}
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="checkbox">
