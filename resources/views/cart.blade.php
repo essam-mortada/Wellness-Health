@@ -48,7 +48,7 @@
                             @foreach(session('cart') as $id => $details)
                             <tr class="text-center">
                               <td class="product-remove">
-                                <form id="remove-from-cart-form-{{ $id }}" action="{{ route('cart.remove', $id) }}" method="POST">
+                                <form  action="{{ route('cart.remove', $id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button style="padding: 10px; cursor:pointer;" type="submit"><i class="ion-ios-close"></i></button>
