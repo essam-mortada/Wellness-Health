@@ -20,24 +20,20 @@
     @endif
     <div class="container">
 
-        <div class="row d-flex mb-5 contact-info">
+        <div class="row d-flex mb-5 contact-info justify-content-between">
         <div class="w-100"></div>
-        
-        <div class="col-md-3 d-flex">
+
+        <div class="col-md-5 d-flex ">
             <div class="info bg-white p-4">
-              <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+              <p><span>Phone:</span> <a href="tel://1234567920">+20 102 580 6537</a></p>
             </div>
         </div>
-        <div class="col-md-3 d-flex">
+        <div class="col-md-5 d-flex">
             <div class="info bg-white p-4">
-              <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+              <p><span>Email:</span> <a href="mailto:info@yoursite.com">help@wellnezmart.net</a></p>
             </div>
         </div>
-        <div class="col-md-3 d-flex">
-            <div class="info bg-white p-4">
-              <p><span>Website</span> <a href="#">yoursite.com</a></p>
-            </div>
-        </div>
+
       </div>
       <div class="row block-9">
         <div class="col-md-9 m-auto order-md-last d-flex">
