@@ -14,6 +14,7 @@
             <p>Nourish Your Body, Empower Your Life.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate"><a href="http://wa.me/201025806537"><span class="icon-whatsapp"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=61565158782330&mibextid=kFxxJD"><span class="icon-facebook"></span></a></li>
               <li class="ftco-animate"><a href="https://www.instagram.com/wellnezzmart?igsh=MXRvMGZuNnZzMW5lcQ=="><span class="icon-instagram"></span></a></li>
             </ul>
           </div>
