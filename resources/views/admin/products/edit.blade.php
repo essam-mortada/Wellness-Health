@@ -2,7 +2,7 @@
 
 @include('admin.layouts.header')
 
-<div class="container mt-5">
+<div class="container mt-3">
     @if (session('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
