@@ -74,9 +74,10 @@
                         <select id="delivery-region" required name="delivery"  value="{{ old('delivery') }}" class="form-control">
                            <option disabled selected>select your delivery region</option>
                             <option value="50">cairo & giza</option>
-                            <option value="60">alexandria</option>
-                            <option value="70">delta governorates</option>
-                            <option value="80">upper egypt</option>
+                            <option value="100">Lower Egypt & alexandria</option>
+                            <option value="100">delta governorates</option>
+                            <option value="150">upper egypt</option>
+                            <option value="200">North & south sinai</option>
                         </select>
 
                       </div>
