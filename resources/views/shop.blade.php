@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
-                <h2 class="mb-4">Our Products</h2>
+                <h2 class="mb-3">Our Products</h2>
             </div>
         </div>
         <div class="row">
