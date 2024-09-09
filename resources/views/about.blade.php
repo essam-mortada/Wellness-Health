@@ -17,7 +17,7 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{asset('public/assets/images/about.jpg')}});">
-                      <a href="https://youtu.be/XlrUjVSxJPU?si=GL_YvQNedJzU9gsn" class="icon  d-flex justify-content-center align-items-center">
+                      <a href="#" class="icon  d-flex justify-content-center align-items-center">
                           <span class="icon-play"></span>
                       </a>
                   </div>
