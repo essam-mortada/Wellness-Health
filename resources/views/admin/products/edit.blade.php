@@ -11,7 +11,7 @@
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <h1>Edit Product: {{ $product->name }}</h1>
+            <h4>Edit Product: {{ $product->name }}</h4>
             <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
