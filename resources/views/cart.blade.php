@@ -58,7 +58,6 @@
 
                               <td class="product-name">
                                   <h3>{{$details['name']}}</h3>
-                                  <p>{{$details['description']}}</p>
                               </td>
 
                               <td class="price">L.E{{$details['price']}}</td>
