@@ -61,7 +61,7 @@
         <div class="row mt-5">
       <div class="col text-center">
         <div class="block-27">
-         {{$products->links('pagination::bootstrap-5')}}
+         {{$products->links()}}
         </div>
       </div>
     </div>
