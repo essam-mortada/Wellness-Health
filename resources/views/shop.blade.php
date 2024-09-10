@@ -60,8 +60,8 @@
         </div>
         <div class="row mt-5">
       <div class="col text-center">
-        <div class="block-27">
-         {{$products->links()}}
+        <div class="w-100">
+         {{$products->links('pagination::default')}}
         </div>
       </div>
     </div>
