@@ -61,7 +61,7 @@
         <div class="row mt-5">
       <div class="col text-center">
         <div class="w-100">
-         {{$products->links('pagination::default')}}
+         {{$products->links('pagination::bootstrap-5')}}
         </div>
       </div>
     </div>
