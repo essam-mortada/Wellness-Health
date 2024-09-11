@@ -60,7 +60,7 @@
                                   <h3>{{$details['name']}}</h3>
                               </td>
 
-                              <td class="price">L.E{{$details['price']}}</td>
+                              <td class="price">EGP{{$details['price']}}</td>
 
                               <td class="quantity">
                                 <form id="update-quantity-form-{{ $id }}" action="{{route('cart.update')}}" method="POST">
@@ -74,7 +74,7 @@
                                 </div>
                             </td>
 
-                              <td class="total">L.E{{$details['price'] * $details['quantity']}}</td>
+                              <td class="total">EGP{{$details['price'] * $details['quantity']}}</td>
                             </tr><!-- END TR-->
 
 
@@ -99,13 +99,13 @@
                       <h3>Cart Totals</h3>
                       <p class="d-flex">
                           <span>Subtotal</span>
-                          <span>L.E{{$total}}</span>
+                          <span>EGP{{$total}}</span>
                       </p>
 
                       <hr>
                       <p class="d-flex total-price">
                           <span>Total</span>
-                          <span>L.E{{$total}}</span>
+                          <span>EGP{{$total}}</span>
                       </p>
                   </div>
                   <p><a href="{{route('checkout')}}" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>

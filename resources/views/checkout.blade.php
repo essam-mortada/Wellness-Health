@@ -140,17 +140,17 @@
                         <h3 class="billing-heading mb-4">Cart Total</h3>
                         <p class="d-flex">
                                   <span>Subtotal</span>
-                                  <span>L.E {{$total}}</span>
+                                  <span>EGP {{$total}}</span>
                               </p>
                               <p class="d-flex">
                                 <span>delivery</span>
-                                <span id="delivery-cost">L.E {{ session('temporary_order.delivery', 0)}}</span>
+                                <span id="delivery-cost">EGP {{ session('temporary_order.delivery', 0)}}</span>
                             </p>
 
                               <hr>
                               <p class="d-flex total-price">
                                   <span>Total</span>
-                                  <span id="total-price">L.E {{$total + session('temporary_order.delivery', 0)}}</span>
+                                  <span id="total-price">EGP {{$total + session('temporary_order.delivery', 0)}}</span>
                               </p>
                               </div>
                 </div>
@@ -198,14 +198,14 @@
         var selectedDeliveryCost = parseInt(this.value);
 
         // Update the delivery cost display
-        document.getElementById('delivery-cost').innerText =  'L.E ' + selectedDeliveryCost;
+        document.getElementById('delivery-cost').innerText =  'EGP ' + selectedDeliveryCost;
 
         // Get the subtotal (assuming $total is available in the template)
         var subtotal = {{ $total }};
 
         // Calculate and update the total price
         var total = subtotal + selectedDeliveryCost;
-        document.getElementById('total-price').innerText = 'L.E ' + total;
+        document.getElementById('total-price').innerText = 'EGP ' + total;
     });
 </script>
 

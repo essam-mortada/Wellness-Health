@@ -44,7 +44,7 @@
                           </p>
 
                       </div>
-                  <p class="price"><span>L.E{{$product->price}}</span></p>
+                  <p class="price"><span>EGP{{$product->price}}</span></p>
                   <p>{{$product->description}}
                       </p>
                       <div class="row mt-4">
@@ -181,7 +181,7 @@
                         @endif
                           <div class="d-flex">
                               <div class="pricing">
-                                  <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">L.E{{$product->price}}</span></p>
+                                  <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">EGP{{$product->price}}</span></p>
                               </div>
                           </div>
                           <div class="bottom-area d-flex px-3">
