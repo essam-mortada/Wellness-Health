@@ -12,7 +12,9 @@ use App\Http\Controllers\usersMessagesController;
 use Illuminate\Support\Facades\Route;
 
 
-
+Route::fallback(function () {
+    return response()->view('error-404', [], 404);
+});
 Route::get('/admin/login',[userController::class,'showLoginForm'])->name('login');
 Route::post('/admin/login',[userController::class,'Login']);
 
