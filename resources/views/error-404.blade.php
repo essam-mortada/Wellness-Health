@@ -1,5 +1,6 @@
 <title>error 404</title>
 <link rel="stylesheet" href="{{asset('public/assets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-9 text-center mt-2">
