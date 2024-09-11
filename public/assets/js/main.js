@@ -358,19 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    window.onload = function() {
-        // Select all alerts
-        const alerts = document.querySelectorAll('.alert');
 
-        // Loop through each alert and set a timeout to hide it
-        alerts.forEach(function(alert) {
-            setTimeout(function() {
-                alert.style.transition = "opacity 1s ease"; // Add fade-out transition
-                alert.style.opacity = '0'; // Fade out effect
-                setTimeout(() => alert.remove(), 1000); // Remove from DOM after fade-out
-            }, 3000); // 3 seconds delay
-        });
-    };
 });
 
 
