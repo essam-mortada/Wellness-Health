@@ -9,7 +9,7 @@
         @endif
         <div class="row">
             <div class="col-md-12">
-                <h1>Product Details</h1>
+                <h4>Product Details</h4>
                 <a href="{{ route('products.index') }}" class="btn btn-success">Back to Products</a>
                 <hr>
                 <div class="row">

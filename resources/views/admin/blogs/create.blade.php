@@ -10,7 +10,7 @@
 
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12">
-            <h1>Add New blog</h1>
+            <h4>Add New blog</h4>
 
             <form method="POST" enctype="multipart/form-data" action="{{ route('blogs.store') }}">
                 @csrf
@@ -30,14 +30,14 @@
                     <textarea id="content" name="content" class="form-control" rows="4" required></textarea>
                 </div>
 
-               
+
 
                 <div class="form-group">
                     <label for="image">blog Image:</label>
                     <input type="file" id="image" name="image" class="form-control-file">
                 </div>
 
-              
+
                 <button type="submit" class="btn btn-primary">Create blog</button>
             </form>
 

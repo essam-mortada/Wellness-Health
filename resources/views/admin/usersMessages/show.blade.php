@@ -10,7 +10,7 @@
         @endif
         <div class="row">
             <div class="col-md-12">
-                <h1>order Details</h1>
+                <h4>order Details</h4>
                 <a href="{{ route('messages.index') }}" class="btn btn-success" >Back to messages</a>
                 <hr>
                 <div class="row">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                  
+
                 </div>
             </div>
         </div>

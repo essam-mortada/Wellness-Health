@@ -10,7 +10,7 @@
 
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-sm-12">
-            <h1>Add New Product</h1>
+            <h4>Add New Product</h4>
 
             <form method="POST" enctype="multipart/form-data" action="{{ route('products.store') }}">
                 @csrf

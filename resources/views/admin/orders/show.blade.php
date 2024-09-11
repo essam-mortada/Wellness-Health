@@ -10,7 +10,7 @@
         @endif
         <div class="row">
             <div class="col-md-12">
-                <h1>order Details</h1>
+                <h4>order Details</h4>
                 <a href="{{ route('orders.index') }}" class="btn btn-success" >Back to Orders</a>
                 <hr>
                 <div class="row">
@@ -27,17 +27,17 @@
                 </div>
                 <h2 class="">Order products</h2>
                 <div class="col-8 ">
-                    
-                    
+
+
                             @foreach($order->orderItems as $item)
-                                
+
                                     <p><strong>Product: </strong>{{ $item->product->name }}</p>
                                     <p><strong>Quantity: </strong>{{ $item->quantity }}</p>
                                     <hr>
-                               
-                                
+
+
                             @endforeach
-                  
+
                     </div>
                     <div class="row">
                     <form class="mr-3 ml-3" action="{{route('orders.delivery',$order->id)}}" method="POST">
