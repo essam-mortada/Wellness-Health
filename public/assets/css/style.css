@@ -10015,34 +10015,3 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
 
-    .alert>.start-icon {
-        margin-right: 0;
-        min-width: 20px;
-        text-align: center;
-    }
-
-    .alert>.start-icon {
-        margin-right: 5px;
-    }
-
-    .greencross
-    {
-      font-size:18px;
-          color: #25ff0b;
-        text-shadow: none;
-    }
-
-    .alert-simple.alert-success
-    {
-      border: 1px solid rgba(36, 241, 6, 0.46);
-        background-color: rgba(7, 149, 66, 0.12156862745098039);
-        box-shadow: 0px 0px 2px #259c08;
-        color: #0ad406;
-      text-shadow: 2px 1px #00040a;
-      transition:0.5s;
-      cursor:pointer;
-    }
-    .alert-success:hover{
-      background-color: rgba(7, 149, 66, 0.35);
-      transition:0.5s;
-    }
