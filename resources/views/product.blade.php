@@ -1,5 +1,5 @@
 @include('layouts.header')
-
+<title>{{$product->name}}</title>
 <div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
