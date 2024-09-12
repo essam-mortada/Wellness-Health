@@ -1,4 +1,5 @@
 @include('layouts.product-header')
+
 <div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
     <div class="container">
@@ -168,7 +169,7 @@
 
               <div class="col-md-6 col-lg-3 ftco-animate">
                   <div class="product text-center" style="height:90%;width:100%">
-                      <a href="{{ route('products.show', ['product' => $product->id, 'slug' => Str::slug($product->name)]) }}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
+                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                           <!--<span class="status">30%</span>-->
                           <div class="overlay"></div>
                       </a>
@@ -185,7 +186,7 @@
                           </div>
                           <div class="bottom-area d-flex px-3">
                               <div class="m-auto d-flex">
-                                  <a href="{{ route('products.show', ['product' => $product->id, 'slug' => Str::slug($product->name)]) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                  <a href="{{route('products.show',$product->id)}}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                       <span><i class="ion-ios-eye"></i></span>
                                   </a>
                                   <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
