@@ -61,12 +61,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(product $product, $slug)
+    public function show(product $product)
     {
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
-        
+
         return view('product',compact('product','products','reviews','averageRating'));
 
     }
