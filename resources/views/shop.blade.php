@@ -27,7 +27,7 @@
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="{{ route('products.show', $product->id) }}">{{$product->name}}</a></h3>
+                        <h3><a href="{{ route('products.show', ['product' => $product->id, 'slug' => Str::slug($product->name)]) }}">{{$product->name}}</a></h3>
                         @if ($product->quantity == 0)
 
                         <div class="text-danger"><p>out of stock</p></div>
