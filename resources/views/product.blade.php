@@ -186,7 +186,7 @@
                           </div>
                           <div class="bottom-area d-flex px-3">
                               <div class="m-auto d-flex">
-                                  <a href="{{ route('products.show', ['product' => $product->id, 'slug' => $product->slug]) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                  <a href="{{ route('products.show', ['product' => $product->id, 'slug' => Str::slug($product->name)]) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                       <span><i class="ion-ios-eye"></i></span>
                                   </a>
                                   <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
