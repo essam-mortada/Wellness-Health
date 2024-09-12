@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
+    <link rel="canonical" href="{{ route('products.show', ['product' => $product->id, 'slug' => Str::slug($product->name)]) }}" />
+    <meta name="description" content="{{$product->description}}">
   </head>
   <body class="goto-here">
 
