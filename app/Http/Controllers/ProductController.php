@@ -68,7 +68,7 @@ class ProductController extends Controller
         }
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
-        $products=product::paginate(4);
+        $products=product::where('id', '!=', $product->id)->paginate(4);
 
         return view('product',compact('product','products','reviews','averageRating'));
 
