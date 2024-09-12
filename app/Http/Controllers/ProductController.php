@@ -63,6 +63,9 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
+        if (!$product) {
+            return view('error-404');
+        }
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
