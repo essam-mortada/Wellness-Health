@@ -63,14 +63,10 @@ class ProductController extends Controller
      */
     public function show(product $product, $slug)
     {
-        $generatedSlug= Str::slug($product->name);
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
-        if ($generatedSlug !== $slug) {
-            // If the slug does not match, redirect to the correct URL
-            return redirect()->route('products.show', ['product' => $product->id, 'slug' => $generatedSlug], 301);
-        }
+        
         return view('product',compact('product','products','reviews','averageRating'));
 
     }
