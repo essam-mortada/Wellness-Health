@@ -69,7 +69,7 @@ class ProductController extends Controller
         $products=product::paginate(4);
         if ($generatedSlug !== $slug) {
             // If the slug does not match, redirect to the correct URL
-            return redirect()->route('products.show', ['product' => $product->id, 'slug' => $generatedSlug]);
+            return redirect()->route('products.show', ['product' => $product->id, 'slug' => $generatedSlug], 301);
         }
         return view('product',compact('product','products','reviews','averageRating'));
 
