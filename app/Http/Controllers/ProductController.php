@@ -67,7 +67,7 @@ class ProductController extends Controller
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
-        if ($product->slug !== $slug) {
+        if ($generatedSlug !== $slug) {
             // If the slug does not match, redirect to the correct URL
             return redirect()->route('products.show', ['product' => $product->id, 'slug' => $generatedSlug]);
         }
