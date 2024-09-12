@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
-    
+    <meta name="description" content="{{ Str::limit($product->description, 160) }}">
+
   </head>
   <body class="goto-here">
 
