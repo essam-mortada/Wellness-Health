@@ -88,7 +88,7 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'removeFromCar
 Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
 
 //products
-Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/show/{product}/{slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
 //views

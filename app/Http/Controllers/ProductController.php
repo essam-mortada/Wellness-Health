@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 
 use App\Models\orderItems;
 use App\Models\product;
@@ -60,11 +61,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(product $product)
+    public function show(product $product, $slug)
     {
+        $product->slug = Str::slug($product->name);
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products=product::paginate(4);
+        if ($product->slug !== $slug) {
+            // If the slug does not match, redirect to the correct URL
+            return redirect()->route('products.show', ['product' => $product->id, 'slug' => $product->slug]);
+        }
         return view('product',compact('product','products','reviews','averageRating'));
 
     }
