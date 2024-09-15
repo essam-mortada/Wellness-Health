@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <title>Wellness Health admin</title>
+    <title>Wellnez Mart admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon">
@@ -32,7 +32,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="{{route('home')}}">Wellness Health Admin</a>
+	      <a class="navbar-brand" href="{{route('home')}}">Wellnez Mart Admin</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
