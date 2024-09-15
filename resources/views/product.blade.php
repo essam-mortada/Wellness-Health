@@ -74,7 +74,11 @@
                     <p style="color: #000;">{{$product->quantity}} pieces available</p>
                 </div>
             </div>
-            <p><input type="submit" value="Add To Cart" class="btn btn-black py-3 px-5"></p>
+            @if ($product->quantity == 0)
+            <p><input type="submit" disabled value="Add To Cart" class="btn btn-black py-3 px-5"></p>
+            @else
+            <p><input type="submit"  value="Add To Cart" class="btn btn-black py-3 px-5"></p>
+            @endif
         </form>
               </div>
           </div>
@@ -192,8 +196,11 @@
                                   <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <form  action="{{ route('cart.add', $product->id) }}" method="POST">
                                         @csrf
+                                        @if ($product->quantity == 0)
+                                        <span><button disabled style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
+                                        @else
                                         <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
-
+                                        @endif
                                     </form>
                                   </a>
 

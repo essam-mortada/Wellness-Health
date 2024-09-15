@@ -45,8 +45,11 @@
                                 <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <form action="{{ route('cart.add', $product->id) }}" method="POST">
                                         @csrf
-                                        <span><button style="border:none;color:white;background-color:transparent;margin-top:12px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
-
+                                        @if ($product->quantity == 0)
+                                        <span><button disabled style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
+                                        @else
+                                        <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
+                                        @endif
                                     </form>
                                 </a>
 
