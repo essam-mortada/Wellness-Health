@@ -18,6 +18,8 @@
                         <p><strong>Price:</strong> {{ $product->price }}</p>
                         <p><strong>Description:</strong> {{ $product->description }}</p>
                         <p><strong>Quantity:</strong> {{ $product->quantity }}</p>
+                        <p><strong>Category:</strong> {{ $product->category->name }}</p>
+
                     </div>
                     <div class="col-md-6">
                         @if($product->image!= 'default.png')

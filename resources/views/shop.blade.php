@@ -14,6 +14,18 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <h2 class="mb-3">Our Products</h2>
+
+                <form class=""  action="{{ route('shop.filter') }}" method="GET">
+                    <select class="form-control m-auto col-md-3 col-sm-3 rounded-pill border border-success " name="category" onchange="this.form.submit()">
+                        <option value="" disabled selected>Filter  </option>
+                        <option value="all">All</option>
+                        <option value="herbs">Herbs</option>
+                        <option value="body care">Body care</option>
+                        <option value="nutrition">Nutrition</option>
+                        <option value="vitamins">Vitamins</option>
+                        <option value="supplements">Supplements</option>
+                    </select>
+                </form>
             </div>
         </div>
         <div class="row">
@@ -22,7 +34,7 @@
 
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product text-center" style="height:90%;width:100%">
-                    <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
+                    <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
                       <!--  <span class="status">30%</span>-->
                         <div class="overlay"></div>
                     </a>

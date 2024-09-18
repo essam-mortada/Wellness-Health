@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Str;
 
-use App\Models\orderItems;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -38,6 +36,7 @@ class ProductController extends Controller
             'price'=>'required|integer',
             'description'=>'required|string',
             'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'category'=>'required|in:vitamins,body care,herbs,nutrition,supplements',
             'quantity'=>'required|integer|min:0'
             ]);
 
@@ -47,6 +46,7 @@ class ProductController extends Controller
             $product->price = $request->price;
             $product->description = $request->description;
             $product->quantity = $request->quantity;
+            $product->category= $request->category;
             if ($request->hasFile('image')) {
                 $imageName = time().rand(0,500).'.'.$request->image->extension();
                 $request->image->move(public_path('products_uploads'), $imageName);
@@ -99,6 +99,7 @@ class ProductController extends Controller
             'price'=>'required|integer',
             'description'=>'required|string',
             'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'category'=>'required|in:vitamins,body care,herbs,nutrition,supplements',
             'quantity'=>'required|integer|min:0'
         ]);
         if($request->hasFile('image')){
@@ -110,6 +111,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
+        $product->category= $request->category;
         $product->quantity = $request->quantity;
         $product->save();
         return redirect()->route('products.index')->with('success','Product updated successfully.');
@@ -129,5 +131,18 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index')->with('success','Product deleted successfully.');
     }
+
+    public function filterByCategory(Request $request)
+    {
+        $category = $request->input('category');
+
+        if ($category == 'all') {
+            $products = Product::paginate(8);
+        }else{
+        $products = Product::where('category', $category)->paginate(8);
+        }
+        return view('shop',compact('products'));
+    }
+
 
 }

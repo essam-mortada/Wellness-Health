@@ -89,6 +89,9 @@ Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.st
 
 //products
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/shop/filter', [ProductController::class, 'filterByCategory'])->name('shop.filter');
+
+
 Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
 //views

@@ -31,6 +31,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="category">Product category:</label>
+                    <select class="form-control" required name="category" id="">
+                        <option selected disabled value="">select a category</option>
+                        <option value="herbs">herbs</option>
+                        <option value="body care">body care</option>
+                        <option value="nutrition">nutrition</option>
+                        <option value="vitamins">vitamins</option>
+                        <option value="supplements">supplements</option>
+                    </select>
+              </div>
+
+                <div class="form-group">
                     <label for="image">Product Image:</label>
                     <input type="file" id="image" name="image" class="form-control-file">
                 </div>

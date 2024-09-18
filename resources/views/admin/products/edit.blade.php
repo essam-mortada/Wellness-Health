@@ -27,6 +27,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="category">Product category:</label>
+                    <select class="form-control" required name="category" id="">
+                        <option selected disabled value="">select a category</option>
+                        <option value="herbs">herbs</option>
+                        <option value="body care">body care</option>
+                        <option value="nutrition">nutrition</option>
+                        <option value="vitamins">vitamins</option>
+                        <option value="supplements">supplements</option>
+                    </select>
+              </div>
+
+                <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
                 </div>
@@ -40,9 +52,9 @@
                     <label for="image">Image:</label>
                     <input type="file" class="form-control" id="image" name="image">
                     @if($product->image != 'default.png')
-                        <img src="{{ asset('public/products_uploads/'.$product->image) }}" width="50" height="50">
+                        <img src="{{ asset('products_uploads/'.$product->image) }}" width="50" height="50">
                     @else
-                        <img src="{{ asset('public/products_uploads/default.png') }}" width="50" height="50">
+                        <img src="{{ asset('products_uploads/default.png') }}" width="50" height="50">
                     @endif
                 </div>
 
