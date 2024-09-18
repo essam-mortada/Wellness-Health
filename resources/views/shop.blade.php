@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="row">
-            @if (isempty($products))
+            @if (isEmpty($products))
             <div class="col-md-12 text-center">
                 <h2 class="mb-3">No products found</h2>
                 </div>
