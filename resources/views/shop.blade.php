@@ -29,11 +29,7 @@
             </div>
         </div>
         <div class="row">
-            @if (isEmpty($products))
-            <div class="col-md-12 text-center">
-                <h2 class="mb-3">No products found</h2>
-                </div>
-                @else
+
 
             @foreach ($products as $product)
 
@@ -77,7 +73,7 @@
                 </div>
             </div>
             @endforeach
-            @endif
+            
         </div>
         <div class="row mt-5">
       <div class="col text-center">
