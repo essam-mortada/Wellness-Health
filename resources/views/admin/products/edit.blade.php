@@ -51,11 +51,7 @@
                 <div class="form-group">
                     <label for="image">Image:</label>
                     <input type="file" class="form-control" id="image" name="image">
-                    @if($product->image != 'default.png')
-                        <img src="{{ asset('public/products_uploads/'.$product->image) }}" width="50" height="50">
-                    @else
-                        <img src="{{ asset('public/products_uploads/default.png') }}" width="50" height="50">
-                    @endif
+                  
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Product</button>
