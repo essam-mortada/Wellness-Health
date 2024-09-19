@@ -76,7 +76,7 @@
                 </div>
             </div>
             @empty
-            <div class="col-md-6  ftco-animate">
+            <div class="col-md-6 text-center ftco-animate">
                 <h2>No products found!</h2>
             @endforelse
 
