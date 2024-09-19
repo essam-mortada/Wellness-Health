@@ -20,10 +20,13 @@
                         <option value="" disabled selected>Filter  </option>
                         <option value="all">All</option>
                         <option value="herbs">Herbs</option>
-                        <option value="body care">Body care</option>
+                        <option value="skin care">Skin care</option>
+                        <option value="hair care">Hair care</option>
                         <option value="nutrition">Nutrition</option>
                         <option value="vitamins">Vitamins</option>
-                        <option value="supplements">Supplements</option>
+                        <option value="weight loss supplements">Weight loss supplements</option>
+                        <option value="weight gain supplements">Weight gain supplements</option>
+
                     </select>
                 </form>
             </div>
@@ -73,7 +76,7 @@
                 </div>
             </div>
             @endforeach
-            
+
         </div>
         <div class="row mt-5">
       <div class="col text-center">

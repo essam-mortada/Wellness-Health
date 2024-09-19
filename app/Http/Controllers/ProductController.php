@@ -99,7 +99,7 @@ class ProductController extends Controller
             'price'=>'required|integer',
             'description'=>'required|string',
             'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements',
+            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
             'quantity'=>'required|integer|min:0'
         ]);
         if($request->hasFile('image')){
