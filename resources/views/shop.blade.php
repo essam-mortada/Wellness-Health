@@ -34,7 +34,7 @@
         <div class="row">
 
 
-            @foreach ($products as $product)
+            @forelse ($products as $product)
 
 
             <div class="col-md-6 col-lg-3 ftco-animate">
@@ -75,7 +75,10 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <h2>No products found!</h2>
+            @endforelse
 
         </div>
         <div class="row mt-5">
