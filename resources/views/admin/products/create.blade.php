@@ -34,11 +34,13 @@
                     <label for="category">Product category:</label>
                     <select class="form-control" required name="category" id="">
                         <option selected disabled value="">select a category</option>
-                        <option value="herbs">herbs</option>
-                        <option value="body care">body care</option>
-                        <option value="nutrition">nutrition</option>
-                        <option value="vitamins">vitamins</option>
-                        <option value="supplements">supplements</option>
+                        <option value="herbs">Herbs</option>
+                        <option value="skin care">Skin care</option>
+                        <option value="hair care">Hair care</option>
+                        <option value="nutrition">Nutrition</option>
+                        <option value="vitamins">Vitamins</option>
+                        <option value="weight loss supplements">Weight loss supplements</option>
+                        <option value="weight gain supplements">Weight gain supplements</option>
                     </select>
               </div>
 
