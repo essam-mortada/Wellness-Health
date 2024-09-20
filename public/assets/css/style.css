@@ -10026,10 +10026,6 @@ textarea.form-control {
         text-align: center;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease-in-out;
-        -webkit-animation:jump 1s ease 0s infinite normal;
-        -moz-animation:jump 1s ease 0s infinite normal;
-        -ms-animation:jump 1s ease 0s infinite normal;
-        animation:jump 1s ease 0s infinite normal;
     }
 
     .chat-button i {
@@ -10047,7 +10043,13 @@ textarea.form-control {
     .chat-button img:hover {
         transform: scale(1.1);
     }
-
+/*
+    .chat-button{
+        -webkit-animation:jump 1s ease 0s infinite normal;
+        -moz-animation:jump 1s ease 0s infinite normal;
+        -ms-animation:jump 1s ease 0s infinite normal;
+        animation:jump 1s ease 0s infinite normal;
+        }
 
         @-webkit-keyframes jump{
         0%{ -webkit-transform:translateY(0); transform:translateY(0); }
