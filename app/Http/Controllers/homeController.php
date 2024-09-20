@@ -14,7 +14,7 @@ class homeController extends Controller
         if(Auth::user()){
             return redirect()->route('admin.home');
         }
-        $products= product::latest()->paginate(4);
+        $products= product::latest()->paginate(8);
         return view('home',compact('products'));
     }
 
