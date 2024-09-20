@@ -113,7 +113,7 @@
     <section class="ftco-section testimony-section">
         <div class="owl-carousel">
             @foreach ($products as $product)
-            <div class="item slider-item  col-md-6 col-lg-12 ftco-animate" >
+            <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a class="img-prod">
                         <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
