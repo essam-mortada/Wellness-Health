@@ -166,7 +166,6 @@
 
 
 
-<section class="ftco-section"  id="products"
 {{--
 <section class="ftco-section img" style="background-image: url({{asset('public/assets/images/bg_3.png')}});">
 <div class="container">
