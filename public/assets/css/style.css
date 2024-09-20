@@ -10044,9 +10044,6 @@ textarea.form-control {
         transform: scale(1.1);
     }
 
-
-
-
     .chat-button{
         -webkit-animation:jump 1s ease 0s infinite normal;
         -moz-animation:jump 1s ease 0s infinite normal;

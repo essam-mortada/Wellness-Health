@@ -47,7 +47,8 @@
 
   <div class="chat-button">
     <a  href="http://wa.me/201025806537" target="_blank">
-        <i class="icon-chat color-danger" aria-hidden="true"></i>    </a>
+        <i class="icon-chat color-danger" aria-hidden="true"></i>
+    </a>
 </div>
 
 <!-- loader -->
