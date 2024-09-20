@@ -116,7 +116,7 @@
             <div class="item slider-item  col-md-6 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a class="img-prod">
-                        <img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="Product Image">
+                        <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
@@ -211,6 +211,26 @@
       if (successMessage) {
         $('#successModal').modal('show');
       }
+    });
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop: true, // Infinite loop
+            margin: 5, // Adds space between items
+            autoplay: true, // Enables auto-sliding
+            autoplayTimeout: 1000, // Set to 1 second
+            autoplayHoverPause: true, // Pause when hovering
+            responsive: {
+                0: {
+                    items: 1 // 1 product on smaller screens
+                },
+                600: {
+                    items: 2 // 2 products on medium screens
+                },
+                1000: {
+                    items: 4 // 4 products on large screens
+                }
+            }
+        });
     });
   </script>
 
