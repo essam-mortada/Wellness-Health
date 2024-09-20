@@ -223,7 +223,7 @@
                     items: 1 // 1 product on smaller screens
                 },
                 600: {
-                    items: 3 // 2 products on medium screens
+                    items: 2 // 2 products on medium screens
                 },
                 1000: {
                     items: 4 // 4 products on large screens
