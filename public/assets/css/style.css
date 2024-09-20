@@ -10019,7 +10019,7 @@ textarea.form-control {
         position: fixed;
         bottom: 20px;
         left: 20px;
-        z-index: 9999; /* Makes sure it appears on top of other elements */
+        z-index: 9999;
         background-color: #82ae46;
         border-radius: 50%;
         padding: 20px;
@@ -10031,19 +10031,12 @@ textarea.form-control {
     .chat-button i {
         color: white;
     }
-    .chat-button img {
-        width: 60px; /* Size of the chat icon */
-        height: 60px;
-        cursor: pointer;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-    }
 
-    .chat-button img:hover {
+
+    .chat-button i:hover {
         transform: scale(1.1);
     }
-/*
+
     .chat-button{
         -webkit-animation:jump 1s ease 0s infinite normal;
         -moz-animation:jump 1s ease 0s infinite normal;
