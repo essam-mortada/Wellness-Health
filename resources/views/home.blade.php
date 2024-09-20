@@ -206,12 +206,11 @@
 
   <!-- JavaScript to Trigger Modal -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
       const successMessage = '{{ session("done") }}';
       if (successMessage) {
         $('#successModal').modal('show');
       }
-    });
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             loop: true, // Infinite loop
@@ -231,6 +230,8 @@
                 }
             }
         });
+    });
+
     });
   </script>
 
