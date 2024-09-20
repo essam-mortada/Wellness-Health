@@ -46,7 +46,7 @@
   </footer>
 
   <div class="chat-button">
-    <a  href="http://wa.me/201025806537" target="_blank">
+    <a  href="http://wa.me/201025806537" >
         <i class="icon-chat color-danger" aria-hidden="true"></i>
     </a>
 </div>
