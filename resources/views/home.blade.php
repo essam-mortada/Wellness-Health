@@ -220,7 +220,7 @@
             autoplayHoverPause: true, // Pause when hovering
             responsive: {
                 0: {
-                    items: 2 // 1 product on smaller screens
+                    items: 1 // 1 product on smaller screens
                 },
                 600: {
                     items: 3 // 2 products on medium screens
