@@ -55,9 +55,9 @@
 </div>
 </div>
 
-<div class="container" id="products">
+<div class="container" >
     <section class="ftco-section testimony-section">
-        <div class="owl-carousel">
+        <div class="owl-carousel" id="products">
             @foreach ($products as $product)
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
