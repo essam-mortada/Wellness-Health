@@ -218,7 +218,7 @@
             loop: true, // Infinite loop
             margin: 5, // Adds space between items
             autoplay: true, // Enables auto-sliding
-            autoplayTimeout: 1000, // Set to 1 second
+            autoplayTimeout: 2000, // Set to 1 second
             autoplayHoverPause: true, // Pause when hovering
             responsive: {
                 0: {
