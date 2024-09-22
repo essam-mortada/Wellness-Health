@@ -45,7 +45,7 @@
                     @forelse ($products as $product)
 
 
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 mt-3 col-lg-3 ftco-animate">
                         <div class="product text-center" style="height:90%;width:100%">
                             <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                               <!--  <span class="status">30%</span>-->
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 mt-3 text-center col-lg-3 ftco-animate">
                         <h3>No products to show!</h3>
                         </div>
 
@@ -105,7 +105,7 @@
                 @forelse ($offers as $product)
 
 
-                <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="col-md-6 mt-3 col-lg-3 ftco-animate">
                     <div class="product text-center" style="height:90%;width:100%">
                         <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                           <!--  <span class="status">30%</span>-->
@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 @empty
-                <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="col-md-6 mt-3 text-center col-lg-3 ftco-animate">
                     <h3>No offers to show!</h3>
                     </div>
 
@@ -154,7 +154,7 @@
             <div class="row mt-5">
           <div class="col text-center">
             <div class="w-100">
-             {{$products->links('pagination::bootstrap-5')}}
+             {{$offers->links('pagination::bootstrap-5')}}
             </div>
           </div>
         </div>
