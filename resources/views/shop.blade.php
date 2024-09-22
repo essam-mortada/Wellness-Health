@@ -39,7 +39,7 @@
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
+        <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
         <div class="row">
 
 
@@ -99,6 +99,7 @@
         </div>
         </div>
         </div>
+          </div>
         <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
             <div class="row">
 
@@ -158,6 +159,7 @@
           </div>
           </div>
 
+    </div>
     </div>
     </div>
 </section>
