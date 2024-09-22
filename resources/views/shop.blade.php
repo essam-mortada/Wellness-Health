@@ -40,7 +40,7 @@
           </nav>
           <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
-        <div class="row">
+            <div class="row">
 
 
             @forelse ($products as $product)
@@ -90,13 +90,13 @@
             @endforelse
 
         </div>
+        </div>
         <div class="row mt-5">
       <div class="col text-center">
         <div class="w-100">
          {{$products->links('pagination::bootstrap-5')}}
         </div>
       </div>
-        </div>
         </div>
         </div>
         <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
@@ -158,6 +158,7 @@
           </div>
           </div>
 
+    </div>
     </div>
     </div>
     </div>
