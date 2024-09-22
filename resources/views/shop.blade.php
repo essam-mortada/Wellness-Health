@@ -39,76 +39,70 @@
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
-            <div class="row">
+            <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
+                <div class="row">
+
+                    @foreach ($products as $product)
 
 
-            @forelse ($products as $product)
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="product text-center" style="height:90%;width:100%">
+                            <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
+                              <!--  <span class="status">30%</span>-->
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a href="{{ route('products.show', $product->id) }}">{{$product->name}}</a></h3>
+                                @if ($product->quantity == 0)
 
+                                <div class="text-danger"><p>out of stock</p></div>
+                                @endif
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">EGP{{$product->price}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="bottom-area d-flex px-3">
+                                    <div class="m-auto d-flex">
+                                        <a href="{{ route('products.show', $product->id) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                            <span><i class="ion-ios-eye"></i></span>
+                                        </a>
+                                        <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                                @csrf
+                                                @if ($product->quantity == 0)
+                                                <span><button disabled style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
+                                                @else
+                                                <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
+                                                @endif
+                                            </form>
+                                        </a>
 
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product text-center" style="height:90%;width:100%">
-                    <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
-                      <!--  <span class="status">30%</span>-->
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="{{ route('products.show', $product->id) }}">{{$product->name}}</a></h3>
-                        @if ($product->quantity == 0)
-
-                        <div class="text-danger"><p>out of stock</p></div>
-                        @endif
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale">EGP{{$product->price}}</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="{{ route('products.show', $product->id) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-eye"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
-                                        @csrf
-                                        @if ($product->quantity == 0)
-                                        <span><button disabled style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
-                                        @else
-                                        <span><button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit"><i class="ion-ios-cart"></i></button></span>
-                                        @endif
-                                    </form>
-                                </a>
-
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            @empty
-            <div class="col-md-6 text-center m-auto ftco-animate">
-                <h2>No products found!</h2>
-            @endforelse
+                    @endforeach
 
-        </div>
-        </div>
-        <div class="row mt-5">
-      <div class="col text-center">
-        <div class="w-100">
-         {{$products->links('pagination::bootstrap-5')}}
-        </div>
-      </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
+                </div>
+                <div class="row mt-5">
+              <div class="col text-center">
+                <div class="w-100">
+                 {{$products->links('pagination::bootstrap-5')}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
             <div class="row">
 
-
-                @forelse ($offers as $product)
+                @foreach ($offers as $product)
 
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product text-center" style="height:90%;width:100%">
-                        <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
+                        <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
                           <!--  <span class="status">30%</span>-->
                             <div class="overlay"></div>
                         </a>
@@ -144,10 +138,7 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                <div class="col-md-6 text-center m-auto ftco-animate">
-                    <h2>No products found!</h2>
-                @endforelse
+                @endforeach
 
             </div>
             <div class="row mt-5">
@@ -156,10 +147,9 @@
              {{$products->links('pagination::bootstrap-5')}}
             </div>
           </div>
+        </div>
           </div>
 
-    </div>
-    </div>
     </div>
     </div>
 </section>
