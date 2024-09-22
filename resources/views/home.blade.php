@@ -109,7 +109,7 @@
         </div>
     </section>
 </div>
-@if ($offers)
+@if (count($offers)>1)
 
 <div class="container" >
     <section class="ftco-section testimony-section">
