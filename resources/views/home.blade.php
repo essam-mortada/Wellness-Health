@@ -109,6 +109,63 @@
         </div>
     </section>
 </div>
+@if ($offers)
+
+<div class="container" >
+    <section class="ftco-section testimony-section">
+        <div class="owl-carousel">
+            @foreach ($offers as $product)
+            <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
+                <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
+                    <a class="img-prod">
+                        <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
+                        <div class="overlay"></div>
+                    </a>
+                    <div class="text py-3 pb-4 px-3 text-center">
+                        <h3><a href="{{route('products.show',$product->id)}}">{{$product->name}}</a></h3>
+                        @if ($product->quantity == 0)
+                        <div class="text-danger">
+                            <p>Out of stock</p>
+                        </div>
+                        @endif
+                        <div class="d-flex">
+                            <div class="pricing">
+                                <p class="price"><span class="price-sale">EGP{{$product->price}}</span></p>
+                            </div>
+                        </div>
+                        <div class="bottom-area d-flex px-3">
+                            <div class="m-auto d-flex">
+                                <a href="{{ route('products.show', $product->id) }}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                    <span><i class="ion-ios-eye"></i></span>
+                                </a>
+                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                        @csrf
+                                        @if ($product->quantity == 0)
+                                        <span>
+                                            <button disabled style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit">
+                                                <i class="ion-ios-cart"></i>
+                                            </button>
+                                        </span>
+                                        @else
+                                        <span>
+                                            <button style="border:none;color:white;background-color:transparent;margin-top:10px;cursor:pointer" type="submit">
+                                                <i class="ion-ios-cart"></i>
+                                            </button>
+                                        </span>
+                                        @endif
+                                    </form>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
+</div>
+@endif
 </section>
 
 
