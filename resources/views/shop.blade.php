@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="col-md-6 mt-3 text-center ftco-animate">
+                    <div class="col-md-6 mt-3 m-auto text-center ftco-animate">
                         <h3>No products to show!</h3>
                         </div>
 
@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 @empty
-                <div class="col-md-6 mt-3 text-center  ftco-animate">
+                <div class="col-md-6 mt-3 m-auto text-center  ftco-animate">
                     <h3>No offers to show!</h3>
                     </div>
 
