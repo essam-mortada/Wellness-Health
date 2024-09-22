@@ -99,7 +99,6 @@
         </div>
         </div>
         </div>
-          </div>
         <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
             <div class="row">
 
