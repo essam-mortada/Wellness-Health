@@ -42,12 +42,12 @@
             <div class="tab-pane fade show active" id="nav-products" role="tabpanel" aria-labelledby="nav-products-tab">
                 <div class="row">
 
-                    @foreach ($products as $product)
+                    @forelse ($products as $product)
 
 
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="product text-center" style="height:90%;width:100%">
-                            <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
+                            <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                               <!--  <span class="status">30%</span>-->
                                 <div class="overlay"></div>
                             </a>
@@ -83,7 +83,12 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <h3>No products to show!</h3>
+                        </div>
+
+                    @endforelse
 
                 </div>
                 <div class="row mt-5">
@@ -97,12 +102,12 @@
           <div class="tab-pane fade" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
             <div class="row">
 
-                @foreach ($offers as $product)
+                @forelse ($offers as $product)
 
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product text-center" style="height:90%;width:100%">
-                        <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('products_uploads/'.$product->image)}}" alt="product">
+                        <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="product">
                           <!--  <span class="status">30%</span>-->
                             <div class="overlay"></div>
                         </a>
@@ -138,7 +143,12 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <h3>No offers to show!</h3>
+                    </div>
+
+                @endforelse
 
             </div>
             <div class="row mt-5">
