@@ -14,8 +14,9 @@ class homeController extends Controller
         if(Auth::user()){
             return redirect()->route('admin.home');
         }
-        $products= product::latest()->paginate(8);
-        return view('home',compact('products'));
+        $products= product::where('type','product')->latest()->paginate(8);
+        $offers = product::where('type','offer')->latest()->paginate(8);
+        return view('home',compact('products','offers'));
     }
 
     public function ShowAbout(){
@@ -37,8 +38,9 @@ class homeController extends Controller
     }
     public function ShowShop(){
 
-        $products= product::paginate(8);
-        return view('shop',compact('products'));
+        $offers = product::where('type','offer')->paginate(8);
+        $products= product::where('type','product')->paginate(8);
+        return view('shop',compact('products','offers'));
     }
 
     public function ShowCheckout(){

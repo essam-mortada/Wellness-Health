@@ -36,7 +36,8 @@ class ProductController extends Controller
             'price'=>'required|integer',
             'description'=>'required|string',
             'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category'=>'required|in:vitamins,body care,herbs,nutrition,supplements',
+            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type'=>'required|in:product,offer',
             'quantity'=>'required|integer|min:0'
             ]);
 
@@ -47,6 +48,8 @@ class ProductController extends Controller
             $product->description = $request->description;
             $product->quantity = $request->quantity;
             $product->category= $request->category;
+            $product->type= $request->type;
+
             if ($request->hasFile('image')) {
                 $imageName = time().rand(0,500).'.'.$request->image->extension();
                 $request->image->move(public_path('products_uploads'), $imageName);
@@ -100,6 +103,7 @@ class ProductController extends Controller
             'description'=>'required|string',
             'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
             'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type'=>'required|in:product,offer',
             'quantity'=>'required|integer|min:0'
         ]);
         if($request->hasFile('image')){
@@ -112,6 +116,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->description = $request->description;
         $product->category= $request->category;
+        $product->type= $request->type;
         $product->quantity = $request->quantity;
         $product->save();
         return redirect()->route('products.index')->with('success','Product updated successfully.');

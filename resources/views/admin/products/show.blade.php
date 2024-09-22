@@ -18,7 +18,8 @@
                         <p><strong>Price:</strong> {{ $product->price }}</p>
                         <p><strong>Description:</strong> {{ $product->description }}</p>
                         <p><strong>Quantity:</strong> {{ $product->quantity }}</p>
-                        <p><strong>Category:</strong> {{ $product->category->name }}</p>
+                        <p><strong>Category:</strong> {{ $product->category }}</p>
+                        <p><strong>Type:</strong> {{ $product->type }}</p>
 
                     </div>
                     <div class="col-md-6">

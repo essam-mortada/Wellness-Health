@@ -40,6 +40,16 @@
                     </select>
               </div>
 
+              <div class="form-group">
+                <label for="type">Product type:</label>
+                <select class="form-control" required name="type" id="">
+                    <option selected disabled value="">select a type</option>
+                    <option value="product">product</option>
+                    <option value="offer">offer</option>
+
+                </select>
+                </div>
+
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
