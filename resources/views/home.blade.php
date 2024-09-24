@@ -110,7 +110,16 @@
     </section>
 </div>
 @if (count($offers)>1)
+<div class="container">
+    <div class="row justify-content-center mb-3 pb-3">
+<div class="col-md-12 heading-section text-center ftco-animate">
+  <span class="subheading">Deals of the day</span>
+<h2 class="mb-4">Our Offers</h2>
+<p>Explore our selection of offers</p>
+</div>
 
+</div>
+</div>
 <div class="container" >
     <section class="ftco-section testimony-section">
         <div class="owl-carousel">
