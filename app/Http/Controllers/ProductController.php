@@ -142,13 +142,14 @@ class ProductController extends Controller
         $category = $request->input('category');
 
         if ($category == 'all') {
-            $products = Product::where('type','product')->get();
-            $offers = product::where('type','offer')->get();
+            return redirect()->route('shop');
+          //  $products = Product::where('type','product')->paginate(8);
+          //  $offers = product::where('type','offer')->paginate(8);
         }else{
         $products = Product::where('type','product')
-        ->where('category', $category)->get();
+        ->where('category', $category)->paginate(8);
         $offers = Product::where('type','offer')
-        ->where('category', $category )->get();
+        ->where('category', $category )->paginate(8);
 
         }
         return view('shop',compact('products','offers'));
