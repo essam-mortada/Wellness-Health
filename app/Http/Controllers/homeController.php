@@ -20,8 +20,8 @@ class homeController extends Controller
     }
 
     public function ShowAbout(){
-
-        return view('about');
+        $products = product::all();
+        return view('about',compact('products'));
     }
     public function ShowPayment(){
 

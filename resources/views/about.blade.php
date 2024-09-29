@@ -71,7 +71,7 @@
                 <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                   <div class="block-18 text-center">
                     <div class="text">
-                      <strong class="number" data-number="10">0</strong>
+                      <strong class="number" data-number="{{count($products)}}">0</strong>
                       <span>Products</span>
                     </div>
                   </div>
