@@ -181,7 +181,7 @@
                                           </div>
                                       </div>
                                   </div>--}}
-                                  @error('email')
+                                  @error('payment')
                                  <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                   <div class="form-group">
