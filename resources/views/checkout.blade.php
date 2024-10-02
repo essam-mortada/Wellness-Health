@@ -100,7 +100,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="floor">floor</label>
-                      <input type="text" required name="floor" class="form-control"  value="{{ old('floor') }}" placeholder="">
+                      <input type="number" required name="floor" class="form-control"  value="{{ old('floor') }}" placeholder="">
                       @error('floor')
                       <div class="text-danger"> {{ $message }}</div>
                       @enderror
@@ -121,7 +121,7 @@
                   <div class="col-md-6">
                   <div class="form-group">
                       <label for="phone">Phone</label>
-                    <input type="text" required name="phone" class="form-control"  value="{{ old('phone') }}" placeholder="">
+                    <input type="number" required name="phone" class="form-control"  value="{{ old('phone') }}" placeholder="">
                     @error('phone')
                     <div class="text-danger"> {{ $message }}</div>
                     @enderror
