@@ -33,7 +33,7 @@ class OrderController extends Controller
         'last_name' => 'required|string',
         'email' => 'required|string|email',
         'country' => 'required|string',
-        'phone' => 'required|string|numeric|min:11|max:11',
+        'phone' => 'required|string|numeric|min:11',
         'city' => 'required|string',
         'floor'=>'required|numeric',
         'street' => 'required|string',
