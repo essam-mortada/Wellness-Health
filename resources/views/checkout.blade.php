@@ -181,6 +181,9 @@
                                           </div>
                                       </div>
                                   </div>--}}
+                                  @error('email')
+                                 <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                   <div class="form-group">
                                       <div class="col-md-12">
                                           <div class="checkbox">
