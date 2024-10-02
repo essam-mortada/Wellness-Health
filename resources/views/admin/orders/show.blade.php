@@ -17,7 +17,7 @@
                     <div class="col-md-6">
                         <h2>{{ $order->first_name.' '. $order->last_name }}</h2>
                         <p><strong>Price:</strong> {{ $order->total_price }}</p>
-                        <p><strong>Address:</strong> {{ $order->country.','.$order->city.','.$order->street }}</p>
+                        <p><strong>Address:</strong> {{$order->floor.','. $order->street.','.$order->city.','.$order->country }}</p>
                         <p><strong>Phone:</strong> {{ $order->phone }}</p>
                         <p><strong>E-mail:</strong> {{ $order->email }}</p>
                         <p><strong>Date:</strong> {{ $order->created_at }}</p>

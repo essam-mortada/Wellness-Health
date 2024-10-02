@@ -96,7 +96,16 @@
                     @enderror
                   </div>
                   </div>
-
+                  <div class="w-100"></div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="floor">floor</label>
+                      <input type="text" required name="floor" class="form-control"  value="{{ old('floor') }}" placeholder="">
+                      @error('floor')
+                      <div class="text-danger"> {{ $message }}</div>
+                      @enderror
+                    </div>
+                  </div>
                   <div class="w-100"></div>
                   <div class="col-md-12">
                       <div class="form-group">

@@ -47,7 +47,7 @@ class PaymobController extends Controller
         $billingData = [
             "apartment" => 'NA',
             "email" => $orderData['email'],
-            "floor" => 'NA',
+            "floor" => $orderData['floor'],
             "first_name" => $orderData['first_name'],
             "street" => $orderData['street'],
             "building" => "NA",
@@ -119,6 +119,7 @@ class PaymobController extends Controller
                 $order->country = $temporaryOrder['country'];
                 $order->city = $temporaryOrder['city'];
                 $order->street = $temporaryOrder['street'];
+                $order->floor = $temporaryOrder['floor'];
                 $order->phone = $temporaryOrder['phone'];
                 $order->delivery = $temporaryOrder['delivery'];
                 $order->total_price = $temporaryOrder['total_price'];

@@ -33,8 +33,9 @@ class OrderController extends Controller
         'last_name' => 'required|string',
         'email' => 'required|string|email',
         'country' => 'required|string',
-        'phone' => 'required|string|numeric',
+        'phone' => 'required|string|numeric|min:11|max:11',
         'city' => 'required|string',
+        'floor'=>'required|numeric',
         'street' => 'required|string',
         'terms' => 'accepted',
     ]);
@@ -62,6 +63,7 @@ class OrderController extends Controller
         'city' => strip_tags($request->city),
         'street' => strip_tags($request->street),
         'phone' => strip_tags($request->phone),
+        'floor' => strip_tags($request->floor),
         'delivery' => strip_tags($request->delivery),
         'payment' => strip_tags($request->payment),
         'total_price' => $total + $request->delivery,
@@ -90,6 +92,7 @@ class OrderController extends Controller
         $order->country = $request->country;
         $order->city = $request->city;
         $order->street = $request->street;
+        $order->floor = $request->floor;
         $order->phone = $request->phone;
         $order->delivery = $request->delivery;
         $order->total_price = $total + $order->delivery;
