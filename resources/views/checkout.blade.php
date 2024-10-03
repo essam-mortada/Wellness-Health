@@ -27,7 +27,7 @@
         <div class="col-xl-7 ftco-animate">
 
                           <h3 class="mb-4 billing-heading">Billing Details</h3>
-                <form action="{{route('orders.store')}}" class="billing-form d-flex" method="POST">
+                <form action="{{route('placeOrder')}}" class="billing-form d-flex" method="POST">
                     @csrf
                 <div class="row align-items-end">
                     <div class="col-md-6">
@@ -97,7 +97,7 @@
                   </div>
                   </div>
                   <div class="w-100"></div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
                         <label for="floor">floor</label>
                       <input type="number" required name="floor" class="form-control"  value="{{ old('floor') }}" placeholder="">

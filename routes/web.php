@@ -91,6 +91,9 @@ Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.st
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/shop/filter', [ProductController::class, 'filterByCategory'])->name('shop.filter');
 
+//otp routes
+Route::post('/send-otp', [OrderController::class, 'store'])->name('placeOrder');
+Route::post('/verify-otp', [OrderController::class, 'verifyOTP'])->name('verifyOTP');
 
 Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
