@@ -84,16 +84,19 @@ Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::patch('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::delete('/cart/remove/{productId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
-//orders
-Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
 
 //products
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/shop/filter', [ProductController::class, 'filterByCategory'])->name('shop.filter');
 
-//otp routes
-Route::post('/send-otp', [OrderController::class, 'store'])->name('placeOrder');
-Route::post('/verify-otp', [OrderController::class, 'verifyOTP'])->name('verifyOTP');
+//orders
+//Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
+
+//otp
+Route::post('/resend-otp', [OrderController::class, 'resendOTP'])->name('resendOTP');
+Route::post('/order/store', [OrderController::class, 'store'])->name('placeOrder'); // This is the order placement route
+Route::get('/verify-otp', [OrderController::class, 'showOTPForm'])->name('verifyOTP'); // This is for displaying the OTP form
+Route::post('/verify-otp', [OrderController::class, 'verifyOTP'])->name('verifyOTP.post'); // This is for verifyin
 
 Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
