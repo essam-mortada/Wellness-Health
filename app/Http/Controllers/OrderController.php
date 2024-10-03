@@ -42,7 +42,7 @@ class OrderController extends Controller
 
         // Validate stock levels for each product
         foreach ($cart as $id => $details) {
-            $product = Product::find($id);
+            $product = product::find($id);
             if ($product->quantity < $details['quantity']) {
                 return redirect()->back()->with('error', 'Not enough stock for product ' . $product->name);
             }
