@@ -33,9 +33,7 @@
 </form>
 
 
-    <div class="mt-3">
-        <a href="{{ route('resendOTP') }}">Resend OTP</a>
-    </div>
+   
 </div>
 
 <script src="{{ asset('public/assets/js/bootstrap.min.js') }}"></script>
