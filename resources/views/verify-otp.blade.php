@@ -5,8 +5,8 @@
     <link rel="icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify OTP</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
 </head>
 <body>
 
@@ -38,8 +38,8 @@
     </div>
 </div>
 
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('public/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('public/assets/js/main.js') }}"></script>
 
 </body>
 </html>
