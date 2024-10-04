@@ -20,5 +20,27 @@
         <li><strong>Payment Method:</strong> {{ $order['payment'] }}</li>
         <li><strong>Total Price:</strong> {{ $order['total_price'] }}</li>
     </ul>
+
+    <h2>Order Products:</h2>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($products as $product)
+            <tr>
+                <td>{{ $product['name'] }}</td>
+                <td>{{ $product['quantity'] }}</td>
+                <td>${{ number_format($product['price'], 2) }}</td>
+                <td>${{ number_format($product['subtotal'], 2) }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

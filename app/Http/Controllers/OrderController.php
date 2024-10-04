@@ -116,6 +116,14 @@ class OrderController extends Controller
                 $product = Product::find($id);
                 $product->quantity -= $details['quantity'];
                 $product->save();
+
+
+                $products[] = [
+                    'name' => $product->name,
+                    'quantity' => $details['quantity'],
+                    'price' => $details['price'],
+                    'subtotal' => $details['price'] * $details['quantity'],
+                ];
             }
 
             // Clear the cart and OTP session data
@@ -138,7 +146,7 @@ class OrderController extends Controller
             ];
 
             try {
-                Mail::send('new-order-confirmation', ['order' => $orderDetails], function ($message) use ($request) {
+                Mail::send('new-order-confirmation', ['order' => $orderDetails,'products'=>$products], function ($message) use ($request) {
                     $message->to('help@wellnezmart.net')
                         ->subject('New Order Confirmed!');
                 });
