@@ -122,6 +122,31 @@ class OrderController extends Controller
             Session::forget('cart');
             Session::forget('otp_verified');
 
+            $orderDetails = [
+                'id' => $order->id,
+                'first_name' => $order->first_name,
+                'last_name' => $order->last_name,
+                'email' => $order->email,
+                'phone' => $order->phone,
+                'country' => $order->country,
+                'city' => $order->city,
+                'street' => $order->street,
+                'floor' => $order->floor,
+                'delivery' => $order->delivery,
+                'payment' => $order->payment,
+                'total_price' => $order->total_price,
+            ];
+
+            try {
+                Mail::send('new-order-confirmation', ['order' => $orderDetails], function ($message) use ($request) {
+                    $message->to('help@wellnezmart.net')
+                        ->subject('New Order Confirmed!');
+                });
+
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Failed to send order confirmation: ' . $e->getMessage());
+            }
+
             return redirect()->route('home')->with('done', "Order has been placed successfully!");
         }
     }
