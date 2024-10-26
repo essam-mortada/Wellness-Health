@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\order;
 use App\Models\orderItems;
 use App\Models\product;
+use App\Models\PromoCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -53,6 +54,9 @@ class OrderController extends Controller
         foreach ($cart as $id => $details) {
             $total += $details['price'] * $details['quantity'];
         }
+        // Check if a discount is applied and retrieve it from the session
+        $discount = Session::get('promo_discount', 0);
+        $total_price_after_discount = max(0, $total - $discount);
 
         $order = [
             'id' => uniqid(),
@@ -66,7 +70,7 @@ class OrderController extends Controller
             'floor' => strip_tags($request->floor),
             'delivery' => strip_tags($request->delivery),
             'payment' => strip_tags($request->payment),
-            'total_price' => $total + $request->delivery,
+            'total_price' => $total_price_after_discount + $request->delivery,
             'status' => 'pending'
         ];
 
@@ -98,10 +102,18 @@ class OrderController extends Controller
             $order->floor = $request->floor;
             $order->phone = $request->phone;
             $order->delivery = $request->delivery;
-            $order->total_price = $total + $request->delivery;
+            $order->total_price = $total_price_after_discount + $request->delivery;
             $order->payment = $request->payment;
             $order->status = 'pending';
             $order->save();
+
+             // Increment promo code usage only if the promo code was applied and order is confirmed
+             if ($discount > 0) {
+                $promoCode = PromoCode::where('code', Session::get('promo_code'))->first();
+                if ($promoCode && $promoCode->isValid() && $promoCode->hasRemainingUsage()) {
+                    $promoCode->incrementUsage();
+                }
+            }
 
             // Store each product in the order items
             foreach ($cart as $id => $details) {
@@ -126,7 +138,9 @@ class OrderController extends Controller
                 ];
             }
 
-            // Clear the cart and OTP session data
+            // Clear the session data
+            Session::forget('promo_discount');
+            Session::forget('total_after_discount');
             Session::forget('cart');
             Session::forget('otp_verified');
 
@@ -143,10 +157,11 @@ class OrderController extends Controller
                 'delivery' => $order->delivery,
                 'payment' => $order->payment,
                 'total_price' => $order->total_price,
+                'discount' => $discount,
             ];
 
             try {
-                Mail::send('new-order-confirmation', ['order' => $orderDetails,'products'=>$products], function ($message) use ($request) {
+                Mail::send('new-order-confirmation', ['order' => $orderDetails,'products'=>$products,'discount'=>$discount], function ($message) use ($request) {
                     $message->to('help@wellnezmart.net')
                         ->subject('New Order Confirmed!');
                 });

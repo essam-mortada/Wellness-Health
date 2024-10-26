@@ -18,7 +18,9 @@
         <li><strong>Floor:</strong> {{ $order['floor'] }}</li>
         <li><strong>Delivery:</strong> {{ $order['delivery'] }}</li>
         <li><strong>Payment Method:</strong> {{ $order['payment'] }}</li>
-        <li><strong>Total Price:</strong> {{ $order['total_price'] }}</li>
+        <p><strong>Total Price (Before Discount):</strong> {{ $order['total_price'] + $order['discount'] }}</p>
+        <p><strong>Discount:</strong> -{{ $order['discount'] }}</p>
+        <p><strong>Total Price (After Discount):</strong> {{ $order['total_price'] }}</p>    </ul>
     </ul>
 
     <h2>Order Products:</h2>

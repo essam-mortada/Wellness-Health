@@ -152,6 +152,10 @@
                                   <span>EGP {{$total}}</span>
                               </p>
                               <p class="d-flex">
+                                <span>Discount</span>
+                                <span  id="discount-amount">EGP 0</span>
+                            </p>
+                              <p class="d-flex">
                                 <span>delivery</span>
                                 <span id="delivery-cost">EGP {{ session('temporary_order.delivery', 0)}}</span>
                             </p>
@@ -159,8 +163,9 @@
                               <hr>
                               <p class="d-flex total-price">
                                   <span>Total</span>
-                                  <span id="total-price">EGP {{$total + session('temporary_order.delivery', 0)}}</span>
-                              </p>
+
+                                    <span id="total-price">EGP {{$total + session('temporary_order.delivery', 0)}}</span>
+                                </p>
                               </div>
                 </div>
                 <div class="col-md-12">
@@ -197,7 +202,13 @@
                                   <p><button type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
                               </div>
                             </form><!-- END -->
+                            <div class="col-md-12">
 
+                                <input class="form-control" type="text" id="promoCode" placeholder="Enter Promo Code">
+                                <button class="btn btn-primary mt-3" type="submit" id="applyPromo">Apply Promo Code</button>
+
+                            </div>
+                            <div id="promoMessage"></div>
                 </div>
             </div>
         </div> <!-- .col-md-8 -->
@@ -219,6 +230,55 @@
         var total = subtotal + selectedDeliveryCost;
         document.getElementById('total-price').innerText = 'EGP ' + total;
     });
+
+    $(document).ready(function() {
+    // Update total when delivery region changes
+    $('#delivery-region').on('change', function() {
+        updateTotalWithDiscountAndDelivery();
+    });
+
+    // Apply promo code
+    $('#applyPromo').on('click', function() {
+        let promoCode = $('#promoCode').val();
+
+        $.ajax({
+            url: '{{ route("apply.promo") }}',
+            type: 'POST',
+            data: {
+                promo_code: promoCode,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#promoMessage').html(`<span style="color: green;">${response.message}</span>`);
+                    $('#discount-amount').text(`EGP ${response.discountAmount}`);
+
+                    // Store discount value and update total
+                    updateTotalWithDiscountAndDelivery(response.totalAfterDiscount);
+                } else {
+                    $('#promoMessage').html(`<span style="color: red;">${response.message}</span>`);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX Error:", error);
+                $('#promoMessage').html(`<span style="color: red;">Failed to apply promo code.</span>`);
+            }
+        });
+    });
+
+    // Function to calculate and update the total with discount and delivery cost
+    function updateTotalWithDiscountAndDelivery(totalAfterDiscount = {{ $total }}) {
+        // Get selected delivery cost
+        let deliveryCost = parseInt($('#delivery-region').val()) || 0;
+
+        // Calculate total with discount and delivery
+        let totalWithDelivery = totalAfterDiscount + deliveryCost;
+
+        // Update total display
+        $('#total-price').text(`EGP ${totalWithDelivery}`);
+        $('#delivery-cost').text(`EGP ${deliveryCost}`);
+    }
+});
 </script>
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymobController;
+use App\Http\Controllers\promoCodeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\usersMessagesController;
@@ -64,6 +65,11 @@ Route::get('/orders/out-for-delivery',[OrderController::class,'out_for_delivery_
 Route::get('/reviews',[ReviewController::class,'index'])->name('reviews.index');
 Route::get('/reviews/show/{review}', [ReviewController::class, 'show'])->name('reviews.show');
 Route::delete('/reviews/delete/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+//promoCodes
+Route::get('/promocodes',[promoCodeController::class,'index'])->name('promoCodes.index');
+Route::post('/add-promo', [promoCodeController::class, 'store'])->name('promoCodes.store');
+Route::get('/promo/create', [promoCodeController::class, 'create'])->name('promoCodes.create');
+Route::delete('/promo/destroy/{PromoCode}', [promoCodeController::class, 'destroy'])->name('promoCodes.destroy');
 //logout
 Route::post('/logout',[userController::class,'logout'])->name('logout');
 
@@ -115,3 +121,5 @@ Route::get('/payment-button',function(){
 //paymob routes
 Route::post('/credit', [PaymobController::class, 'credit'])->name('credit'); // this route send all functions data to paymob
 Route::get('/callback', [PaymobController::class, 'callback'])->name('callback'); // this route get all reponse data to paymob
+//promo code
+Route::post('/apply-promo', [promoCodeController::class, 'applyPromo'])->name('apply.promo');
