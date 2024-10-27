@@ -202,6 +202,9 @@
                                   <p><button type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
                               </div>
                             </form><!-- END -->
+                            @if ($total >= 200)
+
+
                             <div class="col-md-12">
 
                                 <input class="form-control" type="text" id="promoCode" placeholder="Enter Promo Code">
@@ -209,7 +212,9 @@
 
                             </div>
                             <div id="promoMessage"></div>
-                </div>
+
+                            @endif
+                    </div>
             </div>
         </div> <!-- .col-md-8 -->
       </div>
