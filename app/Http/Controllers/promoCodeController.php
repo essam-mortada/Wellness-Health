@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PromoCode;
+use App\Models\promoCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -20,8 +20,8 @@ class promoCodeController extends Controller
 
         $promoCode = $request->promo_code;
 
-        // Sample code to check promo code validity 
-        $promo = PromoCode::where('code', $promoCode)->first();
+        // Sample code to check promo code validity
+        $promo = promoCode::where('code', $promoCode)->first();
 
         // Check if the promo code exists and is valid via the isValid method
         if ($promo && $promo->isValid() && $promo->hasRemainingUsage()) {
@@ -58,7 +58,7 @@ class promoCodeController extends Controller
     }
 
     public function index(){
-        $promoCodes = PromoCode::latest()->paginate(5);
+        $promoCodes = promoCode::latest()->paginate(5);
         return view('admin.promoCodes.index', compact('promoCodes'));
     }
 
@@ -84,7 +84,7 @@ class promoCodeController extends Controller
             return redirect()->back()->with('success','promo code added  successfully.');
     }
 
-    public function destroy(PromoCode $PromoCode)
+    public function destroy(promoCode $PromoCode)
     {
 
         $PromoCode->delete();
