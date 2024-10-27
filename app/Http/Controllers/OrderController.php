@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\order;
 use App\Models\orderItems;
 use App\Models\product;
-use App\Models\PromoCode;
+use App\Models\promoCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -109,7 +109,7 @@ class OrderController extends Controller
 
              // Increment promo code usage only if the promo code was applied and order is confirmed
              if ($discount > 0) {
-                $promoCode = PromoCode::where('code', Session::get('promo_code'))->first();
+                $promoCode = promoCode::where('code', Session::get('promo_code'))->first();
                 if ($promoCode && $promoCode->isValid() && $promoCode->hasRemainingUsage()) {
                     $promoCode->incrementUsage();
                 }
