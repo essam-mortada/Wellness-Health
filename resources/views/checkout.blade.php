@@ -220,6 +220,8 @@
       </div>
     </div>
   </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
     document.getElementById('delivery-region').addEventListener('change', function() {
         // Get the selected delivery cost from the dropdown
