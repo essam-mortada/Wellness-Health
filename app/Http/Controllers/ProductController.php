@@ -147,9 +147,14 @@ class ProductController extends Controller
           //  $offers = product::where('type','offer')->paginate(8);
         }else{
         $products = Product::where('type','product')
-        ->where('category', $category)->paginate(8);
+        ->where('category', $category)
+        ->paginate(8)
+        ->appends(['category' => $category]);
+
         $offers = Product::where('type','offer')
-        ->where('category', $category )->paginate(8);
+        ->where('category', $category )
+        ->paginate(8)
+        ->appends(['category' => $category]);;
 
         }
         return view('shop',compact('products','offers'));

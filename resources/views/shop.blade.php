@@ -94,7 +94,9 @@
                 <div class="row mt-5">
               <div class="col text-center">
                 <div class="w-100">
+                    @if ($products->count() > 0 && $products->hasPages())
                  {{$products->links('pagination::bootstrap-5')}}
+                 @endif
                 </div>
               </div>
             </div>
@@ -154,7 +156,9 @@
             <div class="row mt-5">
           <div class="col text-center">
             <div class="w-100">
+                @if ($offers->count() > 0 && $offers->hasPages())
              {{$offers->links('pagination::bootstrap-5')}}
+             @endif
             </div>
           </div>
         </div>
