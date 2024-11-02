@@ -44,14 +44,14 @@
                         @csrf
                         <button class="btn btn-info" type="submit">out for delivery</button>
                     </form>
-                    <form action="{{route('orders.delivered',$order->id)}}" method="POST">
+                    <form class="mr-3 ml-3" action="{{route('orders.delivered',$order->id)}}" method="POST">
                         @csrf
                         <button class="btn btn-warning" type="submit">delivered</button>
                     </form>
                     <form action="{{ route('orders.destroy', $order->id) }}" method="post" style="display: inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm mt-2">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
                 </div>

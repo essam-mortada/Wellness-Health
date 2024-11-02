@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-                <h1>Orders</h1>
+                <h3>Orders</h3>
                 <div class="btn-group mb-3" role="group">
                     <a class="btn btn-success btn-sm mr-2 mb-2" href="{{route('orders.index')}}">All</a>
                     <a class="btn btn-warning btn-sm mr-2 mb-2" href="{{route('orders.deliveredOrders')}}">Delivered</a>
