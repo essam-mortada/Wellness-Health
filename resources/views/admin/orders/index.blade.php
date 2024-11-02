@@ -43,6 +43,11 @@
                                 <td>{{ $order->created_at }}</td>
                                 <td>
                                     <a href="{{ route('orders.show', $order->id) }}" class="btn btn-info btn-sm">View</a>
+                                    <form action="{{ route('orders.destroy', $order->id) }}" method="post" style="display: inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

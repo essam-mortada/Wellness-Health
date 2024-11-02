@@ -48,6 +48,11 @@
                         @csrf
                         <button class="btn btn-warning" type="submit">delivered</button>
                     </form>
+                    <form action="{{ route('orders.destroy', $order->id) }}" method="post" style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm mt-2">Delete</button>
+                    </form>
                 </div>
                 </div>
             </div>

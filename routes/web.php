@@ -61,6 +61,7 @@ Route::post('/orders/delivered/{order}', [OrderController::class, 'delivered'])-
 Route::get('/orders/delivered',[OrderController::class,'deliveredOrders'])->name('orders.deliveredOrders');
 Route::get('/orders/pending',[OrderController::class,'pendingOrders'])->name('orders.pendingOrders');
 Route::get('/orders/out-for-delivery',[OrderController::class,'out_for_delivery_orders'])->name('orders.out_for_delivery_orders');
+Route::delete('/orders/destroy/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
 //reviews
 Route::get('/reviews',[ReviewController::class,'index'])->name('reviews.index');
 Route::get('/reviews/show/{review}', [ReviewController::class, 'show'])->name('reviews.show');

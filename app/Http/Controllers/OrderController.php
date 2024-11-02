@@ -286,4 +286,11 @@ class OrderController extends Controller
         $orders = Order::where('status', 'pending')->paginate(5);
         return view('admin.orders.index', compact('orders'));
     }
+
+    public function destroy(Order $order)
+    {
+
+        $order->delete();
+        return redirect()->route('orders.index')->with('success','order deleted successfully.');
+    }
 }
