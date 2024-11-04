@@ -35,6 +35,7 @@
         </div>
 
       </div>
+      {{--
       <div class="row block-9">
         <div class="col-md-9 m-auto order-md-last d-flex">
           <form action="{{route('messages.store')}}" class="bg-white p-5 contact-form" method="post">
@@ -59,7 +60,7 @@
         </div>
 
 
-      </div>
+      </div>--}}
     </div>
   </section>
 
