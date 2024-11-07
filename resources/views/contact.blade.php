@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-5 d-flex">
             <div class="info bg-white p-4">
-              <p><span>Email:</span> <a href="mailto:info@yoursite.com">help@wellnezmart.net</a></p>
+              <p><span>Email:</span> <a href="mailto:info@yoursite.com">support@wellnezmart.net</a></p>
             </div>
         </div>
 
