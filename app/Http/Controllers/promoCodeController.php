@@ -26,6 +26,7 @@ class promoCodeController extends Controller
         // Check if the promo code exists and is valid via the isValid method
         if ($promo && $promo->isValid() && $promo->hasRemainingUsage()) {
             $discountAmount = $promo->discount;
+            $promoType = $promo->type;
 
             // Store the discount in session for use during order checkout
             Session::put('promo_discount', $discountAmount);
@@ -36,6 +37,11 @@ class promoCodeController extends Controller
             foreach ($cart as $item) {
                 $total += $item['price'] * $item['quantity'];
             }
+
+            if ($promoType == 'percentage') {
+                $discountAmount = $total * ($discountAmount / 100);
+            }
+
             $totalAfterDiscount = max(0, $total - $discountAmount);
 
             // Store discount and updated total in session
@@ -72,6 +78,7 @@ class promoCodeController extends Controller
             'discount'=>'required|integer',
             'expires_at'=>'required|date',
             'usage_limit'=>'required|integer',
+            'type'=>'required|in:percentage,value'
             ]);
 
 
@@ -80,6 +87,7 @@ class promoCodeController extends Controller
             $promoCode->discount = strip_tags($request->discount);
             $promoCode->expires_at = strip_tags($request->expires_at);
             $promoCode->usage_limit = strip_tags($request->usage_limit);
+            $promoCode->type = strip_tags($request->type);
             $promoCode->save();
             return redirect()->back()->with('success','promo code added  successfully.');
     }
