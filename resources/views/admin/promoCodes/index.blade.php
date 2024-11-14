@@ -21,6 +21,7 @@
                             <th>Code</th>
                             <th>Discount</th>
                             <th>Expires at</th>
+                            <th>Type</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -31,6 +32,7 @@
                                 <td>{{ $promoCode->code }}</td>
                                 <td>{{ $promoCode->discount }}</td>
                                 <td>{{ $promoCode->expires_at }}</td>
+                                <td>{{ $promoCode->type }}</td>
 
                                 <td>
                                     <form action="{{ route('promoCodes.destroy', $promoCode->id) }}" method="post" style="display: inline">

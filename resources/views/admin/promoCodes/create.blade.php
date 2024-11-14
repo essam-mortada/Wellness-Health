@@ -31,6 +31,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="type"> Type:</label>
+                    <select class="form-control" required name="type" id="">
+                        <option selected disabled value="">select a type</option>
+                        <option value="value">value</option>
+                        <option value="percentage">percentage</option>
+
+                    </select>
+              </div>
+
+
+                <div class="form-group">
                     <label for="usage_limit">usage limit:</label>
                     <input type="number" id="usage_limit" name="usage_limit" class="form-control" required step="0.01" >
                 </div>
