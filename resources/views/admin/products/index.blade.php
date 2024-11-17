@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-                <h1>Products</h1>
+                <h3>Products</h3>
                 <a href="{{ route('products.create') }}" class="btn btn-primary mt-2 mt-md-0">Add New Product</a>
             </div>
             <div class="table-responsive">
