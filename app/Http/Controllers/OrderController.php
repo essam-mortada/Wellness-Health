@@ -24,7 +24,7 @@ class OrderController extends Controller
         $request->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|string|email',
+            'email' => 'required|string|max:255|email:rfc,dns',
             'country' => 'required|string',
             'payment' => 'required',
             'delivery'=>'required',
@@ -82,9 +82,8 @@ class OrderController extends Controller
         if (!$tempOrder) {
             return redirect()->back()->with('error', 'Failed to store order data in session.');
         }
-        // Check if OTP is already verified
-        if (Session::has('otp_verified') && Session::get('otp_verified') === true) {
-            // Proceed with order creation since OTP was already verified
+
+
             if ($request->payment == "online payment") {
                 return response()->view('payment', [
                     'route' => route('credit'),
@@ -142,7 +141,6 @@ class OrderController extends Controller
             Session::forget('promo_discount');
             Session::forget('total_after_discount');
             Session::forget('cart');
-            Session::forget('otp_verified');
 
             $orderDetails = [
                 'id' => $order->id,
@@ -171,80 +169,13 @@ class OrderController extends Controller
             }
 
             return redirect()->route('home')->with('done', "Order has been placed successfully!");
-        }
-    }
-        // Generate and send OTP if not yet verified
-        $otp = rand(100000, 999999);
-        Session::put('otp', $otp);
-        Session::put('temporary_order', $request->all());
 
-        try {
-            // Send OTP via email using the created view
-            Mail::send('otp', ['otp' => $otp], function ($message) use ($request) {
-                $message->to($request->email)
-                    ->subject('Your OTP for Order Confirmation');
-            });
-
-            // Redirect to OTP verification view
-            return redirect()->route('verifyOTP');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to send OTP: ' . $e->getMessage());
-        }
-    }
-    public function showOTPForm(){
-        return view('verify-otp');
     }
 
-    // Method to handle OTP verification
-    public function verifyOTP(Request $request)
-    {
-        // Validate the OTP input
-        $request->validate([
-            'otp' => 'required|numeric'
-        ]);
-
-        // Retrieve the OTP stored in the session
-        $sessionOtp = Session::get('otp');
-
-        if ($request->otp == $sessionOtp) {
-
-            // OTP is correct, mark it as verified
-            Session::put('otp_verified', true);
-
-            // Redirect to the order placement route after OTP verification
-            return $this->store(new Request(Session::get('temporary_order')));
-        } else {
-            // OTP is incorrect, show an error
-            return redirect()->back()->withErrors(['otp' => 'Invalid OTP!'])->withInput();
-        }
     }
 
-    public function resendOTP(Request $request)
-    {
-        // Check if the user has a temporary order in the session
-        if (!Session::has('temporary_order')) {
-            return redirect()->route('home')->with('error', 'No order found to resend OTP.');
-        }
 
-        // Retrieve the temporary order data
-        $temporaryOrder = Session::get('temporary_order');
 
-        // Generate a new OTP
-        $otp = rand(100000, 999999);
-        Session::put('otp', $otp); // Store the new OTP in the session
-
-        // Send the OTP to the user's email
-        try {
-            Mail::send('otp', ['otp' => $otp], function ($message) use ($request) {
-                $message->to($request->email)
-                    ->subject('Your OTP for Order Confirmation');
-            });
-
-            return view('verify-otp');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to send OTP: ' . $e->getMessage());
-        }
-    }
 
 
 
