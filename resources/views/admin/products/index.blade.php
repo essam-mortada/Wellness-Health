@@ -20,7 +20,6 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Description</th>
                             <th>Quantity</th>
                             <th>Image</th>
                             <th>Actions</th>
@@ -32,7 +31,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td>{{ $product->description }}</td>
                                 <td>{{ $product->quantity }}</td>
                                 <td>
                                     @if($product->image != 'default.png')
