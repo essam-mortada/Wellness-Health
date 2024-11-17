@@ -61,7 +61,7 @@
             @foreach ($products as $product)
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
-                    <a class="img-prod">
+                    <a href="{{ route('products.show', $product->id) }}" class="img-prod">
                         <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
                         <div class="overlay"></div>
                     </a>
@@ -126,7 +126,7 @@
             @foreach ($offers as $product)
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
-                    <a class="img-prod">
+                    <a href="{{ route('products.show', $product->id) }}" class="img-prod">
                         <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
                         <div class="overlay"></div>
                     </a>

@@ -2,7 +2,7 @@
 
 @include('admin.layouts.header')
 
-<div class="container mt-5">
+<div class="container mt-2">
     @if (session('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
@@ -28,7 +28,6 @@
                             <th>#</th>
                             <th>Client Name</th>
                             <th>Total Price</th>
-                            <th>Address</th>
                             <th>Date</th>
                             <th>Actions</th>
                         </tr>
@@ -39,7 +38,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $order->first_name . ' ' . $order->last_name }}</td>
                                 <td>{{ $order->total_price }}</td>
-                                <td>{{ $order->country . ',' . $order->city . ',' . $order->street }}</td>
                                 <td>{{ $order->created_at }}</td>
                                 <td>
                                     <a href="{{ route('orders.show', $order->id) }}" class="btn btn-info btn-sm">View</a>
