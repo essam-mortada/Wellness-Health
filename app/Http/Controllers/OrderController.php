@@ -160,7 +160,7 @@ class OrderController extends Controller
 
             try {
                 Mail::send('new-order-confirmation', ['order' => $orderDetails,'products'=>$products,'discount'=>$discount], function ($message) use ($request) {
-                    $message->to('help@wellnezmart.net')
+                    $message->to('support@wellnezmart.net')
                         ->subject('New Order Confirmed!');
                 });
 
