@@ -199,17 +199,23 @@
                                           </div>
                                       </div>
                                   </div>
-                                  @if ($total >= 200)
-                                <div class="col-md-12 mb-4">
-                                    <form id="promoCodeForm">
-                                        <input class="form-control mb-2" type="text" id="promoCode" placeholder="Enter Promo Code">
-                                        <button class="btn btn-primary" type="button" id="applyPromo">Apply Promo Code</button>
-                                    </form>
+                                  <div class="row">
+                                    @if ($total >= 200)
+                                    <!-- Promo Code Form -->
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text" id="promoCode" placeholder="Enter Promo Code">
+                                        <button class="btn btn-primary mt-3" type="button" id="applyPromo">Apply Promo Code</button>
+                                    </div>
                                     <div id="promoMessage"></div>
-                                </div>
-                                @endif
-                                  <p><button type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
-                              </div>
+                                    @endif
+
+                                    <!-- Place Order Button -->
+                                    <div class="col-md-12 mt-4">
+                                        <p>
+                                            <button type="submit" class="btn btn-primary py-3 px-4">Place an order</button>
+                                        </p>
+                                    </div>
+                                </div>                              </div>
                             </form><!-- END -->
 
                     </div>
