@@ -200,14 +200,19 @@
                                       </div>
                                   </div>
                                   <div class="row">
-                                    @if ($total >= 200)
+
                                     <!-- Promo Code Form -->
                                     <div class="col-md-12">
                                         <input class="form-control" type="text" id="promoCode" placeholder="Enter Promo Code">
-                                        <button class="btn btn-primary mt-3" type="button" id="applyPromo">Apply Promo Code</button>
+                                        <button @if ($total<200) disabled @endif class="btn btn-primary mt-3" type="button" id="applyPromo">Apply Promo Code</button>
                                     </div>
                                     <div id="promoMessage"></div>
-                                    @endif
+                                    @if ($total<200)
+                                    <p>
+                                        Add more {{200-$total}} to apply promo code
+                                    </p>
+                                     @endif
+
 
                                     <!-- Place Order Button -->
                                     <div class="col-md-12 mt-4">
