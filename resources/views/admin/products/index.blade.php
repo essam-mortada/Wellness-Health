@@ -14,7 +14,7 @@
                 <a href="{{ route('products.create') }}" class="btn btn-primary mt-2 mt-md-0">Add New Product</a>
                 <form method="GET" action="{{ route('products.index') }}">
                     <input type="text" class="form-control" name="search" value="{{ request()->input('search') }}" placeholder="Search products...">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <button class="btn btn-primary mt-3" type="submit">Search</button>
                 </form>
             </div>
             <div class="table-responsive">
