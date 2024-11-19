@@ -50,7 +50,7 @@
                 </table>
             </div>
             <div class="d-flex justify-content-center">
-                {{ $promoCodes->links('pagination::bootstrap-5') }}
+                {{ $promoCodes->links('pagination::simple-bootstrap-4') }}
             </div>
         </div>
     </div>
