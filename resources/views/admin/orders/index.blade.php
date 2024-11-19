@@ -56,7 +56,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
-                    {{ $orders->links('pagination::simple-bootstrap-4') }}
+                    {{ $orders->links('pagination::bootstrap-4') }}
                 </div>
             </div>
 
