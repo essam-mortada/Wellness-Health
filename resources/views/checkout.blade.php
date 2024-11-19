@@ -209,7 +209,8 @@
                                     <div id="promoMessage"></div>
                                     @if ($total<200)
                                     <p>
-                                        Add more {{200-$total}} to apply promo code
+                                        Add more {{200-$total}} to apply promo code <br>
+                                        <a href="{{route('shop')}}">Continue shopping</a>
                                     </p>
                                      @endif
 
