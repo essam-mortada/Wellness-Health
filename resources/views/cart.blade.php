@@ -109,7 +109,8 @@
                       </p>
                   </div>
                   <p><a href="{{route('checkout')}}" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
-              </div>
+                  <p><a href="{{route('shop')}}" class="btn btn-primary py-3 px-4">Continue shopping</a></p>
+                </div>
           </div>
           </div>
           @endif
