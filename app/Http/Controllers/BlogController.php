@@ -9,9 +9,9 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs= blog::paginate(5);
+        $blogs = blog::paginate(5);
 
-        return view('admin.blogs.index',compact('blogs'));
+        return view('admin.blogs.index', compact('blogs'));
     }
 
     /**
@@ -27,41 +27,39 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-         //
-         $request->validate([
-            'title'=>'required|string',
-            'summary'=>'required|string',
-            'content'=>'required|string',
-            'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            ]);
+        //
+        $request->validate([
+            'title' => 'required|string',
+            'summary' => 'required|string',
+            'content' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
 
 
-            $blog = new blog();
-            $blog->title =strip_tags( $request->title);
-            $blog->summary = strip_tags($request->summary);
-            $blog->content = strip_tags($request->content);
-            if ($request->hasFile('image')) {
-                $imageName = time().rand(0,500).'.'.$request->image->extension();
-                $request->image->move(public_path('blogs_uploads'), $imageName);
-                $blog->image = $imageName;
-            }else{
-                $blog->image = 'default.png';
-            }
-            $blog->save();
-            return redirect()->route('blogs.index')->with('success','blog created successfully.');
+        $blog = new blog();
+        $blog->title = strip_tags($request->title);
+        $blog->summary = strip_tags($request->summary);
+        $blog->content = strip_tags($request->content);
+        if ($request->hasFile('image')) {
+            $imageName = time() . rand(0, 500) . '.' . $request->image->extension();
+            $request->image->move(public_path('blogs_uploads'), $imageName);
+            $blog->image = $imageName;
+        } else {
+            $blog->image = 'default.png';
+        }
+        $blog->save();
+        return redirect()->route('blogs.index')->with('success', 'blog created successfully.');
     }
 
     public function show(blog $blog)
     {
-        $recentBlogs= blog::orderBy('created_at','desc')->paginate(3);
-        return view('single-blog',compact('blog','recentBlogs'));
-
+        $recentBlogs = blog::orderBy('created_at', 'desc')->paginate(3);
+        return view('single-blog', compact('blog', 'recentBlogs'));
     }
-    
+
     public function showBlogAdmin(blog $blog)
     {
-        return view('admin.blogs.show',compact('blog'));
-
+        return view('admin.blogs.show', compact('blog'));
     }
 
     /**
@@ -69,8 +67,7 @@ class BlogController extends Controller
      */
     public function edit(blog $blog)
     {
-        return view('admin.blogs.edit',compact('blog'));
-
+        return view('admin.blogs.edit', compact('blog'));
     }
 
     /**
@@ -79,23 +76,24 @@ class BlogController extends Controller
     public function update(Request $request, blog $blog)
     {
         $request->validate([
-            'title'=>'required|string',
-            'summary'=>'required|string',
-            'content'=>'required|string',
-            'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'title' => 'required|string',
+            'summary' => 'required|string',
+            'content' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
-        if($request->hasFile('image')){
-        unlink(public_path('blogs_uploads/'.$blog->image));
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('blogs_uploads'), $imageName);
-        $blog->image = $imageName;
+        if ($request->hasFile('image')) {
+            if ($blog->image != 'default.png') {
+                unlink(public_path('blogs_uploads/' . $blog->image));
+            }
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('blogs_uploads'), $imageName);
+            $blog->image = $imageName;
         }
         $blog->title = strip_tags($request->title);
         $blog->summary = strip_tags($request->summary);
         $blog->content = strip_tags($request->content);
         $blog->save();
-        return redirect()->route('blogs.index')->with('success','blog updated successfully.');
-
+        return redirect()->route('blogs.index')->with('success', 'blog updated successfully.');
     }
 
     /**
@@ -105,11 +103,9 @@ class BlogController extends Controller
     {
 
         if ($blog->image != 'default.png') {
-            unlink(public_path('blogs_uploads/'.$blog->image));
-
+            unlink(public_path('blogs_uploads/' . $blog->image));
         }
         $blog->delete();
-        return redirect()->route('blogs.index')->with('success','blog deleted successfully.');
+        return redirect()->route('blogs.index')->with('success', 'blog deleted successfully.');
     }
-
 }

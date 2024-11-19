@@ -107,7 +107,9 @@ class ProductController extends Controller
             'quantity'=>'required|integer|min:0'
         ]);
         if($request->hasFile('image')){
-        unlink(public_path('products_uploads/'.$product->image));
+            if ($product->image != 'default.png') {
+                unlink(public_path('products_uploads/'.$product->image));
+            }
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('products_uploads'), $imageName);
         $product->image = $imageName;
