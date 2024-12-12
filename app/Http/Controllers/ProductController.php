@@ -12,18 +12,18 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-    $search = $request->input('search');
+        $search = $request->input('search');
 
-    if ($search) {
-        $products = product::where('name', 'LIKE', "%{$search}%")
-            ->orWhere('description', 'LIKE', "%{$search}%")
-            ->paginate(5)
-            ->appends(['search' => $search]);
-    } else {
-        $products = product::paginate(5);
-    }
+        if ($search) {
+            $products = product::where('name', 'LIKE', "%{$search}%")
+                ->orWhere('description', 'LIKE', "%{$search}%")
+                ->paginate(5)
+                ->appends(['search' => $search]);
+        } else {
+            $products = product::paginate(5);
+        }
 
-    return view('admin.products.index', compact('products', 'search'));
+        return view('admin.products.index', compact('products', 'search'));
     }
 
     /**
@@ -39,35 +39,35 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         //
-         $request->validate([
-            'name'=>'required|string',
-            'price'=>'required|integer',
-            'description'=>'required|string',
-            'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
-            'type'=>'required|in:product,offer',
-            'quantity'=>'required|integer|min:0'
-            ]);
+        //
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'category' => 'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type' => 'required|in:product,offer',
+            'quantity' => 'required|integer|min:0'
+        ]);
 
 
-            $product = new product();
-            $product->name = $request->name;
-            $product->price = $request->price;
-            $product->description = $request->description;
-            $product->quantity = $request->quantity;
-            $product->category= $request->category;
-            $product->type= $request->type;
+        $product = new product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->quantity = $request->quantity;
+        $product->category = $request->category;
+        $product->type = $request->type;
 
-            if ($request->hasFile('image')) {
-                $imageName = time().rand(0,500).'.'.$request->image->extension();
-                $request->image->move(public_path('products_uploads'), $imageName);
-                $product->image = $imageName;
-            }else{
-                $product->image = 'default.png';
-            }
-            $product->save();
-            return redirect()->route('products.index')->with('success','Product created successfully.');
+        if ($request->hasFile('image')) {
+            $imageName = time() . rand(0, 500) . '.' . $request->image->extension();
+            $request->image->move(public_path('products_uploads'), $imageName);
+            $product->image = $imageName;
+        } else {
+            $product->image = 'default.png';
+        }
+        $product->save();
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
     /**
@@ -80,16 +80,14 @@ class ProductController extends Controller
         }
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
-        $products=product::where('id', '!=', $product->id)->paginate(4);
+        $products = product::where('id', '!=', $product->id)->paginate(4);
 
-        return view('product',compact('product','products','reviews','averageRating'));
-
+        return view('product', compact('product', 'products', 'reviews', 'averageRating'));
     }
 
     public function showProductAdmin(product $product)
     {
-        return view('admin.products.show',compact('product'));
-
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -97,8 +95,7 @@ class ProductController extends Controller
      */
     public function edit(product $product)
     {
-        return view('admin.products.edit',compact('product'));
-
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -107,31 +104,30 @@ class ProductController extends Controller
     public function update(Request $request, product $product)
     {
         $request->validate([
-            'name'=>'required|string',
-            'price'=>'required|integer',
-            'description'=>'required|string',
-            'image'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
-            'type'=>'required|in:product,offer',
-            'quantity'=>'required|integer|min:0'
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'category' => 'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type' => 'required|in:product,offer',
+            'quantity' => 'required|integer|min:0'
         ]);
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             if ($product->image != 'default.png') {
-                unlink(public_path('products_uploads/'.$product->image));
+                unlink(public_path('products_uploads/' . $product->image));
             }
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('products_uploads'), $imageName);
-        $product->image = $imageName;
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('products_uploads'), $imageName);
+            $product->image = $imageName;
         }
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
-        $product->category= $request->category;
-        $product->type= $request->type;
+        $product->category = $request->category;
+        $product->type = $request->type;
         $product->quantity = $request->quantity;
         $product->save();
-        return redirect()->route('products.index')->with('success','Product updated successfully.');
-
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     /**
@@ -141,11 +137,10 @@ class ProductController extends Controller
     {
 
         if ($product->image != 'default.png') {
-            unlink(public_path('products_uploads/'.$product->image));
-
+            unlink(public_path('products_uploads/' . $product->image));
         }
         $product->delete();
-        return redirect()->route('products.index')->with('success','Product deleted successfully.');
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 
     public function filterByCategory(Request $request)
@@ -154,22 +149,19 @@ class ProductController extends Controller
 
         if ($category == 'all') {
             return redirect()->route('shop');
-          //  $products = Product::where('type','product')->paginate(8);
-          //  $offers = product::where('type','offer')->paginate(8);
-        }else{
-        $products = Product::where('type','product')
-        ->where('category', $category)
-        ->paginate(8)
-        ->appends(['category' => $category]);
+            //  $products = Product::where('type','product')->paginate(8);
+            //  $offers = product::where('type','offer')->paginate(8);
+        } else {
+            $products = Product::where('type', 'product')
+                ->where('category', $category)
+                ->paginate(8)
+                ->appends(['category' => $category]);
 
-        $offers = Product::where('type','offer')
-        ->where('category', $category )
-        ->paginate(8)
-        ->appends(['category' => $category]);;
-
+            $offers = Product::where('type', 'offer')
+                ->where('category', $category)
+                ->paginate(8)
+                ->appends(['category' => $category]);;
         }
-        return view('shop',compact('products','offers'));
+        return view('shop', compact('products', 'offers'));
     }
-
-
 }
