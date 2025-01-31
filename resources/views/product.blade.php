@@ -29,9 +29,9 @@
                     <div class="col-md-12">
                         <div class="carousel owl-carousel">
                             @foreach ($product->images as $image)
-                                <a href="{{ asset('public/products_uploads/' . $image->image_path) }}" class="image-popup "><img
+                                <a href="{{ asset('products_uploads/' . $image->image_path) }}" class="image-popup "><img
                                         style="max-height: 400px"
-                                        src="{{ asset('public/products_uploads/' . $image->image_path) }}" class="img-fluid "
+                                        src="{{ asset('products_uploads/' . $image->image_path) }}" class="img-fluid "
                                         alt="product"></a>
 
                                         @endforeach
