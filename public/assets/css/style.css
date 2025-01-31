@@ -10063,3 +10063,51 @@ textarea.form-control {
         80%{ transform:translateY(0); }
         100%{ transform:translateY(0); }
         }
+
+
+        .ltn__header-top-area {
+            width: 100%;
+            overflow: hidden;
+            background-color: #82ae46;
+            padding: 10px 0;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .ltn__header-top-area ul {
+            display: flex;
+            gap: 30px;
+            animation: scrollText 20s linear infinite;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .ltn__header-top-area ul:hover {
+            animation-play-state: paused;
+        }
+
+        .ltn__header-top-area li {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .ltn__header-top-area li {
+                font-size: 14px;
+            }
+        }
+

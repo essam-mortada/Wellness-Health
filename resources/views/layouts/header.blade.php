@@ -51,4 +51,19 @@
 	  </nav>
 
 
+      @if (isset($newsBar))
+<!-- ltn__header-top-area start -->
+<div class="ltn__header-top-area top-area-color-white ">
+    <ul>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+    </ul>
+</div>
+<!-- ltn__header-top-area end -->
+@endif
+
     <!-- END nav -->

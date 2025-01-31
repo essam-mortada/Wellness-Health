@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsBar;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -15,12 +16,12 @@ class ProductController extends Controller
         $search = $request->input('search');
 
         if ($search) {
-            $products = product::where('name', 'LIKE', "%{$search}%")
+            $products = Product::where('name', 'LIKE', "%{$search}%")
                 ->orWhere('description', 'LIKE', "%{$search}%")
                 ->paginate(5)
                 ->appends(['search' => $search]);
         } else {
-            $products = product::paginate(5);
+            $products = Product::paginate(5);
         }
 
         return view('admin.products.index', compact('products', 'search'));
@@ -51,7 +52,7 @@ class ProductController extends Controller
         ]);
 
 
-        $product = new product();
+        $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
@@ -73,19 +74,20 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(product $product)
+    public function show(Product $product)
     {
+        $newsBar = NewsBar::first();
         if (!$product) {
             return view('error-404');
         }
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
-        $products = product::where('id', '!=', $product->id)->paginate(4);
+        $products = Product::where('id', '!=', $product->id)->paginate(4);
 
-        return view('product', compact('product', 'products', 'reviews', 'averageRating'));
+        return view('product', compact('product', 'products', 'reviews', 'averageRating','newsBar'));
     }
 
-    public function showProductAdmin(product $product)
+    public function showProductAdmin(Product $product)
     {
         return view('admin.products.show', compact('product'));
     }
@@ -101,7 +103,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
             'name' => 'required|string',
@@ -133,7 +135,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(product $product)
+    public function destroy(Product $product)
     {
 
         if ($product->image != 'default.png') {
@@ -145,6 +147,8 @@ class ProductController extends Controller
 
     public function filterByCategory(Request $request)
     {
+        $newsBar = NewsBar::first();
+
         $category = $request->input('category');
 
         if ($category == 'all') {
@@ -162,6 +166,6 @@ class ProductController extends Controller
                 ->paginate(8)
                 ->appends(['category' => $category]);;
         }
-        return view('shop', compact('products', 'offers'));
+        return view('shop', compact('products', 'offers','newsBar'));
     }
 }

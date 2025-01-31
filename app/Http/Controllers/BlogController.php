@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\NewsBar;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -53,8 +54,9 @@ class BlogController extends Controller
 
     public function show(blog $blog)
     {
+        $newsBar = NewsBar::first();
         $recentBlogs = blog::orderBy('created_at', 'desc')->paginate(3);
-        return view('single-blog', compact('blog', 'recentBlogs'));
+        return view('single-blog', compact('blog', 'recentBlogs','newsBar'));
     }
 
     public function showBlogAdmin(blog $blog)

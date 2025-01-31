@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\NewsBarController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymobController;
 use App\Http\Controllers\promoCodeController;
@@ -71,6 +72,9 @@ Route::get('/promocodes',[promoCodeController::class,'index'])->name('promoCodes
 Route::post('/add-promo', [promoCodeController::class, 'store'])->name('promoCodes.store');
 Route::get('/promo/create', [promoCodeController::class, 'create'])->name('promoCodes.create');
 Route::delete('/promo/destroy/{PromoCode}', [promoCodeController::class, 'destroy'])->name('promoCodes.destroy');
+//news bar
+Route::get('/news-bar', [NewsBarController::class, 'index'])->name('news-bar.index');
+Route::post('/news-bar', [NewsBarController::class, 'update'])->name('news-bar.update');
 //logout
 Route::post('/logout',[userController::class,'logout'])->name('logout');
 

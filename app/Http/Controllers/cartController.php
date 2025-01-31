@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsBar;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -47,12 +48,13 @@ class cartController extends Controller
 
     public function viewCart()
     {
+        $newsBar = NewsBar::first();
         $cart = Session::get('cart', []);
         $total=0;
         foreach ($cart as $id => $details) {
             $total += $details['price'] * $details['quantity'];
         }
-        return view('cart', compact('cart','total'));
+        return view('cart', compact('cart','total','newsBar'));
     }
 
     public function removeFromCart($productId)

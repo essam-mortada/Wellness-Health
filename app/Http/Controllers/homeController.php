@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\NewsBar;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,41 +11,47 @@ use Illuminate\Support\Facades\Session;
 
 class homeController extends Controller
 {
+    public function getNewsBar(){
+        $newsBar = NewsBar::first();
+        return $newsBar;
+    }
     public function ShowHome(){
         if(Auth::user()){
             return redirect()->route('admin.home');
         }
+        $newsBar = $this->getNewsBar();
         $products= product::where('type','product')->latest()->paginate(8);
         $offers = product::where('type','offer')->latest()->paginate(8);
-        return view('home',compact('products','offers'));
+        return view('home',compact('products','offers','newsBar'));
     }
 
     public function ShowAbout(){
-        $products = product::all();
-        return view('about',compact('products'));
+        $newsBar = $this->getNewsBar();
+        return view('about',compact('newsBar'));
     }
     public function ShowPayment(){
-
-        return view('payment-success');
+        $newsBar = $this->getNewsBar();
+        return view('payment-success','newsBar');
     }
     public function ShowBlog(){
         $blogs= blog::all();
+        $newsBar = $this->getNewsBar();
         $recentBlogs= blog::orderBy('created_at','desc')->paginate(3);
-        return view('blog', compact('blogs','recentBlogs'));
+        return view('blog', compact('blogs','recentBlogs','newsBar'));
     }
     public function ShowContact(){
-
-        return view('contact');
+        $newsBar = $this->getNewsBar();
+        return view('contact',compact('newsBar'));
     }
     public function ShowShop(){
-
+        $newsBar = $this->getNewsBar();
         $offers = product::where('type','offer')->paginate(8);
         $products= product::where('type','product')->paginate(8);
-        return view('shop',compact('products','offers'));
+        return view('shop',compact('products','offers','newsBar'));
     }
 
     public function ShowCheckout(){
-
+        $newsBar = $this->getNewsBar();
         $cart = Session::get('cart', []);
         $delivery = 50;
         if (empty($cart)){
@@ -54,7 +61,6 @@ class homeController extends Controller
         foreach ($cart as $id => $details) {
             $total += $details['price'] * $details['quantity'];
         };
-        return view('checkout',compact('total','delivery'));
+        return view('checkout',compact('total','delivery','newsBar'));
     }
-
 }

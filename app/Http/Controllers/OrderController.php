@@ -41,7 +41,7 @@ class OrderController extends Controller
             return redirect()->back()->with('error', 'Your cart is empty!');
         }
 
-        // Validate stock levels for each product
+        // Validate stock levels for  each product
         foreach ($cart as $id => $details) {
             $product = product::find($id);
             if ($product->quantity < $details['quantity']) {
