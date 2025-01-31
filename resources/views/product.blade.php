@@ -34,7 +34,7 @@
                                         src="{{ asset('public/products_uploads/' . $image->image_path) }}" class="img-fluid "
                                         alt="product"></a>
 
-                            @endforeach
+                                        @endforeach
                         </div>
                     </div>
                 </div>
