@@ -35,7 +35,7 @@
 </section>
 
 @if (isset($brands) && count($brands) > 0)
-<div class="col-md-12 heading-section text-center ftco-animate">
+<div class="col-md-12 heading-section text-center ftco-animate my-5">
 <span class="subheading">Featured Brands</span>
 <h2 class="mb-4">Our Brands</h2>
 </div>
