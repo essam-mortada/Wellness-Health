@@ -62,9 +62,9 @@
 
                 <div class="form-group">
                     <label for="image">Image:</label>
-                    <input type="file" class="form-control" id="image" name="image">
-
+                    <input type="file" class="form-control" multiple id="image" name="images[]">
                 </div>
+
 
                 <button type="submit" class="btn btn-primary">Update Product</button>
                 <a href="{{ route('products.index') }}" class="btn btn-secondary">Back to Products List</a>

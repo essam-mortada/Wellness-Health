@@ -62,7 +62,7 @@
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a href="{{ route('products.show', $product->id) }}" class="img-prod">
-                        <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
+                        <img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
@@ -127,7 +127,7 @@
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a href="{{ route('products.show', $product->id) }}" class="img-prod">
-                        <img style="max-height: 200px" class="img-fluid" src="{{asset('public/products_uploads/'.$product->image)}}" alt="Product Image">
+                        <img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">

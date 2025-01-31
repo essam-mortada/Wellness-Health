@@ -24,9 +24,21 @@
   <section class="ftco-section">
       <div class="container">
           <div class="row">
-              <div class="col-lg-6 mb-5 ftco-animate text-center" >
-                  <a href="{{asset('public/products_uploads/'.$product->image)}}" class="image-popup"><img style="max-height: 400px" src="{{asset('public/products_uploads/'.$product->image)}}" class="img-fluid" alt="product"></a>
-              </div>
+            <div class="col-lg-6 mb-5 ftco-animate text-center">
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel owl-carousel">
+                            @foreach ($product->images as $image)
+                                <a href="{{ asset('public/products_uploads/' . $image->image_path) }}" class="image-popup "><img
+                                        style="max-height: 400px"
+                                        src="{{ asset('public/products_uploads/' . $image->image_path) }}" class="img-fluid "
+                                        alt="product"></a>
+
+                                        @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
               <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                   <h3>{{$product->name}}</h3>
                   @if ($product->quantity == 0)

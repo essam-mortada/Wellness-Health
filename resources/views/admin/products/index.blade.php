@@ -38,7 +38,7 @@
                                 <td>{{ $product->quantity }}</td>
                                 <td>
                                     @if($product->image != 'default.png')
-                                        <img src="{{ asset('public/products_uploads/'.$product->image) }}" width="50" height="50" class="img-fluid img-thumbnail">
+                                        <img src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" width="50" height="50" class="img-fluid img-thumbnail">
                                     @else
                                         <img src="{{ asset('public/products_uploads/default.png') }}" width="50" height="50" class="img-fluid img-thumbnail">
                                     @endif

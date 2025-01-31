@@ -38,7 +38,7 @@ class cartController extends Controller
                 "description" =>$product->description ,
                 "quantity" => $quantity,
                 "price" => $product->price,
-                "image" => $product->image
+                'images' => $product->images ? $product->images->pluck('image_path')->toArray() : ['default.jpg']
             ];
         }
 

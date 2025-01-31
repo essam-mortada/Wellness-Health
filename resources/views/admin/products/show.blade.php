@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-md-6">
                         @if($product->image!= 'default.png')
-                            <img src="{{ asset('public/products_uploads/'.$product->image) }}" width="200" height="200">
+                            <img src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" width="200" height="200">
                         @else
                             <img src="{{ asset('public/products_uploads/default.png') }}" width="200" height="200">
                         @endif

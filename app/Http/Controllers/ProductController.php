@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\NewsBar;
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class ProductController extends Controller
             'name' => 'required|string',
             'price' => 'required|integer',
             'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'images.*'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
             'category' => 'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
             'type' => 'required|in:product,offer',
             'quantity' => 'required|integer|min:0'
@@ -59,15 +60,21 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
         $product->category = $request->category;
         $product->type = $request->type;
+        $product->save();
 
-        if ($request->hasFile('image')) {
-            $imageName = time() . rand(0, 500) . '.' . $request->image->extension();
-            $request->image->move(public_path('products_uploads'), $imageName);
-            $product->image = $imageName;
-        } else {
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imageName = time().rand(0,500).'.'.$image->extension();
+                 $image->move(public_path('products_uploads'), $imageName);
+
+                Image::create([
+                    'product_id' => $product->id,
+                    'image_path' => $imageName,
+                ]);
+            }
+        }else{
             $product->image = 'default.png';
         }
-        $product->save();
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
@@ -114,13 +121,25 @@ class ProductController extends Controller
             'type' => 'required|in:product,offer',
             'quantity' => 'required|integer|min:0'
         ]);
-        if ($request->hasFile('image')) {
-            if ($product->image != 'default.png') {
-                unlink(public_path('products_uploads/' . $product->image));
+        if($request->hasFile('images')){
+            $images= $product->images;
+            if ($product->images){
+                $product->image= 'null';
+                foreach ($images as $image) {
+                    unlink(public_path('products_uploads/'.$image->image_path));
+                    $image->delete();
+                }
+
             }
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('products_uploads'), $imageName);
-            $product->image = $imageName;
+            foreach ($request->file('images') as $image) {
+                $imageName = time().rand(0,500).'.'.$image->extension();
+                 $image->move(public_path('products_uploads'), $imageName);
+
+                Image::create([
+                    'product_id' => $product->id,
+                    'image_path' => $imageName,
+                ]);
+            }
         }
         $product->name = $request->name;
         $product->price = $request->price;

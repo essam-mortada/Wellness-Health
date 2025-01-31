@@ -56,8 +56,8 @@
 
                 <div class="form-group">
                     <label for="image">Product Image:</label>
-                    <input type="file" id="image" name="image" class="form-control-file">
-                </div>
+                    <input type="file" name="images[]" class="form-control-file" multiple>
+                </div>>
 
                 <div class="form-group">
                     <label for="quantity">Product Quantity:</label>
