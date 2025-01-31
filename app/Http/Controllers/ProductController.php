@@ -81,8 +81,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show( $product)
     {
+        $product = Product::with('images')->findOrFail($product);
         $newsBar = NewsBar::first();
         if (!$product) {
             return view('error-404');
