@@ -34,7 +34,19 @@
   </div>
 </section>
 
->
+@if (isset($brands))
+<div class="col-md-12 heading-section text-center ftco-animate">
+<span class="subheading">Featured Brands</span>
+<h2 class="mb-4">Our Brands</h2>
+</div>
+<div class="brand-carousel owl-carousel">
+  @foreach ($brands as $brand)
+      <div class="brand-item">
+          <img src="{{ asset('public/brands/' . $brand->logo) }}" alt="{{ $brand->name }}" class="brand-logo">
+      </div>
+  @endforeach
+</div>
+@endif
 <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
   <div class="col-md-12 heading-section text-center ftco-animate">
@@ -55,19 +67,7 @@
 </div>
 </div>
 
-@if (isset($brands))
-<div class="col-md-12 heading-section text-center ftco-animate">
-<span class="subheading">Featured Brands</span>
-<h2 class="mb-4">Our Brands</h2>
-</div>
-<div class="brand-carousel owl-carousel">
-  @foreach ($brands as $brand)
-      <div class="brand-item">
-          <img src="{{ asset('public/brands/' . $brand->logo) }}" alt="{{ $brand->name }}" class="brand-logo">
-      </div>
-  @endforeach
-</div>
-@endif
+
 
 <div class="container" >
     <section class="ftco-section testimony-section">
