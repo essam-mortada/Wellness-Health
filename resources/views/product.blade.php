@@ -1,4 +1,9 @@
 @include('layouts.product-header')
+<style>
+    .owl-carousel {
+    display: block !important;
+}
+</style>
 
 <div class="hero-wrap hero-bread" style="background-image: url({{asset('public/assets/images/bg_1.jpg')}});">
     <div class="overlay" style="width: 100%"></div>
@@ -226,4 +231,27 @@
       </div>
   </section>
 
+
+  <script>
+    $(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    });
+});
+
+  </script>
 @include('layouts.footer')
