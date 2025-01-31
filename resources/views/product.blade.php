@@ -190,7 +190,7 @@
 
               <div class="col-md-6 col-lg-3 ftco-animate">
                   <div class="product text-center" style="height:90%;width:100%">
-                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="product">
+                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 300px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="product">
                           <!--<span class="status">30%</span>-->
                           <div class="overlay"></div>
                       </a>
@@ -240,22 +240,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         owlCarousels.forEach(function (carousel) {
             $(carousel).owlCarousel({
-                loop: true,          // Enable looping
-                margin: 10,          // Margin between items
-                nav: true,           // Show next/prev buttons
-                dots: true,          // Show navigation dots
-                autoplay: true,      // Enable autoplay
-                autoplayTimeout: 3000, // Autoplay interval (3 seconds)
-                autoplayHoverPause: true, // Pause on hover
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
                 responsive: {
                     0: {
-                        items: 1      // 1 item for small screens
+                        items: 1
                     },
                     600: {
-                        items: 1      // 2 items for medium screens
+                        items: 1
                     },
                     1000: {
-                        items: 1      // 3 items for large screens
+                        items: 1
                     }
                 }
             });
