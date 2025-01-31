@@ -47,6 +47,7 @@
               <li class="nav-item"><a href="{{route('reviews.index')}}" class="nav-link">Reviews</a></li>
               <li class="nav-item"><a href="{{route('promoCodes.index')}}" class="nav-link">promo codes</a></li>
               <li class="nav-item"><a href="{{route('news-bar.index')}}" class="nav-link">News Bar</a></li>
+              <li class="nav-item"><a href="{{route('brands.index')}}" class="nav-link">Brands</a></li>
               <li class="nav-item"><a href="{{route('admins.index')}}" class="nav-link">Admins</a></li>
               <div class="dropdown mt-3">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
