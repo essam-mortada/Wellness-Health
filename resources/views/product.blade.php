@@ -233,23 +233,33 @@
 
 
   <script>
-    $(document).ready(function () {
-    $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
+document.addEventListener("DOMContentLoaded", function () {
+    // Wait until all images are fully loaded
+    window.addEventListener("load", function () {
+        const owlCarousels = document.querySelectorAll(".owl-carousel");
+
+        owlCarousels.forEach(function (carousel) {
+            $(carousel).owlCarousel({
+                loop: true,          // Enable looping
+                margin: 10,          // Margin between items
+                nav: true,           // Show next/prev buttons
+                dots: true,          // Show navigation dots
+                autoplay: true,      // Enable autoplay
+                autoplayTimeout: 3000, // Autoplay interval (3 seconds)
+                autoplayHoverPause: true, // Pause on hover
+                responsive: {
+                    0: {
+                        items: 1      // 1 item for small screens
+                    },
+                    600: {
+                        items: 1      // 2 items for medium screens
+                    },
+                    1000: {
+                        items: 1      // 3 items for large screens
+                    }
+                }
+            });
+        });
     });
 });
 
