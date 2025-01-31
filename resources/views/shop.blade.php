@@ -47,8 +47,10 @@
 
                     <div class="col-md-6 mt-3 col-lg-3 ftco-animate">
                         <div class="product text-center" style="height:90%;width:100%">
+                            @if ($product->images)
                             <a href="{{ route('products.show', $product->id) }}"  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('products_uploads/' . $product->images->first()->image_path) : asset('products_uploads/default.png') }}" alt="product">
-                              <!--  <span class="status">30%</span>-->
+                            @endif
+                                <!--  <span class="status">30%</span>-->
                                 <div class="overlay"></div>
                             </a>
                             <div class="text py-3 pb-4 px-3 text-center">
@@ -109,8 +111,10 @@
 
                 <div class="col-md-6 mt-3 col-lg-3 ftco-animate">
                     <div class="product text-center" style="height:90%;width:100%">
+                        @if ($product->images)
                         <a  class="img-prod"><img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="product">
-                          <!--  <span class="status">30%</span>-->
+                          @endif
+                            <!--  <span class="status">30%</span>-->
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
