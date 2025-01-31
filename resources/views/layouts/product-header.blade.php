@@ -41,7 +41,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item cta-colored"><a href="{{route('home')}}" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Shop</a></li>
+              <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Products</a></li>
               <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
@@ -52,5 +52,18 @@
 	    </div>
 	  </nav>
 
-
+      @if (isset($newsBar))
+<!-- ltn__header-top-area start -->
+<div class="ltn__header-top-area top-area-color-white ">
+    <ul>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+        <li><strong> {{$newsBar->content}} </strong></li>
+    </ul>
+</div>
+<!-- ltn__header-top-area end -->
+@endif
     <!-- END nav -->
