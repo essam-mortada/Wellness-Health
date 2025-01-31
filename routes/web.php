@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\cartController;
@@ -67,6 +68,14 @@ Route::delete('/orders/destroy/{order}', [OrderController::class, 'destroy'])->n
 Route::get('/reviews',[ReviewController::class,'index'])->name('reviews.index');
 Route::get('/reviews/show/{review}', [ReviewController::class, 'show'])->name('reviews.show');
 Route::delete('/reviews/delete/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+//brands
+Route::get('/brands',[BrandController::class,'index'])->name('brands.index');
+Route::get('/brands/create',[BrandController::class,'create'])->name('brands.create');
+Route::post('/product/create',[BrandController::class,'store'])->name('brands.store');
+Route::get('/brands/edit/{brand}', [BrandController::class, 'edit'])->name('brands.edit');
+Route::put('/brands/update/{brand}', [BrandController::class, 'update'])->name('brands.update');
+Route::post('/brands/store', [BrandController::class, 'store'])->name('brands.store');
+Route::delete('/brands/destroy/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
 //promoCodes
 Route::get('/promocodes',[promoCodeController::class,'index'])->name('promoCodes.index');
 Route::post('/add-promo', [promoCodeController::class, 'store'])->name('promoCodes.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\Brand;
 use App\Models\NewsBar;
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -19,10 +20,11 @@ class homeController extends Controller
         if(Auth::user()){
             return redirect()->route('admin.home');
         }
+        $brands = Brand::all();
         $newsBar = $this->getNewsBar();
         $products= product::where('type','product')->latest()->paginate(8);
         $offers = product::where('type','offer')->latest()->paginate(8);
-        return view('home',compact('products','offers','newsBar'));
+        return view('home',compact('products','offers','newsBar','brands'));
     }
 
     public function ShowAbout(){

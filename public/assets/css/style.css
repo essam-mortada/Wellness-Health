@@ -10111,3 +10111,8 @@ textarea.form-control {
             }
         }
 
+        .brand-logo {
+            max-height: 100px;
+            display: block;
+            margin: auto;
+        }
