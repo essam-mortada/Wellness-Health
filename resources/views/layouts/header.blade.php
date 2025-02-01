@@ -3,7 +3,27 @@
     <title>Wellnez Mart</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon">
+
+       <!-- SEO Meta Tags -->
+       <meta name="description" content="Discover premium wellness, health, diet, and skincare products at Wellnez Mart. Shop now for natural and organic solutions to enhance your well-being.">
+       <meta name="keywords" content="wellness, health, diet, skincare, organic products, natural remedies, healthy lifestyle, beauty care, Wellnez Mart">
+       <meta name="author" content="Wellnez Mart">
+
+       <!-- Open Graph Meta Tags for Social Media -->
+       <meta property="og:title" content="Wellnez Mart - Wellness, Health, Diet, and Skincare Products">
+       <meta property="og:description" content="Discover premium wellness, health, diet, and skincare products at Wellnez Mart. Shop now for natural and organic solutions to enhance your well-being.">
+       <meta property="og:image" content="{{ asset('public/assets/images/favicon.png') }}">
+       <meta property="og:url" content="{{ url('/') }}">
+       <meta property="og:type" content="website">
+
+       <!-- Twitter Meta Tags -->
+       <meta name="twitter:card" content="summary_large_image">
+       <meta name="twitter:title" content="Wellnez Mart - Wellness, Health, Diet, and Skincare Products">
+       <meta name="twitter:description" content="Discover premium wellness, health, diet, and skincare products at Wellnez Mart. Shop now for natural and organic solutions to enhance your well-being.">
+       <meta name="twitter:image" content="{{ asset('public/assets/images/favicon.png') }}">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -14,6 +34,7 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/magnific-popup.css')}}">
+
 
     <link rel="stylesheet" href="{{asset('public/assets/css/aos.css')}}">
 
@@ -39,7 +60,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item cta-colored"><a href="{{route('home')}}" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Products</a></li>
+              <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Shop</a></li>
               <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
@@ -50,8 +71,7 @@
 	    </div>
 	  </nav>
 
-
-      @if (isset($newsBar))
+@if (isset($newsBar))
 <!-- ltn__header-top-area start -->
 <div class="ltn__header-top-area top-area-color-white ">
     <ul>
@@ -65,5 +85,4 @@
 </div>
 <!-- ltn__header-top-area end -->
 @endif
-
     <!-- END nav -->

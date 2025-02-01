@@ -1,8 +1,53 @@
 <html lang="en">
   <head>
-    <title>{{$product->name}}</title>
+    <title>{{$product->name}} - Wellnez mart</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="{{ Str::limit($product->description, 160) }}">
+        <meta name="keywords" content="{{ $product->name }}, wellness, health, skincare, organic products, natural remedies, Wellnez Mart">
+        <meta name="author" content="Wellnez Mart">
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="{{ $product->name }} - Wellnez Mart">
+        <meta property="og:description" content="{{ Str::limit($product->description, 160) }}">
+        <meta property="og:image" content="{{ asset('public/products_uploads/'.$product->images->first()) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="product">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $product->name }} - Wellnez Mart">
+        <meta name="twitter:description" content="{{ Str::limit($product->description, 160) }}">
+        <meta name="twitter:image" content="{{ asset('public/products_uploads/'.$product->images->first()) }}">
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="{{ url()->current() }}" />
+
+        <!-- Structured Data (Schema.org) -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "{{ $product->name }}",
+          "description": "{{ $product->description }}",
+          "image": "{{ asset('public/products_uploads/'.$product->images->first()) }}",
+          "brand": {
+            "@type": "Brand",
+            "name": "Wellnez Mart"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EGP",
+            "price": "{{ $product->price }}",
+            "availability": "https://schema.org/{{ $product->quantity > 0 ? 'InStock' : 'OutOfStock' }}",
+            "url": "{{ url()->current() }}"
+          }
+        }
+        </script>
     <link rel="icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -26,7 +71,6 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
-    <meta name="description" content="{{ Str::limit($product->description, 160) }}">
 
   </head>
   <body class="goto-here">
