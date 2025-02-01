@@ -14,7 +14,7 @@
         <!-- Open Graph Meta Tags -->
         <meta property="og:title" content="{{ $product->name }} - Wellnez Mart">
         <meta property="og:description" content="{{ Str::limit($product->description, 160) }}">
-        <meta property="og:image" content="{{ asset('public/products_uploads/'.$product->images->first()) }}">
+        <meta property="og:image" content="{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="product">
 
@@ -22,7 +22,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $product->name }} - Wellnez Mart">
         <meta name="twitter:description" content="{{ Str::limit($product->description, 160) }}">
-        <meta name="twitter:image" content="{{ asset('public/products_uploads/'.$product->images->first()) }}">
+        <meta name="twitter:image" content="{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}">
 
         <!-- Canonical URL -->
         <link rel="canonical" href="{{ url()->current() }}" />
@@ -34,7 +34,7 @@
           "@type": "Product",
           "name": "{{ $product->name }}",
           "description": "{{ $product->description }}",
-          "image": "{{ asset('public/products_uploads/'.$product->images->first()) }}",
+          "image": "{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}",
           "brand": {
             "@type": "Brand",
             "name": "Wellnez Mart"
