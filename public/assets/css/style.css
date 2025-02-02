@@ -10118,7 +10118,7 @@ textarea.form-control {
         }
 
 
-        
+ 
 /* Search icon wrapper */
 .header-search-wrap {
     position: relative;
@@ -10211,7 +10211,6 @@ textarea.form-control {
 
     /* Ensure the search icon is visible */
     .search-icon {
-        margin-right: 50px;
         display: block;
         color: #fff;
     }
@@ -10238,8 +10237,8 @@ textarea.form-control {
     /* Adjust the search wrapper for smaller screens */
     .header-search-wrap {
         left: auto; /* Reset left positioning */
-        right: 160px; /* Position to the left of the menu icon */
-        top: 50%;
+        right: 220px; /* Position to the left of the menu icon */
+        top: 30px;
         transform: translateY(-50%);
     }
 
@@ -10258,7 +10257,9 @@ textarea.form-control {
 @media (max-width: 767.98px) {
     /* Further adjustments for very small screens */
     .header-search-wrap {
-        right: 134px; /* Adjust positioning */
+        right: 187px; /* Adjust positioning */
+        top: 30px;
+
     }
 
    
@@ -10267,7 +10268,8 @@ textarea.form-control {
 @media (max-width: 575.98px) {
     /* Adjustments for extra small screens */
     .header-search-wrap {
-        right: 50px; /* Adjust positioning */
+        right: 100px; /* Adjust positioning */
+        top: 30px;
     }
 
   
