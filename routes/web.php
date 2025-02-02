@@ -90,7 +90,7 @@ Route::post('/logout',[userController::class,'logout'])->name('logout');
 });
 ////////////////////////////////////////////////USER//////////////////////////////////////////////////////
 // user routes
-
+Route::get('products/search', [ProductController::class, 'search'])->name('search.products');
 //reviews
 Route::post('products/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');
 //usersMessages

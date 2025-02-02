@@ -188,4 +188,31 @@ class ProductController extends Controller
         }
         return view('shop', compact('products', 'offers','newsBar'));
     }
+
+    public function search(Request $request)
+    {
+        // Get the search query from the request
+        $query = $request->input('name');
+    
+        // Perform the search query for products
+        $products = Product::where('type', 'product')
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%")
+                  ->orWhere('description', 'like', "%{$query}%");
+            })
+            ->paginate(8)
+            ->appends(['query' => $query]);
+    
+        // Perform the search query for offers
+        $offers = Product::where('type', 'offer')
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%")
+                  ->orWhere('description', 'like', "%{$query}%");
+            })
+            ->paginate(8)
+            ->appends(['query' => $query]);
+    
+        // Return the search results view with both products and offers
+        return view('shop', compact('products', 'offers', 'query'));
+    }
 }

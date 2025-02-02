@@ -81,7 +81,24 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
-
+          <div class="header-search-wrap ">
+            <div class="header-search-1">
+                <div class="search-icon">
+                    <i class="oi oi-magnifying-glass"></i>
+                    <i class="icon-magnifier-remove  for-search-close"></i>
+                </div>
+            </div>
+            <div class="header-search-1-form">
+                <form id="search-form" method="get" action="{{route('search.products')}}">
+                    <div class="search-input-container">
+                        <input type="text" name="name" value="" placeholder=" search for product " />
+                        <button type="submit" class="search-submit-icon">
+                            <i class="oi oi-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item cta-colored"><a href="{{route('home')}}" class="nav-link">Home</a></li>

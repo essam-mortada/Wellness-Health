@@ -374,6 +374,30 @@ document.addEventListener('DOMContentLoaded', function() {
 setInterval(function() { makeTimer(); }, 1000);
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const searchWrap = document.querySelector('.header-search-wrap');
+    const searchIcon = document.querySelector('.search-icon');
+    const searchForm = document.querySelector('.header-search-1-form');
+
+    // Toggle search form visibility when clicking the search icon
+    searchIcon.addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent the click from bubbling up to the document
+        searchWrap.classList.toggle('active');
+    });
+
+    // Hide the search form when clicking anywhere outside of it
+    document.addEventListener('click', function (e) {
+        if (!searchWrap.contains(e.target)) {
+            searchWrap.classList.remove('active');
+        }
+    });
+
+    // Prevent the form from closing when clicking inside the input or button
+    searchForm.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
 
 })(jQuery);
 

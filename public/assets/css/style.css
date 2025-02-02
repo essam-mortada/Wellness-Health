@@ -10116,3 +10116,159 @@ textarea.form-control {
             display: block;
             margin: auto;
         }
+
+
+        
+/* Search icon wrapper */
+.header-search-wrap {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    right: -410px; /* Adjust positioning */
+    
+}
+
+
+
+/* Submit button (icon inside input) */
+/* Search input container */
+.search-input-container {
+    position: relative;
+    display: inline-block;
+    width: 300px; /* Ensure it takes full width */
+}
+
+/* Input field */
+.search-input-container input[type="text"] {
+    width: 100%; /* Full width of the container */
+    padding: 8px 40px 8px 10px; /* Add padding for the icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Submit button (icon inside input) */
+.search-input-container .search-submit-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #333; /* Adjust icon color */
+    font-size: 16px;
+    height: 100%; /* Match the input height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect for the submit icon */
+.search-input-container .search-submit-icon:hover {
+    color: #000; /* Darken icon on hover */
+}
+
+/* Search icon */
+.search-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #000000; /* Adjust color to match your design */
+    z-index: 1000; /* Ensure the search icon is below the menu icon */
+}
+
+/* Search input form */
+.header-search-1-form {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide the form by default */
+    z-index: 1000;
+}
+
+/* Show the search form when active */
+.header-search-wrap.active .header-search-1-form {
+    display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    /* Position the search icon behind the menu icon */
+    .header-search-wrap {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Ensure the search icon is visible */
+    .search-icon {
+        margin-right: 50px;
+        display: block;
+        color: #fff;
+    }
+
+    /* Adjust the search form position for mobile */
+    .header-search-1-form {
+        top: 40px; /* Adjust based on your design */
+        right: -20px; /* Adjust based on your design */
+    }
+}
+
+
+
+@media (max-width: 1200.98px) {
+    /* Further adjustments for very small screens */
+    .header-search-wrap {
+        right: -229px; /* Adjust positioning */
+    }
+
+   
+}
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    /* Adjust the search wrapper for smaller screens */
+    .header-search-wrap {
+        left: auto; /* Reset left positioning */
+        right: 160px; /* Position to the left of the menu icon */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Adjust the search form position for mobile */
+    .header-search-1-form {
+        top: 40px; /* Adjust based on your design */
+        right: -20px; /* Adjust based on your design */
+    }
+
+    /* Ensure the search icon is visible */
+    .search-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Further adjustments for very small screens */
+    .header-search-wrap {
+        right: 134px; /* Adjust positioning */
+    }
+
+   
+}
+
+@media (max-width: 575.98px) {
+    /* Adjustments for extra small screens */
+    .header-search-wrap {
+        right: 50px; /* Adjust positioning */
+    }
+
+  
+}
