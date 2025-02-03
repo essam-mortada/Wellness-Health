@@ -10118,14 +10118,14 @@ textarea.form-control {
         }
 
 
- 
+
 /* Search icon wrapper */
 .header-search-wrap {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    right: -410px; /* Adjust positioning */
-    
+    right: -384px; /* Adjust positioning */
+
 }
 
 
@@ -10227,10 +10227,10 @@ textarea.form-control {
 @media (max-width: 1200.98px) {
     /* Further adjustments for very small screens */
     .header-search-wrap {
-        right: -229px; /* Adjust positioning */
+        right: -213px; /* Adjust positioning */
     }
 
-   
+
 }
 /* Responsive styles */
 @media (max-width: 991.98px) {
@@ -10262,7 +10262,7 @@ textarea.form-control {
 
     }
 
-   
+
 }
 
 @media (max-width: 575.98px) {
@@ -10272,5 +10272,5 @@ textarea.form-control {
         top: 30px;
     }
 
-  
+
 }

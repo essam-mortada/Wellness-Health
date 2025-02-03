@@ -33,6 +33,7 @@
                 <div class="row ftco-animate">
                     <div class="col-md-12">
                         <div class="carousel owl-carousel">
+                            @if ($product->images->isNotEmpty())
                             @foreach ($product->images as $image)
                                 <a href="{{ asset('public/products_uploads/' . $image->image_path) }}" class="image-popup "><img
                                         style="max-height: 400px"
@@ -40,6 +41,10 @@
                                         alt="product"></a>
 
                                         @endforeach
+                                        @else
+                                        <img src="{{ asset('public/products_uploads/default.png') }}" class="img-fluid "
+                                        alt="product">
+                                        @endif
                         </div>
                     </div>
                 </div>

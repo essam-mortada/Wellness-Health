@@ -84,6 +84,7 @@ class ProductController extends Controller
     public function show( $product)
     {
         $product = Product::with('images')->findOrFail($product);
+       
         $newsBar = NewsBar::first();
         if (!$product) {
             return view('error-404');
@@ -157,12 +158,21 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->images->isNotEmpty()) {
+            foreach ($product->images as $image) {
+                $imagePath = public_path('products_uploads/' . $image->image_path);
 
-        if ($product->image != 'default.png') {
-            unlink(public_path('products_uploads/' . $product->image));
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+
+                $image->delete();
+            }
         }
+
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+
+        return redirect()->route('products.index')->with('success', 'Product and its images deleted successfully.');
     }
 
     public function filterByCategory(Request $request)
@@ -193,7 +203,7 @@ class ProductController extends Controller
     {
         // Get the search query from the request
         $query = $request->input('name');
-    
+
         // Perform the search query for products
         $products = Product::where('type', 'product')
             ->where(function ($q) use ($query) {
@@ -202,7 +212,7 @@ class ProductController extends Controller
             })
             ->paginate(8)
             ->appends(['query' => $query]);
-    
+
         // Perform the search query for offers
         $offers = Product::where('type', 'offer')
             ->where(function ($q) use ($query) {
@@ -211,7 +221,7 @@ class ProductController extends Controller
             })
             ->paginate(8)
             ->appends(['query' => $query]);
-    
+
         // Return the search results view with both products and offers
         return view('shop', compact('products', 'offers', 'query'));
     }

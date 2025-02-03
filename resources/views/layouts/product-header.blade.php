@@ -14,7 +14,9 @@
         <!-- Open Graph Meta Tags -->
         <meta property="og:title" content="{{ $product->name }} - Wellnez Mart">
         <meta property="og:description" content="{{ Str::limit($product->description, 160) }}">
+        @if ($product->images->isNotEmpty() )
         <meta property="og:image" content="{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}">
+        @endif
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="product">
 
@@ -22,8 +24,9 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $product->name }} - Wellnez Mart">
         <meta name="twitter:description" content="{{ Str::limit($product->description, 160) }}">
+        @if ($product->images->isNotEmpty() )
         <meta name="twitter:image" content="{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}">
-
+        @endif
         <!-- Canonical URL -->
         <link rel="canonical" href="{{ url()->current() }}" />
 
