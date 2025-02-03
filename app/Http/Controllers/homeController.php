@@ -29,7 +29,8 @@ class homeController extends Controller
 
     public function ShowAbout(){
         $newsBar = $this->getNewsBar();
-        return view('about',compact('newsBar'));
+        $products = product::all();
+        return view('about',compact('newsBar','products'));
     }
     public function ShowPayment(){
         $newsBar = $this->getNewsBar();
