@@ -81,20 +81,22 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( $product)
+    public function show($product)
     {
-        $product = Product::with('images')->findOrFail($product);
-       
-        $newsBar = NewsBar::first();
+        $product = Product::with('images')->find($product);
+
         if (!$product) {
-            return view('error-404');
+            return response()->view('error-404', [], 404);
         }
+
+        $newsBar = NewsBar::first();
         $reviews = $product->reviews()->latest()->paginate(10);
         $averageRating = round($product->reviews()->avg('rating'));
         $products = Product::where('id', '!=', $product->id)->paginate(4);
 
-        return view('product', compact('product', 'products', 'reviews', 'averageRating','newsBar'));
+        return view('product', compact('product', 'products', 'reviews', 'averageRating', 'newsBar'));
     }
+
 
     public function showProductAdmin(Product $product)
     {
