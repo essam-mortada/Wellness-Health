@@ -10279,16 +10279,16 @@ textarea.form-control {
     }
 
     .img-404{
-        width: 800;
-        height: 1000px;
-        margin-right: 191px;
-        margin-top: 320px;
+        width: 350px;
+        height: 374px;
+        margin-right: 24px;
+        margin-top: 128px;
     }
 
     .btn-404{
-    padding: 30px;
-    font-size: 30px;
-    margin-left: 271px;
-    margin-top: 65px;
+        padding: 13px;
+        font-size: 18px;
+        /* margin-left: -22px; */
+        margin-top: 65px;
     }
 }
