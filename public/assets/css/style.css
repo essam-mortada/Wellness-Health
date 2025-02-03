@@ -10268,6 +10268,16 @@ textarea.form-control {
 
     }
 
+
+}
+
+@media (max-width: 575.98px) {
+    /* Adjustments for extra small screens */
+    .header-search-wrap {
+        right: 100px; /* Adjust positioning */
+        top: 30px;
+    }
+
     .img-404{
         width: 800;
         height: 1000px;
@@ -10281,14 +10291,4 @@ textarea.form-control {
     margin-left: 271px;
     margin-top: 65px;
     }
-}
-
-@media (max-width: 575.98px) {
-    /* Adjustments for extra small screens */
-    .header-search-wrap {
-        right: 100px; /* Adjust positioning */
-        top: 30px;
-    }
-
-
 }
