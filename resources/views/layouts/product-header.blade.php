@@ -37,7 +37,9 @@
           "@type": "Product",
           "name": "{{ $product->name }}",
           "description": "{{ $product->description }}",
+          @if ($product->images->isNotEmpty())
           "image": "{{ asset('public/products_uploads/'.$product->images->first()->image_path) }}",
+          @endif
           "brand": {
             "@type": "Brand",
             "name": "Wellnez Mart"
