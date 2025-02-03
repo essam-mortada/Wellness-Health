@@ -10128,6 +10128,9 @@ textarea.form-control {
 
 }
 
+.img-404{
+    height: 500px;
+}
 
 
 /* Submit button (icon inside input) */
@@ -10220,6 +10223,9 @@ textarea.form-control {
         top: 40px; /* Adjust based on your design */
         right: -20px; /* Adjust based on your design */
     }
+
+
+
 }
 
 
@@ -10262,7 +10268,10 @@ textarea.form-control {
 
     }
 
-
+    .img-404{
+        height: 1000px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 575.98px) {
