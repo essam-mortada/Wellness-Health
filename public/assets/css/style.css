@@ -10269,8 +10269,17 @@ textarea.form-control {
     }
 
     .img-404{
+        width: 800;
         height: 1000px;
-        width: 100%;
+        margin-right: 191px;
+        margin-top: 320px;
+    }
+
+    .btn-404{
+    padding: 30px;
+    font-size: 30px;
+    margin-left: 271px;
+    margin-top: 65px;
     }
 }
 
