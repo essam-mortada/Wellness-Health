@@ -10680,3 +10680,151 @@ section > .tab-content > .tab-pane {
     }
 }
 
+
+.body-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Login Area */
+.ltn__login-area {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+.section-title-area {
+    margin-bottom: 30px;
+}
+
+.section-title-area h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.section-title-area p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Form Styles */
+.ltn__form-box {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ltn__form-box input[type="text"],
+.ltn__form-box input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.ltn__form-box input[type="text"]:focus,
+.ltn__form-box input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Error Messages */
+.text-danger {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Button Styles */
+.btn-wrapper {
+    margin-top: 20px;
+}
+
+.theme-btn-1 {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-btn-1:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .ltn__login-area {
+        padding: 15px;
+    }
+
+    .section-title-area h1 {
+        font-size: 20px;
+    }
+
+    .section-title-area p {
+        font-size: 14px;
+    }
+
+    .ltn__form-box {
+        padding: 15px;
+    }
+
+    .ltn__form-box input[type="text"],
+    .ltn__form-box input[type="password"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .theme-btn-1 {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ltn__login-area {
+        padding: 10px;
+    }
+
+    .section-title-area h1 {
+        font-size: 18px;
+    }
+
+    .section-title-area p {
+        font-size: 12px;
+    }
+
+    .ltn__form-box {
+        padding: 10px;
+    }
+
+    .ltn__form-box input[type="text"],
+    .ltn__form-box input[type="password"] {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .theme-btn-1 {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
