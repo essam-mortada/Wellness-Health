@@ -17,9 +17,7 @@ class homeController extends Controller
         return $newsBar;
     }
     public function ShowHome(){
-        if(Auth::user()){
-            return redirect()->route('admin.home');
-        }
+        
         $brands = Brand::all();
         $newsBar = $this->getNewsBar();
         $products= product::where('type','product')->latest()->paginate(8);
