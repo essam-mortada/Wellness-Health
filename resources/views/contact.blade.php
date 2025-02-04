@@ -13,11 +13,33 @@
   </div>
 
   <section class="ftco-section contact-section bg-light">
-    @if (@session('success'))
-    <div class="col-md-3 alert alert-success text-center m-auto mb-3 mt-3" role="alert">
-    {{session('success')}}
-    </div>
-    @endif
+    @if (session('success'))
+  <script src="{{asset('public/assets/js/sweetalert2@11.js')}}"></script>
+  <script>
+      Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: '{{ session('success') }}',
+          confirmButtonText: 'OK',
+          timer: 3000,
+          timerProgressBar: true,
+      });
+  </script>
+@endif
+
+@if (session('error'))
+<script src="{{asset('public/assets/js/sweetalert2@11.js')}}"></script>
+  <script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: '{{ session('error') }}',
+          confirmButtonText: 'OK',
+          timer: 3000,
+          timerProgressBar: true,
+      });
+  </script>
+@endif
     <div class="container">
 
         <div class="row d-flex mb-5 contact-info justify-content-between">

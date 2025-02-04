@@ -15,7 +15,7 @@
                     <div style="background-color:#82ae46;color:white;" class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('admin.login.post') }}">
                             @csrf
 
                             <div class="form-group">

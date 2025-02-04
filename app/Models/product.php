@@ -13,8 +13,8 @@ class product extends Model
         'price',
         'description',
         'image',
-        'category',
         'quantity',
+        'category',
         'type'
     ];
 
@@ -31,5 +31,15 @@ class product extends Model
     public function images()
     {
     return $this->hasMany(Image::class,'product_id');
+    }
+
+        public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    public function wishlistedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'wishlists');
     }
 }

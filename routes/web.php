@@ -12,18 +12,19 @@ use App\Http\Controllers\promoCodeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\usersMessagesController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::fallback(function () {
     return response()->view('error-404', [], 404);
 });
-Route::get('/admin/login',[userController::class,'showLoginForm'])->name('login');
-Route::post('/admin/login',[userController::class,'Login']);
+Route::get('/admin/login',[userController::class,'showLoginForm'])->name('admin.login');
+Route::post('/admin/login',[userController::class,'loginAdmin'])->name('admin.login.post');
 
 //////////////////////////////////////////////////////ADMIN////////////////////////////////////////////////
 // admin routes
-Route::prefix('/admin')->middleware('auth')->group(function () {
+Route::prefix('/admin')->middleware('auth','admin')->group(function () {
 Route::get('/', [userController::class, 'showAdminHome'])->name('admin.home');
 //messages
 Route::get('/messages',[usersMessagesController::class,'index'])->name('messages.index');
@@ -85,11 +86,37 @@ Route::delete('/promo/destroy/{PromoCode}', [promoCodeController::class, 'destro
 Route::get('/news-bar', [NewsBarController::class, 'index'])->name('news-bar.index');
 Route::post('/news-bar', [NewsBarController::class, 'update'])->name('news-bar.update');
 //logout
-Route::post('/logout',[userController::class,'logout'])->name('logout');
+
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('/wishlist/add/{product}', [WishlistController::class, 'add'])->name('wishlist.add');
+    Route::delete('/wishlist/remove/{product}', [WishlistController::class, 'remove'])->name('wishlist.remove');
+
+
+
+    Route::post('/logout',[userController::class,'logout'])->name('logout');
 
 });
 ////////////////////////////////////////////////USER//////////////////////////////////////////////////////
 // user routes
+Route::get('/register', [userController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [userController::class, 'register'])->name('register.post');
+Route::get('/login', [userController::class, 'showUserLoginForm'])->name('login');
+Route::post('/login', [userController::class, 'login'])->name('login.post');
+Route::get('/profile', [userController::class, 'showProfile'])->name('profile');
+Route::put('/profile/{user}', [userController::class, 'update'])->name('update.user');
+Route::post('/change-password/{user}', [UserController::class, 'changePassword'])->name('password.update');
+
+//forget password
+Route::get('/forgot-password', [userController::class, 'showForgotPasswordForm'])->name('forgot.password.form');
+Route::post('/forgot-password', [userController::class, 'sendForgetLinkEmail'])->name('forgot.password.send');
+Route::get('/password/reset', [userController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/password/email', [userController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/password/reset/{token}', [userController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [userController::class, 'reset'])->name('update.password');
+
 Route::get('products/search', [ProductController::class, 'search'])->name('search.products');
 //reviews
 Route::post('products/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');

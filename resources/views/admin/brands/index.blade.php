@@ -8,11 +8,11 @@
     @if(session('success'))
         <div class="alert alert-success mt-3">{{ session('success') }}</div>
     @endif
+    <div class="table-responsive">
 
-    <table class="table mt-3">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Logo</th>
             </tr>
         </thead>
         <tbody>
@@ -31,5 +31,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 </div>
 @include('admin.layouts.scripts')

@@ -50,7 +50,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6">No orders found</td>
+                                <td colspan="6">No blogs found</td>
                             </tr>
                         @endforelse
                     </tbody>

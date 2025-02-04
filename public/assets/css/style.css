@@ -10118,14 +10118,12 @@ textarea.form-control {
         }
 
 
-
 /* Search icon wrapper */
 .header-search-wrap {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    right: -384px; /* Adjust positioning */
-
+    left:306px
 }
 
 .img-404{
@@ -10138,7 +10136,7 @@ textarea.form-control {
 .search-input-container {
     position: relative;
     display: inline-block;
-    width: 250px; /* Ensure it takes full width */
+    width: 100%; /* Ensure it takes full width */
 }
 
 /* Input field */
@@ -10179,7 +10177,7 @@ textarea.form-control {
 /* Search icon */
 .search-icon {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 17px;
     color: #000000; /* Adjust color to match your design */
     z-index: 1000; /* Ensure the search icon is below the menu icon */
 }
@@ -10187,15 +10185,28 @@ textarea.form-control {
 /* Search input form */
 .header-search-1-form {
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: 100%; /* Position below the parent */
+    left: 10px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: none; /* Hide the form by default */
-    z-index: 1000;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it appears above other elements */
+    min-width: 250px; /* Set a minimum width */
+    max-width: 300px; /* Set a maximum width */
+    transform: translateX(-50%); /* Center horizontally */
+    margin-top: 10px; /* Add some space between the parent and the form */
+}
+@media (max-width: 768px) {
+    .header-search-1-form {
+        right: auto;
+        left: 50%; /* Center horizontally on smaller screens */
+        transform: translateX(-50%);
+        width: 100%; /* Take up most of the screen width */
+        max-width: none; /* Remove max-width constraint */
+    }
 }
 
 /* Show the search form when active */
@@ -10233,8 +10244,7 @@ textarea.form-control {
 @media (max-width: 1200.98px) {
     /* Further adjustments for very small screens */
     .header-search-wrap {
-        right: -213px; /* Adjust positioning */
-    }
+        left: 120px;    }
 
 
 }
@@ -10243,7 +10253,7 @@ textarea.form-control {
     /* Adjust the search wrapper for smaller screens */
     .header-search-wrap {
         left: auto; /* Reset left positioning */
-        right: 220px; /* Position to the left of the menu icon */
+        left: 190px; /* Position to the left of the menu icon */
         top: 30px;
         transform: translateY(-50%);
     }
@@ -10263,7 +10273,7 @@ textarea.form-control {
 @media (max-width: 767.98px) {
     /* Further adjustments for very small screens */
     .header-search-wrap {
-        right: 187px; /* Adjust positioning */
+        left: 206px; /* Adjust positioning */
         top: 30px;
 
     }
@@ -10274,9 +10284,11 @@ textarea.form-control {
 @media (max-width: 575.98px) {
     /* Adjustments for extra small screens */
     .header-search-wrap {
-        right: 100px; /* Adjust positioning */
+        left: 111; /* Adjust positioning */
         top: 30px;
     }
+
+
 
     .img-404{
         width: 350px;
@@ -10292,3 +10304,334 @@ textarea.form-control {
         margin-top: 65px;
     }
 }
+
+
+/* General Styles */
+
+.liton__wishlist-area {
+    padding-top: 50px;
+}
+
+
+
+/* Tab Menu Styles */
+.ltn__tab-menu-list {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.ltn__tab-menu-list .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ltn__tab-menu-list .nav a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #82ae46;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.ltn__tab-menu-list .nav a i {
+    margin-left: 10px;
+}
+
+.ltn__tab-menu-list .nav a:hover,
+.ltn__tab-menu-list .nav a.active {
+    background-color: #82ae46;
+    color: #fff;
+}
+
+/* Tab Content Styles */
+section > .tab-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.ltn__myaccount-tab-content-inner {
+    margin-top: 20px;
+}
+
+/* Form Styles */
+.ltn__form-box {
+    margin-top: 20px;
+}
+
+.ltn__form-box label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.ltn__form-box input[type="text"],
+.ltn__form-box input[type="email"],
+.ltn__form-box input[type="password"],
+.ltn__form-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.ltn__form-box input[type="text"]:focus,
+.ltn__form-box input[type="email"]:focus,
+.ltn__form-box input[type="password"]:focus,
+.ltn__form-box textarea:focus {
+    border-color: #82ae46;
+    outline: none;
+}
+
+.ltn__form-box .btn-wrapper {
+    text-align: left;
+}
+
+.ltn__form-box .btn {
+    background-color: #82ae46;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ltn__form-box .btn:hover {
+    background-color: white;
+    color: #82ae46;
+    border: #82ae46 1px solid;
+}
+
+/* Error Message Styles */
+.text-danger {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Logout Button Styles */
+#logout-form {
+    display: inline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .ltn__tab-menu-list {
+        margin-bottom: 20px;
+    }
+
+    .ltn__tab-menu-list .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .ltn__tab-menu-list .nav a {
+        flex: 1 1 45%;
+        text-align: center;
+    }
+
+    .col-lg-4, .col-lg-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+section > .tab-content > .tab-pane {
+    display: block;
+}
+
+.fade:not(.show) {
+     opacity: 1;
+}
+/* Table Styles (for Orders Section) */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #82ae46;
+    color: #fff;
+}
+
+
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge.bg-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.badge.bg-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.badge.bg-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+
+/* Wishlist Button */
+.btn-wishlist {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-wishlist:hover {
+    background-color: #e0a800;
+}
+
+/* Wishlist Page */
+/* Wishlist Icon Wrapper */
+.wishlist-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+@media (max-width : 991px) {
+    .wishlist-icon-wrapper {
+    position: absolute;
+    top: 19px;
+    right: 68px;
+    z-index: 9999;
+    }
+}
+/* Heart Icon */
+.wishlist-icon-wrapper .oi-heart {
+    font-size: 20px; /* Adjust size as needed */
+    color: #000000; /* Icon color */
+}
+
+/* Wishlist Badge */
+.wishlist-badge {
+    position: absolute;
+    top: -10px; /* Adjust to position the badge above the icon */
+    right: -10px; /* Adjust to position the badge to the right of the icon */
+    background-color: #dc3545; /* Badge background color */
+    color: #fff; /* Badge text color */
+    font-size: 12px; /* Badge text size */
+    padding: 3px 6px; /* Badge padding */
+    border-radius: 50%; /* Make the badge circular */
+    min-width: 20px; /* Ensure the badge has a minimum width */
+    text-align: center;
+    line-height: 1; /* Center the text vertically */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+@media (max-width : 991px) {
+    .wishlist-icon-wrapper .oi-heart {
+        font-size: 20px; /* Adjust size as needed */
+        color: white; /* Icon color */
+    }
+    .ftco-navbar-light.scrolled .oi-heart{
+        color: #000000;
+    }
+}
+
+
+
+.nav-link:hover .wishlist-badge {
+    background-color: #c82333; /* Change badge color on hover */
+}
+
+
+.cart-badge {
+    position: absolute;
+    top: -10px; /* Adjust to position the badge above the icon */
+    right: -13px; /* Adjust to position the badge to the right of the icon */
+    background-color: #dc3545; /* Badge background color */
+    color: #fff; /* Badge text color */
+    font-size: 12px; /* Badge text size */
+    padding: 3px 6px; /* Badge padding */
+    border-radius: 50%; /* Make the badge circular */
+    min-width: 20px; /* Ensure the badge has a minimum width */
+    text-align: center;
+    line-height: 1; /* Center the text vertically */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+
+.icon-shopping_cart{
+    margin-left: 5px;
+    font-size: 22px;
+    color: #000000;
+}
+
+@media (max-width : 991px) {
+    .icon-shopping_cart{
+        font-size: 20px; /* Adjust size as needed */
+        color: white; /* Icon color */
+    }
+
+    .ftco-navbar-light.scrolled .icon-shopping_cart{
+        color: #000000;
+    }
+    .ftco-navbar-light.scrolled  .oi-magnifying-glass{
+        color: #000000;
+    }
+}
+
+@media (max-width: 756px) {
+    .wishlist-icon-wrapper {
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        right: 60px; /* Position to the right */
+        z-index: 9999; /* Ensure it stays above other elements */
+    }
+
+    .cart-wrapper{
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        right: 20px; /* Position to the right */
+        z-index: 9999; /* Ensure it stays above other elements */
+    }
+}
+@media (max-width : 991px) {
+    .cart-wrapper{
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        right: 22px; /* Position to the right */
+        z-index: 9999; /* Ensure it stays above other elements */
+    }
+}
+

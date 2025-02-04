@@ -11,15 +11,33 @@
       </div>
     </div>
   </div>
-  @if (@session('success'))
-  <div class="col-md-3 alert alert-success text-center m-auto mt-3" role="alert">
-  {{session('success')}}
-  </div>
-  @endif
-  @if (@session('error'))
-<div class="col-md-3 alert alert-danger text-center m-auto mt-3" role="alert">
-{{session('error')}}
-</div>
+  @if (session('success'))
+  <script src="{{asset('public/assets/js/sweetalert2@11.js')}}"></script>
+  <script>
+      Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: '{{ session('success') }}',
+          confirmButtonText: 'OK',
+          timer: 3000,
+          timerProgressBar: true,
+      });
+  </script>
+@endif
+
+@if (session('error'))
+<script src="{{asset('public/assets/js/sweetalert2@11.js')}}"></script>
+  <script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: '{{ session('error') }}',
+          confirmButtonText: 'OK',
+          timer: 3000,
+          timerProgressBar: true,
+      });
+  </script>
+@endif
 @endif
   <section class="ftco-section">
     <div class="container">
