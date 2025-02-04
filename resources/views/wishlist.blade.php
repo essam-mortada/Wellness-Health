@@ -35,10 +35,9 @@
             @foreach ($wishlistItems as $product)
                 <div class="col-md-4 mb-4" style="max-height: 600px">
                     <div class="card" >
-                        <a href="{{route('products.show',$product->id)}}"><img style="height: 300px" src="{{ $product->images->isNotEmpty() ? asset('products_uploads/' . $product->images->first()->image_path) : asset('products_uploads/default.png') }}" class="card-img-top" alt="{{ $product->name }}"></a>
+                        <a href="{{route('products.show',$product->id)}}"><img style="height: 300px" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" class="card-img-top" alt="{{ $product->name }}"></a>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->description }}</p>
                             <p class="card-text"><strong>Price:</strong> EGP {{ $product->price }}</p>
                             <form action="{{ route('wishlist.remove', $product->id) }}" method="POST">
                                 @csrf
