@@ -119,6 +119,14 @@
             <p><input type="submit"  value="Add To Cart" class="btn btn-black py-3 px-5"></p>
             @endif
         </form>
+        <form action="{{ route('wishlist.add', $product->id) }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-wishlist">
+            <i class="oi oi-heart"></i>
+            <span>Add to Wishlist</span>
+        </button>
+        </form>
+
               </div>
           </div>
       </div>
