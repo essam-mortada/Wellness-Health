@@ -75,15 +75,7 @@
             @endforeach
             </div>
 
-            <div class="sidebar-box ftco-animate">
-              <h3 class="heading">Categories</h3>
-              <ul class="categories">
-                @foreach($categories as $category)
-                <li><a href="{{route('blogs.category',$category->id)}}">{{$category->name}} <span>({{$category->blogs->count()}})</span></a></li>
-                @endforeach
-              </ul>
-            </div>
-
+        
         </div>
 
 
@@ -92,7 +84,7 @@
 
       </div>
     </div>
-  </section> <!-- .section -->" class="block-20" style="background-image: url({{asset('public/blogs_uploads/'.$blog->image)}});">
+  <section class="block-20" style="background-image: url({{asset('public/blogs_uploads/'.$blog->image)}});">
                     </a>
                     <div class="text d-block pl-md-4">
                         <div class="meta mb-3">
