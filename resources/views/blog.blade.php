@@ -21,7 +21,7 @@
                         @foreach($blogs as $blog)
                           <div class="col-md-12 d-flex ftco-animate">
                   <div class="blog-entry align-self-stretch d-md-flex">
-                    <a href="{{route('blogs.show',$blog->id)}}" class="block-20" style="background-image: url({{asset('blogs_uploads/'.$blog->image)}});">
+                    <a href="{{route('blogs.show',$blog->id)}}" class="block-20" style="background-image: url({{asset('public/blogs_uploads/'.$blog->image)}});">
                     </a>
                     <div class="text d-block pl-md-4">
                         <div class="meta mb-3">
