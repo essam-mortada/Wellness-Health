@@ -131,6 +131,15 @@
           </div>
       </div>
   </section>
+        @if($product->video)
+        <div class="container text-center mt-4 mb-4" >
+            <h4> Video review</h4>
+            <video width="100%"  controls>
+                <source src="{{ asset('products_videos/'.$product->video) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        @endif
     <section>
         <div class="container">
             @if (count($product->reviews) >= 1)

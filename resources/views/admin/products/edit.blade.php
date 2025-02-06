@@ -19,11 +19,17 @@
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}" required>
+                    @error('name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="price">Price:</label>
                     <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}" required>
+                    @error('price')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="form-group">
@@ -38,6 +44,9 @@
                         <option value="weight loss supplements">Weight loss supplements</option>
                         <option value="weight gain supplements">Weight gain supplements</option>
                     </select>
+                    @error('category')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
 
               <div class="form-group">
@@ -48,21 +57,45 @@
                     <option value="offer">offer</option>
 
                 </select>
+                @error('type')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
+                    @error('description')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
                     <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $product->quantity }}" required>
+                    @error('number')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="image">Image:</label>
                     <input type="file" class="form-control" multiple id="image" name="images[]">
+                    @error('images.0')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+                @error('images')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Product Video:</label>
+                    <input type="file" class="form-control" name="video" id="video">
+                    @error('video')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+
                 </div>
 
 

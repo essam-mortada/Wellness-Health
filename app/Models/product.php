@@ -15,7 +15,8 @@ class product extends Model
         'image',
         'quantity',
         'category',
-        'type'
+        'type',
+        'video'
     ];
 
     public function orderItems()

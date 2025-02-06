@@ -12,20 +12,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
+        $products= product::paginate(5);
 
-        if ($search) {
-            $products = Product::where('name', 'LIKE', "%{$search}%")
-                ->orWhere('description', 'LIKE', "%{$search}%")
-                ->paginate(5)
-                ->appends(['search' => $search]);
-        } else {
-            $products = Product::paginate(5);
-        }
-
-        return view('admin.products.index', compact('products', 'search'));
+        return view('admin.products.index',compact('products'));
     }
 
     /**
@@ -41,41 +32,48 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|integer',
-            'description' => 'required|string',
+         //
+         $request->validate([
+            'name'=>'required|string',
+            'price'=>'required|integer',
+            'description'=>'required|string',
             'images.*'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category' => 'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
-            'type' => 'required|in:product,offer',
-            'quantity' => 'required|integer|min:0'
-        ]);
+            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type'=>'required|in:product,offer',
+            'quantity'=>'required|integer|min:0',
+            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480'
+            ]);
 
 
-        $product = new Product();
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->description = $request->description;
-        $product->quantity = $request->quantity;
-        $product->category = $request->category;
-        $product->type = $request->type;
-        $product->save();
-
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imageName = time().rand(0,500).'.'.$image->extension();
-                 $image->move(public_path('products_uploads'), $imageName);
-
-                Image::create([
-                    'product_id' => $product->id,
-                    'image_path' => $imageName,
-                ]);
+            $product = new product();
+            $product->name = $request->name;
+            $product->price = $request->price;
+            $product->description = $request->description;
+            $product->quantity = $request->quantity;
+            $product->category= $request->category;
+            $product->type= $request->type;
+             // Store multiple images
+             if ($request->hasFile('video')) {
+                $video = $request->file('video');
+                $videoName = time().'_'.$video->getClientOriginalName();
+                $video->move(public_path('products_videos'), $videoName);
+                $product->video = $videoName;
             }
-        }else{
-            $product->image = 'default.png';
-        }
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+            $product->save();
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = time().rand(0,500).'.'.$image->extension();
+                     $image->move(public_path('products_uploads'), $imageName);
+
+                    Image::create([
+                        'product_id' => $product->id,
+                        'image_path' => $imageName,
+                    ]);
+                }
+            }else{
+                $product->image = 'default.png';
+            }
+            return redirect()->route('products.index')->with('success','Product created successfully.');
     }
 
     /**
@@ -97,10 +95,10 @@ class ProductController extends Controller
         return view('product', compact('product', 'products', 'reviews', 'averageRating', 'newsBar'));
     }
 
-
-    public function showProductAdmin(Product $product)
+    public function showProductAdmin(product $product)
     {
-        return view('admin.products.show', compact('product'));
+        return view('admin.products.show',compact('product'));
+
     }
 
     /**
@@ -108,23 +106,36 @@ class ProductController extends Controller
      */
     public function edit(product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        return view('admin.products.edit',compact('product'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, product $product)
     {
         $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|integer',
-            'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'category' => 'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
-            'type' => 'required|in:product,offer',
-            'quantity' => 'required|integer|min:0'
+            'name'=>'required|string',
+            'price'=>'required|integer',
+            'description'=>'required|string',
+            'images.*'=>'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
+            'type'=>'required|in:product,offer',
+            'quantity'=>'required|integer|min:0',
+            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480'
         ]);
+        if ($request->hasFile('video')) {
+            // Delete old video
+            if ($product->video) {
+                unlink(public_path('products_videos/'.$product->video));
+            }
+
+            $video = $request->file('video');
+            $videoName = time().'_'.$video->getClientOriginalName();
+            $video->move(public_path('products_videos'), $videoName);
+            $product->video = $videoName;
+        }
         if($request->hasFile('images')){
             $images= $product->images;
             if ($product->images){
@@ -148,33 +159,32 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
-        $product->category = $request->category;
-        $product->type = $request->type;
+        $product->category= $request->category;
+        $product->type= $request->type;
         $product->quantity = $request->quantity;
         $product->save();
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('products.index')->with('success','Product updated successfully.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(product $product)
     {
-        if ($product->images->isNotEmpty()) {
-            foreach ($product->images as $image) {
-                $imagePath = public_path('products_uploads/' . $image->image_path);
-
-                if (file_exists($imagePath)) {
-                    unlink($imagePath);
-                }
-
+        if ($product->video) {
+            unlink(public_path('products_videos/'.$product->video));
+        }
+        $images= $product->images;
+        if ($product->image != 'default.png') {
+            foreach ($images as $image) {
+                unlink(public_path('products_uploads/'.$image->image_path));
                 $image->delete();
             }
+
         }
-
         $product->delete();
-
-        return redirect()->route('products.index')->with('success', 'Product and its images deleted successfully.');
+        return redirect()->route('products.index')->with('success','Product deleted successfully.');
     }
 
     public function filterByCategory(Request $request)
@@ -203,6 +213,8 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
+        $newsBar = NewsBar::first();
+
         // Get the search query from the request
         $query = $request->input('name');
 
@@ -225,6 +237,6 @@ class ProductController extends Controller
             ->appends(['query' => $query]);
 
         // Return the search results view with both products and offers
-        return view('shop', compact('products', 'offers', 'query'));
+        return view('shop', compact('products', 'offers', 'query','newsBar'));
     }
 }

@@ -10132,7 +10132,7 @@ textarea.form-control {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    left:306px
+    left:291px
 }
 
 .img-404{
@@ -10253,7 +10253,7 @@ textarea.form-control {
 @media (max-width: 1200.98px) {
     /* Further adjustments for very small screens */
     .header-search-wrap {
-        left: 120px;    }
+        left: 113px;    }
 
 
 }
