@@ -13,7 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectGuestsTo(function (Request $request) {
-            return $request->is('admin/*') ? route('admin.login') : route('login');
+            if ($request->is('admin*')) {
+                return route('admin.login');
+            }
+            return route('login');
+
         });
         $middleware->web(append: [
             \Illuminate\Session\Middleware\StartSession::class,
