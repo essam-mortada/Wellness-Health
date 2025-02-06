@@ -94,7 +94,7 @@
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a href="{{ route('products.show', $product->id) }}" class="img-prod">
                         @if ($product->images)
-                        <img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
+                        <img loading="lazy" style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
                         @endif
                         <div class="overlay"></div>
                     </a>
@@ -161,7 +161,7 @@
                 <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
                     <a href="{{ route('products.show', $product->id) }}" class="img-prod">
                         @if ($product->images)
-                        <img style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
+                        <img loading="lazy" style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
                         @endif
                         <div class="overlay"></div>
                     </a>
@@ -268,7 +268,7 @@
 
 
 {{--
-<section class="ftco-section img" style="background-image: url({{asset('public/assets/images/bg_3.png')}});">
+<section class="ftco-section img" loading="lazy" style="background-image: url({{asset('public/assets/images/bg_3.png')}});">
 <div class="container">
         <div class="row justify-content-end">
   <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">

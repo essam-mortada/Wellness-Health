@@ -71,7 +71,7 @@
                                 <button style="padding: 10px; cursor:pointer;" type="submit"><i class="ion-ios-close"></i></button>
                             </form></td>
 
-                              <td class="image-prod"><div class="img" style="background-image:url({{ asset('public/products_uploads/' . (is_array($details['images']) && !empty($details['images']) ? $details['images'][0] : 'public/products_uploads/default.jpg')) }});"></div></td>
+                              <td class="image-prod"><div class="img" loading="lazy" style="background-image:url({{ asset('public/products_uploads/' . (is_array($details['images']) && !empty($details['images']) ? $details['images'][0] : 'public/products_uploads/default.jpg')) }});"></div></td>
 
                               <td class="product-name">
                                   <h3>{{$details['name']}}</h3>

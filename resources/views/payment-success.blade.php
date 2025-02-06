@@ -5,7 +5,7 @@
     <h1 class="text-primary">Your Order Has Been Placed Successfully!</h1>
     <div class="row justify-content-center">
         <div class="col-md-6 col-sm-10 col-12">
-            <img src="{{asset('public/assets/images/payment.svg')}}" class="img-fluid" alt="Payment Success">
+            <img loading="lazy" src="{{asset('public/assets/images/payment.svg')}}" class="img-fluid" alt="Payment Success">
         </div>
     </div>
     <a href="{{route('home')}}" class="btn btn-lg btn-primary mt-3">Back to Home</a>

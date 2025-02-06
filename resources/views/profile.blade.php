@@ -141,7 +141,7 @@
 
                                                 <div class="address-content">
                                                     <div class="design-image">
-                                                        <img src="{{asset('public/assets/img/address.jpg')}}" alt="address" loading="lazy">
+                                                        <img loading="lazy" src="{{asset('public/assets/img/address.jpg')}}" alt="address" loading="lazy">
                                                     </div>
                                                     <div class="design-details">
                                                         <h3 class="animated fadeIn">{{$address->title}}</h3>

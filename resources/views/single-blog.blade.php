@@ -20,7 +20,7 @@
                       <h2 class="mb-3">{{$blog->title}}</h2>
           <p>{{$blog->summary}}</p>
           <p>
-            <img src="{{asset('public/blogs_uploads/'.$blog->image)}}" alt="blog image" class="img-fluid">
+            <img loading="lazy" src="{{asset('public/blogs_uploads/'.$blog->image)}}" alt="blog image" class="img-fluid">
           </p>
           <p>{{$blog->content}}</p>
 

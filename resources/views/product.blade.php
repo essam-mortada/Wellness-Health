@@ -53,13 +53,14 @@
                             @if ($product->images->isNotEmpty())
                             @foreach ($product->images as $image)
                                 <a href="{{ asset('public/products_uploads/' . $image->image_path) }}" class="image-popup "><img
+                                        loading="lazy"
                                         style="max-height: 400px"
                                         src="{{ asset('public/products_uploads/' . $image->image_path) }}" class="img-fluid "
                                         alt="product"></a>
 
                                         @endforeach
                                         @else
-                                        <img src="{{ asset('public/products_uploads/default.png') }}" class="img-fluid "
+                                        <img loading="lazy" src="{{ asset('public/products_uploads/default.png') }}" class="img-fluid "
                                         alt="product">
                                         @endif
                         </div>
@@ -229,7 +230,7 @@
 
               <div class="col-md-6 col-lg-3 ftco-animate">
                   <div class="product text-center" style="height:90%;width:100%">
-                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img style="max-height: 300px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="product">
+                      <a href="{{route('products.show',$product->id)}}" class="img-prod"><img loading="lazy" style="max-height: 300px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="product">
                           <!--<span class="status">30%</span>-->
                           <div class="overlay"></div>
                       </a>
