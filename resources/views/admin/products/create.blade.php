@@ -78,7 +78,7 @@
                 @error('images')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
-                </div>>
+                </div>
 
                 <div class="form-group">
                     <label for="image">Product Video:</label>
