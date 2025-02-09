@@ -158,7 +158,7 @@
         <div class="owl-carousel">
             @foreach ($offers as $product)
             <div class="item slider-item  col-md-10 col-lg-12 ftco-animate" >
-                <div class="product slider-text text-center" style="height:45%;width:70%;" data-scrollax-parent="true">
+                <div class="product slider-text text-center" style="height:45%;width:100%;" data-scrollax-parent="true">
                     <a href="{{ route('products.show', $product->id) }}" class="img-prod">
                         @if ($product->images)
                         <img loading="lazy" style="max-height: 200px" class="img-fluid" src="{{ $product->images->isNotEmpty() ? asset('public/products_uploads/' . $product->images->first()->image_path) : asset('public/products_uploads/default.png') }}" alt="Product Image">
