@@ -135,6 +135,7 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'removeFromCar
 //products
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/shop/filter', [ProductController::class, 'filterByCategory'])->name('shop.filter');
+Route::get('/brand/{brand}', [ProductController::class, 'showByBrand'])->name('brand.products');
 
 //orders
 //Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');

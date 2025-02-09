@@ -22,6 +22,7 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required|string|max:255',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $brand= new Brand();
@@ -30,6 +31,7 @@ class BrandController extends Controller
             $request->logo->move(public_path('brands'), $imageName);
             $brand->logo = $imageName;
         }
+        $brand->name = $request->input('name');
         $brand->save();
 
 
@@ -46,6 +48,7 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $request->validate([
+            'name' => 'required|string|max:255',
             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -56,6 +59,7 @@ class BrandController extends Controller
         $brand->logo = $imageName;
 
         }
+        $brand->name = $request->input('name');
         $brand->save();
 
         return redirect()->route('brands.index')->with('success', 'Brand updated successfully!');
@@ -64,7 +68,7 @@ class BrandController extends Controller
     // Delete brand
     public function destroy(Brand $brand)
     {
-        //unlink(public_path('brands/'.$brand->logo));
+        unlink(public_path('brands/'.$brand->logo));
         $brand->delete();
 
         return redirect()->route('brands.index')->with('success', 'Brand deleted successfully!');

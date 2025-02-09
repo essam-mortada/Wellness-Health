@@ -34,33 +34,44 @@
 
                 <div class="form-group">
                     <label for="category">Product category:</label>
-                    <select class="form-control" required name="category" id="">
-                        <option selected disabled value="">select a category</option>
-                        <option value="herbs">Herbs</option>
-                        <option value="skin care">Skin care</option>
-                        <option value="hair care">Hair care</option>
-                        <option value="nutrition">Nutrition</option>
-                        <option value="vitamins">Vitamins</option>
-                        <option value="weight loss supplements">Weight loss supplements</option>
-                        <option value="weight gain supplements">Weight gain supplements</option>
+                    <select class="form-control" required name="category" id="category">
+                        <option selected disabled value="">Select a category</option>
+                        <option value="herbs" {{ old('category', $product->category) == 'herbs' ? 'selected' : '' }}>Herbs</option>
+                        <option value="skin care" {{ old('category', $product->category) == 'skin care' ? 'selected' : '' }}>Skin Care</option>
+                        <option value="hair care" {{ old('category', $product->category) == 'hair care' ? 'selected' : '' }}>Hair Care</option>
+                        <option value="nutrition" {{ old('category', $product->category) == 'nutrition' ? 'selected' : '' }}>Nutrition</option>
+                        <option value="vitamins" {{ old('category', $product->category) == 'vitamins' ? 'selected' : '' }}>Vitamins</option>
+                        <option value="weight loss supplements" {{ old('category', $product->category) == 'weight loss supplements' ? 'selected' : '' }}>weight loss supplements</option>
+                        <option value="weight gain supplements" {{ old('category', $product->category) == 'weight gain supplements' ? 'selected' : '' }}>weight loss supplements</option>
                     </select>
                     @error('category')
                     <span class="text-danger">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="type">Product type:</label>
-                <select class="form-control" required name="type" id="">
-                    <option selected disabled value="">select a type</option>
-                    <option value="product">product</option>
-                    <option value="offer">offer</option>
-
-                </select>
-                @error('type')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
+                    @enderror
                 </div>
+
+
+                <div class="form-group">
+                    <label for="type">Product type:</label>
+                    <select class="form-control" required name="type" id="type">
+                        <option selected disabled value="">Select a type</option>
+                        <option value="product" {{ old('type', $product->type) == 'product' ? 'selected' : '' }}>Product</option>
+                        <option value="offer" {{ old('type', $product->type) == 'offer' ? 'selected' : '' }}>Offer</option>
+                    </select>
+                </div>
+
+                    <div class="form-group">
+                        <label for="brand_id">Brand</label>
+                        <select name="brand_id" id="brand_id" class="form-control">
+                            <option value="">-- No Brand --</option>
+                            @foreach($brands as $brand)
+                                <option value="{{ $brand->id }}"
+                                    {{ old('brand_id', $product->brand_id ?? '') == $brand->id ? 'selected' : '' }}>
+                                    {{ $brand->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
                 <div class="form-group">
                     <label for="description">Description:</label>

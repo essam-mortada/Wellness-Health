@@ -42,8 +42,10 @@
 <div class="brand-carousel owl-carousel">
   @foreach ($brands as $brand)
       <div class="brand-item">
+        <a href="{{route('brand.products', $brand)}}">
           <img src="{{ asset('public/brands/' . $brand->logo) }}" alt="{{ $brand->name }}" class="brand-logo">
-      </div>
+        </a>
+        </div>
   @endforeach
 </div>
 @endif

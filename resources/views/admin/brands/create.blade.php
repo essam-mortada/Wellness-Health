@@ -4,7 +4,10 @@
 
     <form action="{{ route('brands.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
+        <div class="mb-3">
+            <label class="form-label">Brand Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
         <div class="mb-3">
             <label class="form-label">Brand Logo</label>
             <input type="file" name="logo" class="form-control" required>

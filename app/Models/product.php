@@ -16,7 +16,8 @@ class product extends Model
         'quantity',
         'category',
         'type',
-        'video'
+        'video',
+        'brand_id'
     ];
 
     public function orderItems()
@@ -42,5 +43,10 @@ class product extends Model
     public function wishlistedByUsers()
     {
         return $this->belongsToMany(User::class, 'wishlists');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

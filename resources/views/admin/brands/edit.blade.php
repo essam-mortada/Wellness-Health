@@ -6,7 +6,10 @@
         @csrf @method('PUT')
 
 
-
+        <div class="mb-3">
+            <label class="form-label">Brand Name</label>
+            <input type="text" name="name" value="{{$brand->name}}" class="form-control" required>
+        </div>
         <div class="mb-3">
             <label class="form-label">Brand Logo</label>
             <input type="file" name="logo" class="form-control">

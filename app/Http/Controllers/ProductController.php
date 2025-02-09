@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Image;
 use App\Models\NewsBar;
 use App\Models\product;
@@ -12,20 +13,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
+        $products= product::paginate(5);
 
-        if ($search) {
-            $products = Product::where('name', 'LIKE', "%{$search}%")
-                ->orWhere('description', 'LIKE', "%{$search}%")
-                ->paginate(5)
-                ->appends(['search' => $search]);
-        } else {
-            $products = Product::paginate(5);
-        }
-
-        return view('admin.products.index', compact('products', 'search'));
+        return view('admin.products.index',compact('products'));
     }
 
     /**
@@ -33,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $brands = Brand::all();
+        return view('admin.products.create',compact('brands'));
     }
 
     /**
@@ -50,7 +43,8 @@ class ProductController extends Controller
             'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
             'type'=>'required|in:product,offer',
             'quantity'=>'required|integer|min:0',
-            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480'
+            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480',
+            'brand_id'=>'nullable|exists:brands,id'
             ]);
 
 
@@ -61,6 +55,7 @@ class ProductController extends Controller
             $product->quantity = $request->quantity;
             $product->category= $request->category;
             $product->type= $request->type;
+            $product->brand_id= $request->brand_id;
              // Store multiple images
              if ($request->hasFile('video')) {
                 $video = $request->file('video');
@@ -115,7 +110,8 @@ class ProductController extends Controller
      */
     public function edit(product $product)
     {
-        return view('admin.products.edit',compact('product'));
+        $brands = Brand::all();
+        return view('admin.products.edit',compact('product','brands'));
 
     }
 
@@ -132,7 +128,8 @@ class ProductController extends Controller
             'category'=>'required|in:vitamins,skin care,hair care,herbs,nutrition,weight loss supplements,weight gain supplements',
             'type'=>'required|in:product,offer',
             'quantity'=>'required|integer|min:0',
-            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480'
+            'video' => 'nullable|file|mimes:mp4,mov,avi|max:20480',
+            'brand_id'=>'nullable|exists:brands,id'
         ]);
         if ($request->hasFile('video')) {
             // Delete old video
@@ -171,6 +168,7 @@ class ProductController extends Controller
         $product->category= $request->category;
         $product->type= $request->type;
         $product->quantity = $request->quantity;
+        $product->brand_id = $request->brand_id;
         $product->save();
         return redirect()->route('products.index')->with('success','Product updated successfully.');
 
@@ -247,5 +245,13 @@ class ProductController extends Controller
 
         // Return the search results view with both products and offers
         return view('shop', compact('products', 'offers', 'query','newsBar'));
+    }
+
+        public function showByBrand(Brand $brand)
+    {
+        $newsBar = NewsBar::first();
+        $products = $brand->products()->where('type','product')->paginate(8);
+        $offers = $brand->products()->where('type','offer')->paginate(8);
+        return view('shop', compact('brand', 'products','newsBar','offers'));
     }
 }
