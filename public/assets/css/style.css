@@ -10122,7 +10122,8 @@ textarea.form-control {
     }
 
     .brand-logo {
-        max-height: 100px;
+        max-height: 150px;
+        max-width: 200px;
         display: block;
         margin: auto;
     }

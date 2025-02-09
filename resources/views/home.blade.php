@@ -319,14 +319,14 @@
             loop: true, // Infinite loop
             //margin: 1, // Adds space between items
             autoplay: true, // Enables auto-sliding
-            autoplayTimeout: 2000, // Set to 1 second
+            autoplayTimeout: 3000, // Set to 1 second
             autoplayHoverPause: true, // Pause when hovering
             responsive: {
                 0: {
-                    items: 1 // 1 product on smaller screens
+                    items: 2 // 2 product on smaller screens
                 },
                 600: {
-                    items: 2 // 2 products on medium screens
+                    items: 3 // 3 products on medium screens
                 },
                 1000: {
                     items: 4 // 4 products on large screens
