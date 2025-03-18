@@ -18,7 +18,7 @@ class ProductController extends Controller
         $query = Product::query();
 
         if ($request->filled('search')) {
-            $query->where('title', 'LIKE', '%' . $request->search . '%')
+            $query->where('name', 'LIKE', '%' . $request->search . '%')
                   ->orWhere('description', 'LIKE', '%' . $request->search . '%');
         }
 
